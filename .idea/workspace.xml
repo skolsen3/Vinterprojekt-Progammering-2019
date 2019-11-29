@@ -1,28 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78214150-5b69-4193-9f26-e8b29b939e75" name="Default Changelist" comment="" />
+    <list default="true" id="ccbb397d-ec83-46ad-8a65-8a42efb69eb9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Abc.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Abc.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Damien/Damien.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Damien/Damien.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Damien/src/HelloWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/Damien/src/HelloWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1UHttq112JZDPDHLuakMMEUesua" />
+  <component name="ProjectId" id="1UHvQQJkZRRHwnJO7zO1ap8oYh5" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="jdk.selected.JAVA_MODULE" value="11" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -41,12 +43,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="78214150-5b69-4193-9f26-e8b29b939e75" name="Default Changelist" comment="" />
-      <created>1575025565621</created>
+      <changelist id="ccbb397d-ec83-46ad-8a65-8a42efb69eb9" name="Default Changelist" comment="" />
+      <created>1575026318226</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1575025565621</updated>
-      <workItem from="1575025568580" duration="77000" />
+      <updated>1575026318226</updated>
+      <workItem from="1575026323989" duration="162000" />
     </task>
     <servers />
   </component>
