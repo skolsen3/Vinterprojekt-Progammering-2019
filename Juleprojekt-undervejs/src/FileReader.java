@@ -1,5 +1,3 @@
-package model;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,17 +16,36 @@ public class FileReader {
         br = new BufferedReader(new InputStreamReader(stream));
     }
 
+    public BufferedReader getBr() {
+        return br;
+    }
+
 
     public List<Media> readMedia() {
-        List<Media> pictures = new ArrayList<>();
-
+        List<Media> media = new ArrayList<>();
         String line;
+
+        try {
+            FileReader fileReaderFilm = new FileReader("film.txt");
+            while ((line = fileReaderFilm.getBr().readLine()) != null) {
+                String[] info = line.split("; ");
+
+                String name = info[0];
+                String year = info[1];
+
+                Movie movie = new Movie(title, description);
+                media.add(movie);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         try {
             while ((line = br.readLine()) != null) {
                 String[] info = line.split("; ");
 
-                String title = info[0];
-                String description = info[1];
+                String name = info[0];
+                String year = info[1];
 
                 Media m = new Media(title, description);
                 media.add(m);
@@ -36,7 +53,6 @@ public class FileReader {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
 
 
 
