@@ -2,12 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0c783890-9ab0-4fcf-b5b0-0c786a13ee92" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Tester.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/FileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/FileReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Media.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Media.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/MyList.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/MyList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Movie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Series.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Series.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/FileReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/FileReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Media.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Media.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Movie.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Movie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Series.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Series.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Tester.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Tester.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +94,7 @@
       <option name="presentableId" value="Default" />
       <updated>1575456447607</updated>
       <workItem from="1575456456758" duration="689000" />
-      <workItem from="1575457213692" duration="5244000" />
+      <workItem from="1575457213692" duration="6988000" />
     </task>
     <servers />
   </component>
