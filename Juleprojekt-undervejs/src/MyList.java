@@ -12,5 +12,8 @@ public class MyList {
         myList.add(m);
 
     }
+    public void removeMedia(Media m){
+        myList.remove = myList.remove(m);
+    }
 
 }
