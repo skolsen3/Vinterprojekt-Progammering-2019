@@ -11,4 +11,7 @@ public class Library {
         this.library = l;
 
     }
+    public ArrayList<Media> getAsList(){
+        return library;
+    }
 }

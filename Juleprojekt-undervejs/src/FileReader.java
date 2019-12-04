@@ -21,19 +21,21 @@ public class FileReader {
     }
 
 
-    public List<Media> readMedia() {
+    public static List<Media> readMedia() {
         List<Media> media = new ArrayList<>();
         String line;
 
         try {
-            FileReader fileReaderFilm = new FileReader("film.txt");
-            while ((line = fileReaderFilm.getBr().readLine()) != null) {
+            FileReader fileReaderMovie = new FileReader("C:\\Users\\Bruger\\Documents\\GitHub\\Vinterprojekt-Progammering-2019\\film.txt");
+            while ((line = fileReaderMovie.getBr().readLine()) != null) {
                 String[] info = line.split("; ");
 
                 String name = info[0];
                 String year = info[1];
+                String[] genres = info[2].split(",");
+                double rating = Double.parseDouble(info[3]);
 
-                Movie movie = new Movie(title, description);
+                Movie movie = new Movie(name, year, genres, rating, true);
                 media.add(movie);
             }
         } catch (IOException e) {
@@ -41,14 +43,17 @@ public class FileReader {
         }
 
         try {
-            while ((line = br.readLine()) != null) {
+            FileReader fileReaderSeries = new FileReader("C:\\Users\\Bruger\\Documents\\GitHub\\Vinterprojekt-Progammering-2019\\series.txt");
+            while ((line = fileReaderSeries.getBr().readLine()) != null) {
                 String[] info = line.split("; ");
 
                 String name = info[0];
                 String year = info[1];
+                String[] genres = info[2].split(",");
+                double rating = Double.parseDouble(info[3]);
 
-                Media m = new Media(title, description);
-                media.add(m);
+                Series series = new Series(name, year, genres, rating, true, null);
+                media.add(series);
             }
         } catch (IOException e) {
             e.printStackTrace();

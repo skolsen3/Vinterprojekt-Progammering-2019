@@ -12,4 +12,25 @@ public class Media {
         this.genres = genres;
         this.visible = visible;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public String[] getGenres() {
+        return genres;
+    }
+
+    public double getRating() {
+        return rating;
+    }
+
+    public boolean isVisible() {
+        return visible;
+    }
 }
+

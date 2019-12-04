@@ -13,7 +13,7 @@ public class MyList {
 
     }
     public void removeMedia(Media m){
-        myList.remove = myList.remove(m);
+        myList.remove(m);
     }
 
 }
