@@ -12,7 +12,11 @@ public class SearchEngine {
             }
 
         }
-        return tempList;
+        if (tempList.get(0) == null) {
+            throw new NoSuchMediaException();
+        } else {
+            return tempList;
+        }
     }
 
     public ArrayList<Media> searchByCategory(String category1) {
@@ -24,7 +28,11 @@ public class SearchEngine {
             }
 
         }
-        return tempList;
+        if (tempList.get(0) == null) {
+            throw new NoSuchMediaException();
+        } else {
+            return tempList;
+        }
     }
 
     public ArrayList<Media> searchByCategory(String category1, String category2) {
@@ -37,20 +45,28 @@ public class SearchEngine {
                 }
 
         }
-        return tempList;
+        if (tempList.get(0) == null) {
+            throw new NoSuchMediaException();
+        } else {
+            return tempList;
+        }
     }
+
     public ArrayList<Media> searchByCategory(String category1, String category2, String category3) {
         ArrayList<Media> tempList = new ArrayList<>();
         ArrayList<Media> l = library.getAsList();
         for (Media m : l) {
             if (m.getGenres().toString().contains(category1))
                 if (m.getGenres().toString().contains(category2))
-                if(m.getGenres().toString().contains(category3))
-                {
-                    tempList.add(m);
-                }
+                    if (m.getGenres().toString().contains(category3)) {
+                        tempList.add(m);
+                    }
 
         }
-        return tempList;
+        if (tempList.get(0) == null) {
+            throw new NoSuchMediaException();
+        } else {
+            return tempList;
+        }
     }
 }
