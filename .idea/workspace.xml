@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ccbb397d-ec83-46ad-8a65-8a42efb69eb9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Abc.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Abc.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Damien/Damien.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Damien/Damien.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Damien/src/HelloWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/Damien/src/HelloWorld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +40,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1575026318226</updated>
-      <workItem from="1575026323989" duration="162000" />
+      <workItem from="1575026323989" duration="480000" />
+      <workItem from="1575385107573" duration="229000" />
     </task>
     <servers />
   </component>
@@ -60,7 +53,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
