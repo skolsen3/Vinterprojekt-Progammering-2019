@@ -10,7 +10,7 @@ import java.nio.file.*;
 import java.util.*;
 
 public class FileReader {
-    private Charset charset = Charset.forName("US-ASCII");
+    private Charset charset = Charset.forName("ISO-8859-1");
     private Path path;
     private BufferedReader br;
 
@@ -20,7 +20,7 @@ public class FileReader {
         try {
             br = Files.newBufferedReader(path, charset);
         } catch (IOException e) {
-            System.err.println("Error. IOException");
+            System.out.println("Error. IOException");
         }
     }
 
@@ -37,7 +37,7 @@ public class FileReader {
         try {
             FileReader fileReaderMovie = new FileReader("C:\\Users\\Bruger\\Documents\\GitHub\\Vinterprojekt-Progammering-2019\\film.txt");
             while ((line = fileReaderMovie.getBr().readLine()) != null) {
-                String[] info = line.split("; ");
+                String[] info = line.split(";");
 
                 String name = info[0];
                 String year = info[1];
@@ -52,9 +52,9 @@ public class FileReader {
         }
 
         try {
-            FileReader fileReaderSeries = new FileReader("C:\\Users\\Bruger\\Documents\\GitHub\\Vinterprojekt-Progammering-2019\\series.txt");
+            FileReader fileReaderSeries = new FileReader("C:\\Users\\Bruger\\Documents\\GitHub\\Vinterprojekt-Progammering-2019\\serier.txt");
             while ((line = fileReaderSeries.getBr().readLine()) != null) {
-                String[] info = line.split("; ");
+                String[] info = line.split(";");
 
                 String name = info[0];
                 String year = info[1];
