@@ -4,17 +4,26 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.file.*;
+import java.util.*;
 
 public class FileReader {
-
-    private InputStream stream;
+    private Charset charset = Charset.forName("US-ASCII");
+    private Path path;
     private BufferedReader br;
 
 
-    public FileReader(String file) {
-        stream = Thread.currentThread().getContextClassLoader().getResourceAsStream(file);
-        br = new BufferedReader(new InputStreamReader(stream));
+    public FileReader(String fileName) {
+        path = Paths.get(fileName);
+        try {
+            br = Files.newBufferedReader(path, charset);
+        } catch (IOException e) {
+            System.err.println("Error. IOException");
+        }
     }
+
 
     public BufferedReader getBr() {
         return br;
@@ -33,7 +42,7 @@ public class FileReader {
                 String name = info[0];
                 String year = info[1];
                 String[] genres = info[2].split(",");
-                double rating = Double.parseDouble(info[3]);
+                String rating = info[3];
 
                 Movie movie = new Movie(name, year, genres, rating, true);
                 media.add(movie);
@@ -50,7 +59,7 @@ public class FileReader {
                 String name = info[0];
                 String year = info[1];
                 String[] genres = info[2].split(",");
-                double rating = Double.parseDouble(info[3]);
+                String rating = info[3];
 
                 Series series = new Series(name, year, genres, rating, true, null);
                 media.add(series);
@@ -58,7 +67,6 @@ public class FileReader {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
 
 
         return media;
