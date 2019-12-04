@@ -5,12 +5,12 @@ public class Media {
     protected String rating;
     protected boolean visible;
 
-    public Media(String name, String year, String[] genres, String rating, boolean visible) {
+    public Media(String name, String year, String[] genres, String rating) {
         this.name = name;
         this.year = year;
         this.rating = rating;
         this.genres = genres;
-        this.visible = visible;
+        visible = true;
     }
 
     public String getName() {

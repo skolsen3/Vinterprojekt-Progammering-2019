@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ccbb397d-ec83-46ad-8a65-8a42efb69eb9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/NoSuchMediaException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/SearchEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/SearchEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/FileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/FileReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Tester.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Tester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/FileReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/FileReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Tester.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Tester.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +74,7 @@
       <updated>1575026318226</updated>
       <workItem from="1575026323989" duration="480000" />
       <workItem from="1575385107573" duration="229000" />
-      <workItem from="1575457902312" duration="8668000" />
+      <workItem from="1575457902312" duration="9321000" />
     </task>
     <servers />
   </component>
