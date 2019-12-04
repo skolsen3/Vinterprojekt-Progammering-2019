@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="ccbb397d-ec83-46ad-8a65-8a42efb69eb9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Episode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/SearchEngine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Season.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Series.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/MyList.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/MyList.java" afterDir="false" />
-=======
     <list default="true" id="0c783890-9ab0-4fcf-b5b0-0c786a13ee92" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Tester.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/FileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/FileReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Media.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Media.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Movie.java" afterDir="false" />
->>>>>>> 2bc073d379fd6101ab675de1c644c897c6c84769
+      <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/MyList.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/MyList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Series.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Series.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,6 +65,20 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="Tester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Tester" />
+      <module name="Juleprojekt-undervejs" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Tester" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -81,16 +88,9 @@
       <created>1575456447607</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-<<<<<<< HEAD
-      <updated>1575026318226</updated>
-      <workItem from="1575026323989" duration="480000" />
-      <workItem from="1575385107573" duration="229000" />
-      <workItem from="1575457902312" duration="2960000" />
-=======
       <updated>1575456447607</updated>
       <workItem from="1575456456758" duration="689000" />
-      <workItem from="1575457213692" duration="2485000" />
->>>>>>> 2bc073d379fd6101ab675de1c644c897c6c84769
+      <workItem from="1575457213692" duration="5244000" />
     </task>
     <servers />
   </component>
