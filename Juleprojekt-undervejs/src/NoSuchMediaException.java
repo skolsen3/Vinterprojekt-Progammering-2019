@@ -1,5 +1,5 @@
-public class NoSuchMediaException extends RuntimeException{
-    public NoSuchMediaException(){
+public class NoSuchMediaException extends RuntimeException {
+    public NoSuchMediaException() {
         super("No movies matching your search-criteria");
     }
 }

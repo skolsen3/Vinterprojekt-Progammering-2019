@@ -4,4 +4,6 @@ public class Episode {
     public Episode(boolean playable) {
         this.playable = playable;
     }
+
+
 }

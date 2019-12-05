@@ -39,10 +39,10 @@ public class SearchEngine {
         ArrayList<Media> tempList = new ArrayList<>();
         ArrayList<Media> l = library.getAsList();
         for (Media m : l) {
-            if (m.getGenres().toString().contains(category1))
-                if (m.getGenres().toString().contains(category2)) {
-                    tempList.add(m);
-                }
+            if (m.getGenres().toString().contains(category1) &&
+                    (m.getGenres().toString().contains(category2))) {
+                tempList.add(m);
+            }
 
         }
         if (tempList.get(0) == null) {
@@ -56,11 +56,11 @@ public class SearchEngine {
         ArrayList<Media> tempList = new ArrayList<>();
         ArrayList<Media> l = library.getAsList();
         for (Media m : l) {
-            if (m.getGenres().toString().contains(category1))
-                if (m.getGenres().toString().contains(category2))
-                    if (m.getGenres().toString().contains(category3)) {
-                        tempList.add(m);
-                    }
+            if (m.getGenres().toString().contains(category1) &&
+                    (m.getGenres().toString().contains(category2)) &&
+                    (m.getGenres().toString().contains(category3))) {
+                tempList.add(m);
+            }
 
         }
         if (tempList.get(0) == null) {
