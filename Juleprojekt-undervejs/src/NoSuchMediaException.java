@@ -1,5 +1,7 @@
 public class NoSuchMediaException extends RuntimeException {
-    public NoSuchMediaException() {
+    protected String mediaName;
+    public NoSuchMediaException(String mediaName) {
         super("No movies matching your search-criteria");
+        this.mediaName = mediaName;
     }
 }
