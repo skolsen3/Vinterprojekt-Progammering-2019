@@ -3,16 +3,9 @@ private int sebastianIQ = 140;
 private int tobiasIQ = 140;
 private int damienIQ = 80;
 
-public void PrintHead(){
-    if(sebastianIQ>=130){
-        System.out.println("5Head");
+    public static void main(String[] args) {
+        System.out.println("Dein");
+        System.out.println("Dein hvad?");
+        System.out.println("Dein mutter");
     }
-    if(tobiasIQ>=130){
-        System.out.println("5Head");
-    }
-    if(damienIQ<=85){
-        System.out.println("3Head");
-    }
-
-}
 }
