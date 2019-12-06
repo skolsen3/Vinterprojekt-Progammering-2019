@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 
 
@@ -35,35 +36,44 @@ public class GUISebastian {
         Container contentPane = frame.getContentPane();
         contentPane.setLayout(new BorderLayout());
 
-        JLabel label = new JLabel("I am a label. I can display some text.");
-        contentPane.add(label);
+
 
         contentPane.add(new JPanel(), BorderLayout.NORTH);
+        JLabel northLabel = new JLabel("This is the northLabel");
+        contentPane.add(northLabel,BorderLayout.NORTH);
+
         contentPane.add(new JPanel(), BorderLayout.SOUTH);
+        JLabel southLabel = new JLabel("This is the southLabel");
+        contentPane.add(southLabel,BorderLayout.SOUTH);
+
         contentPane.add(new JPanel(), BorderLayout.CENTER);
+        JLabel centerLabel = new JLabel("This is the centerLabel");
+        contentPane.add(centerLabel,BorderLayout.CENTER);
 
         JPanel westJPanel = new JPanel();
         contentPane.add(westJPanel, BorderLayout.WEST);
 
-        BoxLayout FirstBox = new BoxLayout(westJPanel, BoxLayout.Y_AXIS);
-        westJPanel.setLayout(FirstBox);
 
+        westJPanel.setLayout(new BoxLayout(westJPanel, BoxLayout.Y_AXIS));
 
+        westJPanel.add(new JLabel("This is the west Label"));
+        /*
         Container westMiniContainer1 = new Container();
+        westMiniContainer1.add(new JLabel("genre 1"), BorderLayout.CENTER);
         westJPanel.add(westMiniContainer1);
         Container westMiniContainer2 = new Container();
         westJPanel.add(westMiniContainer2);
         Container westMiniContainer3 = new Container();
         westJPanel.add(westMiniContainer3);
 
-        westJPanel.add(new JPanel(), BorderLayout.EAST);
-        westJPanel.add(new JPanel(), BorderLayout.CENTER);
+        westMiniContainer1.add(new JPanel(), BorderLayout.EAST);
+        westMiniContainer1.add(new JPanel(), BorderLayout.CENTER);
 
 
-        westMiniContainer1.add(new JLabel("genre 1"));
+
         westMiniContainer2.add(new JLabel("genre 2"));
 
-
+*/
 
         // building is done - arrange the components and show
         frame.pack();
