@@ -39,7 +39,7 @@ public class SearchEngine {
         ArrayList<Media> tempList = new ArrayList<>();
         ArrayList<Media> l = library.getAsList();
         for (Media m : l) {
-            if (m.getGenres().toString().contains(category1) &&
+            if (m.getGenres().toString().contains(category1) ||
                     (m.getGenres().toString().contains(category2))) {
                 tempList.add(m);
             }
@@ -56,8 +56,8 @@ public class SearchEngine {
         ArrayList<Media> tempList = new ArrayList<>();
         ArrayList<Media> l = library.getAsList();
         for (Media m : l) {
-            if (m.getGenres().toString().contains(category1) &&
-                    (m.getGenres().toString().contains(category2)) &&
+            if (m.getGenres().toString().contains(category1) ||
+                    (m.getGenres().toString().contains(category2)) ||
                     (m.getGenres().toString().contains(category3))) {
                 tempList.add(m);
             }
@@ -68,5 +68,26 @@ public class SearchEngine {
         } else {
             return tempList;
         }
+    }
+
+    public ArrayList<Media> sortByTypeOfMedia(String typeOfMedia) {
+        ArrayList<Media> tempList = new ArrayList<>();
+        ArrayList<Media> l = library.getAsList();
+
+        if (typeOfMedia.contains("Movie")) {
+            for (Media m : l) {
+                if (m instanceof Movie) {
+                    tempList.add(m);
+                }
+            }
+        }
+        if (typeOfMedia.contains("Series")) {
+            for (Media m : l) {
+                if (m instanceof Series) {
+                    tempList.add(m);
+                }
+            }
+        }
+        return tempList;
     }
 }
