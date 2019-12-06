@@ -13,7 +13,7 @@ public class SearchEngine {
 
         }
         if (tempList.get(0) == null) {
-            throw new NoSuchMediaException();
+            throw new NoSuchMediaException(s);
         } else {
             return tempList;
         }
@@ -29,7 +29,7 @@ public class SearchEngine {
 
         }
         if (tempList.get(0) == null) {
-            throw new NoSuchMediaException();
+            throw new NoSuchMediaException(category1);
         } else {
             return tempList;
         }
@@ -46,7 +46,7 @@ public class SearchEngine {
 
         }
         if (tempList.get(0) == null) {
-            throw new NoSuchMediaException();
+            throw new NoSuchMediaException(category1+","+category2);
         } else {
             return tempList;
         }
@@ -64,7 +64,7 @@ public class SearchEngine {
 
         }
         if (tempList.get(0) == null) {
-            throw new NoSuchMediaException();
+            throw new NoSuchMediaException(category1+","+category2+","category3);
         } else {
             return tempList;
         }
