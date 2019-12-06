@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 
 
@@ -35,12 +36,13 @@ public class GUISebastian {
         Container contentPane = frame.getContentPane();
         contentPane.setLayout(new BorderLayout());
 
-        JLabel label = new JLabel("I am a label. I can display some text.");
-        contentPane.add(label);
+
 
         contentPane.add(new JPanel(), BorderLayout.NORTH);
         contentPane.add(new JPanel(), BorderLayout.SOUTH);
         contentPane.add(new JPanel(), BorderLayout.CENTER);
+        JLabel label = new JLabel("I am a label. I can display some text.");
+        contentPane.add(label,BorderLayout.NORTH);
 
         JPanel westJPanel = new JPanel();
         contentPane.add(westJPanel, BorderLayout.WEST);
@@ -50,17 +52,18 @@ public class GUISebastian {
 
 
         Container westMiniContainer1 = new Container();
+        westMiniContainer1.add(new JLabel("genre 1"), BorderLayout.CENTER);
         westJPanel.add(westMiniContainer1);
         Container westMiniContainer2 = new Container();
         westJPanel.add(westMiniContainer2);
         Container westMiniContainer3 = new Container();
         westJPanel.add(westMiniContainer3);
 
-        westJPanel.add(new JPanel(), BorderLayout.EAST);
-        westJPanel.add(new JPanel(), BorderLayout.CENTER);
+        westMiniContainer1.add(new JPanel(), BorderLayout.EAST);
+        westMiniContainer1.add(new JPanel(), BorderLayout.CENTER);
 
 
-        westMiniContainer1.add(new JLabel("genre 1"));
+
         westMiniContainer2.add(new JLabel("genre 2"));
 
 
