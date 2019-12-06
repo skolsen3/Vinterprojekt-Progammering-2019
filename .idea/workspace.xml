@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ccbb397d-ec83-46ad-8a65-8a42efb69eb9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/SearchEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/SearchEngine.java" afterDir="false" />
-    </list>
+    <list default="true" id="ccbb397d-ec83-46ad-8a65-8a42efb69eb9" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +29,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="ignore.virus.scanning.warn.message" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="11" />
-    <property name="last_opened_file_path" value="C:/Program Files/Java/jdk-13.0.1/lib" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Juleprojekt-undervejs" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -102,6 +99,7 @@
       <workItem from="1575562847429" duration="2970000" />
       <workItem from="1575627939129" duration="1912000" />
       <workItem from="1575629911305" duration="3671000" />
+      <workItem from="1575643298683" duration="25000" />
     </task>
     <servers />
   </component>

@@ -64,7 +64,7 @@ public class SearchEngine {
 
         }
         if (tempList.get(0) == null) {
-            throw new NoSuchMediaException(category1+","+category2+","category3);
+            throw new NoSuchMediaException(category1+","+category2+","+category3);
         } else {
             return tempList;
         }
