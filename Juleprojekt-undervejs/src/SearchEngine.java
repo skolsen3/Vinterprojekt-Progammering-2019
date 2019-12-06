@@ -1,12 +1,20 @@
 import java.util.ArrayList;
 
 public class SearchEngine {
-    protected Library library;
+    protected ArrayList<Media> library;
+
+    public SearchEngine() {
+        library = FileReader.readMedia();
+    }
+
+    public ArrayList<Media> resetMedia() {
+        library = FileReader.readMedia();
+        return library;
+    }
 
     public ArrayList<Media> sortByName(String s) {
         ArrayList<Media> tempList = new ArrayList<>();
-        ArrayList<Media> l = library.getAsList();
-        for (Media m : l) {
+        for (Media m : library) {
             if (m.getName().contains(s)) {
                 tempList.add(m);
             }
@@ -21,8 +29,7 @@ public class SearchEngine {
 
     public ArrayList<Media> sortByCategory(String category1) {
         ArrayList<Media> tempList = new ArrayList<>();
-        ArrayList<Media> l = library.getAsList();
-        for (Media m : l) {
+        for (Media m : library) {
             if (m.getGenres().toString().contains(category1)) {
                 tempList.add(m);
             }
@@ -37,8 +44,7 @@ public class SearchEngine {
 
     public ArrayList<Media> sortByCategory(String category1, String category2) {
         ArrayList<Media> tempList = new ArrayList<>();
-        ArrayList<Media> l = library.getAsList();
-        for (Media m : l) {
+        for (Media m : library) {
             if (m.getGenres().toString().contains(category1) ||
                     (m.getGenres().toString().contains(category2))) {
                 tempList.add(m);
@@ -54,8 +60,7 @@ public class SearchEngine {
 
     public ArrayList<Media> sortByCategory(String category1, String category2, String category3) {
         ArrayList<Media> tempList = new ArrayList<>();
-        ArrayList<Media> l = library.getAsList();
-        for (Media m : l) {
+        for (Media m : library) {
             if (m.getGenres().toString().contains(category1) ||
                     (m.getGenres().toString().contains(category2)) ||
                     (m.getGenres().toString().contains(category3))) {
@@ -72,17 +77,16 @@ public class SearchEngine {
 
     public ArrayList<Media> sortByTypeOfMedia(String typeOfMedia) {
         ArrayList<Media> tempList = new ArrayList<>();
-        ArrayList<Media> l = library.getAsList();
 
         if (typeOfMedia.contains("Movie")) {
-            for (Media m : l) {
+            for (Media m : library) {
                 if (m instanceof Movie) {
                     tempList.add(m);
                 }
             }
         }
         if (typeOfMedia.contains("Series")) {
-            for (Media m : l) {
+            for (Media m : library) {
                 if (m instanceof Series) {
                     tempList.add(m);
                 }

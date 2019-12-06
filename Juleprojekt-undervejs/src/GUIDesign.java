@@ -1,4 +1,4 @@
-import javafx.application.Application;
+/*import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -21,7 +21,7 @@ public class GUIDesign extends Application {
     public void start(Stage primaryStage) {
         window = primaryStage;                  /* renamer primaryStage til window for at gøre det
                                                  nemmere at huske hvad stage er. */
-
+/*
         GridPane loginScreen = new GridPane();  // opretter layout til loginskærmen
         loginScreen.setPadding(new Insets(10, 10, 10, 10)); // margin mellem window og scene
         loginScreen.setVgap(8);                                                  // vertikal margin for alt der bliver indsat
@@ -64,5 +64,5 @@ public class GUIDesign extends Application {
         window.show();
     }
 }
-
+*/
 
