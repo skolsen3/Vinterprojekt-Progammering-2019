@@ -1,7 +1,15 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-
+import java.util.ArrayList;
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.JPanel;
 
 public class GUIDamien {
     public static void main(String[] args) {
@@ -29,18 +37,27 @@ public class GUIDamien {
                 JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
                 JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
-        GridLayout centerGrid = new GridLayout(0, 5);
+        GridLayout centerGrid = new GridLayout(0, 7);
         centerJPanel.setLayout(centerGrid);
 
-        // BufferedImage myPicture = ImageIO.read(new File("path-to-file"));
-        //JLabel picLabel = new JLabel(new ImageIcon(myPicture));
-        //add(picLabel);
+        SearchEngine searchEngine = new SearchEngine();
 
-        for(int i = 1; i<=1000; i++) {
-            JButton funButton = new JButton();
 
-            centerJPanel.add(funButton);
+        for(Media m : searchEngine.getLibrary()) {
+            JPanel gridPanel = new JPanel();
+            gridPanel.setLayout(new BorderLayout());
+
+            JLabel picLabel = new JLabel(new ImageIcon(m.getPictureFile()));
+            gridPanel.add(picLabel, BorderLayout.CENTER);
+
+            JTextArea textLabel = new JTextArea(m.getName() + " (" + m.getYear() + ")");
+            textLabel.setLineWrap(true);
+            gridPanel.add(textLabel, BorderLayout.SOUTH);
+
+            centerJPanel.add(gridPanel);
         }
+
+
 
 
         contentPane.add(centerJScrollPane, BorderLayout.CENTER);
@@ -48,7 +65,7 @@ public class GUIDamien {
 
 
         //SOUTH
-        JButton southJButton = new JButton();
+        JButton southJButton = new JButton("South");
         contentPane.add(southJButton, BorderLayout.SOUTH);
 
 

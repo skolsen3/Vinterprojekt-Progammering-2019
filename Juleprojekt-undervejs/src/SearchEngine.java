@@ -7,6 +7,10 @@ public class SearchEngine {
         library = FileReader.readMedia();
     }
 
+    public ArrayList<Media> getLibrary() {
+        return library;
+    }
+
     public ArrayList<Media> resetMedia() {
         library = FileReader.readMedia();
         return library;

@@ -2,21 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ccbb397d-ec83-46ad-8a65-8a42efb69eb9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/FileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/FileReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/GUIDamien.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/GUIDamien.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/GUIDesign.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/GUIDesign.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Library.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Media.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Media.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Movie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/SearchEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/SearchEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Series.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Series.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/GUIDesign.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/GUIDamien.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/GUIDamien.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Library.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Library.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/NoSuchMediaException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/NoSuchMediaException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Main.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/SearchEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/SearchEngine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/View.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/View.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Series.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Series.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,26 +144,26 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1575653354704">
+    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1575654239235">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1575653354704" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1575648724995">
+    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1575654239235" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1575657695132">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1575648724995" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1575648724994">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1575657695132" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1575657695131">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1575648724994" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1575648724994">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1575657695131" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1575657695131">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1575648724994" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1575648724994">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1575657695131" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1575657695132">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1575648724994" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1575657695132" />
     <state x="771" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1575645739258">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

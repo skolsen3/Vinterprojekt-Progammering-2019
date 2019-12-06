@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*
 import javafx.application.Application;
 

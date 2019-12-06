@@ -41,17 +41,17 @@ public class FileReader {
         String line;
 
         try {
-            FileReader fileReaderMovie = new FileReader("C:\\Users\\Bruger\\Documents\\GitHub\\Vinterprojekt-Progammering-2019\\film.txt");
+            FileReader fileReaderMovie = new FileReader("D:\\GitHub\\Vinterprojekt-Progammering-2019\\film.txt");
             while ((line = fileReaderMovie.getBufferedReader().readLine()) != null) {
                 String[] info = line.split(";");
 
                 String name = info[0];
-                String year = info[1];
+                String year = (info[1]).trim();
                 String[] genres = info[2].split(",");
                 String rating = info[3];
 
                 try {
-                    BufferedImage image = ImageIO.read(new File("D:\\GitHub\\Vinterprojekt-Progammering-2019\\Film - billeder\\" + name));
+                    BufferedImage image = ImageIO.read(new File("D:\\GitHub\\Vinterprojekt-Progammering-2019\\Film - billeder\\" + name + ".jpg"));
                     Movie movie = new Movie(name, year, genres, rating, image);
                     media.add(movie);
                 } catch (IOException e) {
@@ -66,17 +66,17 @@ public class FileReader {
         }
 
         try {
-            FileReader fileReaderSeries = new FileReader("C:\\Users\\Bruger\\Documents\\GitHub\\Vinterprojekt-Progammering-2019\\serier.txt");
+            FileReader fileReaderSeries = new FileReader("D:\\GitHub\\Vinterprojekt-Progammering-2019\\serier.txt");
             while ((line = fileReaderSeries.getBufferedReader().readLine()) != null) {
                 String[] info = line.split(";");
 
                 String name = info[0];
-                String year = info[1];
+                String year = (info[1]).trim();
                 String[] genres = info[2].split(",");
                 String rating = info[3];
 
                 try {
-                    BufferedImage image = ImageIO.read(new File("D:\\GitHub\\Vinterprojekt-Progammering-2019\\Film - billeder\\" + name));
+                    BufferedImage image = ImageIO.read(new File("D:\\GitHub\\Vinterprojekt-Progammering-2019\\Serier - billeder\\" + name + ".jpg"));
                     Series series = new Series(name, year, genres, rating, image,null);
                     media.add(series);
                 } catch (IOException e) {
