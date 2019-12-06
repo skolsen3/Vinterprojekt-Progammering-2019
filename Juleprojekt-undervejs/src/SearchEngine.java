@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class SearchEngine {
     protected Library library;
 
-    public ArrayList<Media> searchForString(String s) {
+    public ArrayList<Media> sortByName(String s) {
         ArrayList<Media> tempList = new ArrayList<>();
         ArrayList<Media> l = library.getAsList();
         for (Media m : l) {
@@ -19,7 +19,7 @@ public class SearchEngine {
         }
     }
 
-    public ArrayList<Media> searchByCategory(String category1) {
+    public ArrayList<Media> sortByCategory(String category1) {
         ArrayList<Media> tempList = new ArrayList<>();
         ArrayList<Media> l = library.getAsList();
         for (Media m : l) {
@@ -35,7 +35,7 @@ public class SearchEngine {
         }
     }
 
-    public ArrayList<Media> searchByCategory(String category1, String category2) {
+    public ArrayList<Media> sortByCategory(String category1, String category2) {
         ArrayList<Media> tempList = new ArrayList<>();
         ArrayList<Media> l = library.getAsList();
         for (Media m : l) {
@@ -52,7 +52,7 @@ public class SearchEngine {
         }
     }
 
-    public ArrayList<Media> searchByCategory(String category1, String category2, String category3) {
+    public ArrayList<Media> sortByCategory(String category1, String category2, String category3) {
         ArrayList<Media> tempList = new ArrayList<>();
         ArrayList<Media> l = library.getAsList();
         for (Media m : l) {
