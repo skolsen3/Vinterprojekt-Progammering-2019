@@ -39,18 +39,25 @@ public class GUISebastian {
 
 
         contentPane.add(new JPanel(), BorderLayout.NORTH);
+        JLabel northLabel = new JLabel("This is the northLabel");
+        contentPane.add(northLabel,BorderLayout.NORTH);
+
         contentPane.add(new JPanel(), BorderLayout.SOUTH);
+        JLabel southLabel = new JLabel("This is the southLabel");
+        contentPane.add(southLabel,BorderLayout.SOUTH);
+
         contentPane.add(new JPanel(), BorderLayout.CENTER);
-        JLabel label = new JLabel("I am a label. I can display some text.");
-        contentPane.add(label,BorderLayout.NORTH);
+        JLabel centerLabel = new JLabel("This is the centerLabel");
+        contentPane.add(centerLabel,BorderLayout.CENTER);
 
         JPanel westJPanel = new JPanel();
         contentPane.add(westJPanel, BorderLayout.WEST);
 
-        BoxLayout FirstBox = new BoxLayout(westJPanel, BoxLayout.Y_AXIS);
-        westJPanel.setLayout(FirstBox);
 
+        westJPanel.setLayout(new BoxLayout(westJPanel, BoxLayout.Y_AXIS));
 
+        westJPanel.add(new JLabel("This is the west Label"));
+        /*
         Container westMiniContainer1 = new Container();
         westMiniContainer1.add(new JLabel("genre 1"), BorderLayout.CENTER);
         westJPanel.add(westMiniContainer1);
@@ -66,7 +73,7 @@ public class GUISebastian {
 
         westMiniContainer2.add(new JLabel("genre 2"));
 
-
+*/
 
         // building is done - arrange the components and show
         frame.pack();
