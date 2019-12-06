@@ -2,24 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ccbb397d-ec83-46ad-8a65-8a42efb69eb9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Juleprojekt færdig prototype/Juleprojekt færdig prototype.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt færdig prototype/Juleprojekt færdig prototype.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/Juleprojekt-undervejs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/Juleprojekt-undervejs.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/GUI.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/GUI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Episode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Episode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/FileReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/FileReader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Library.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Library.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Media.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Media.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Movie.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Movie.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/MyList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/MyList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Damien/Projekt undervejs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Damien/Projekt undervejs.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/SearchEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/SearchEngine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Season.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Season.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Series.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Series.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Tester.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Tester.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/UserProfile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/UserProfile.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,6 +21,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="tobias-birch &lt;tbir@itu.dk&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="MERGE" />
   </component>
@@ -46,7 +37,7 @@
     <property name="jdk.selected.JAVA_MODULE" value="11" />
     <property name="last_opened_file_path" value="C:/Program Files (x86)/Java/javafx-sdk-11.0.2/lib" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
@@ -97,8 +88,17 @@
       <workItem from="1575026323989" duration="480000" />
       <workItem from="1575385107573" duration="229000" />
       <workItem from="1575457902312" duration="9321000" />
-      <workItem from="1575562847429" duration="2970000" />
+      <workItem from="1575562847429" duration="5294000" />
+      <workItem from="1575625633419" duration="2971000" />
     </task>
+    <task id="LOCAL-00001" summary="Tilføjelse af GUIDesign klasse efter jeg har kigget lidt på det i dag&#10;Add'et javafx library. &#10;&#10;Har prøvet at commit ændringer fra min stationære, men uden held, så prøver nu fra min bærbar.">
+      <created>1575567157015</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1575567157015</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,5 +116,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Tilføjelse af GUIDesign klasse efter jeg har kigget lidt på det i dag&#10;Add'et javafx library. &#10;&#10;Har prøvet at commit ændringer fra min stationære, men uden held, så prøver nu fra min bærbar." />
+    <option name="LAST_COMMIT_MESSAGE" value="Tilføjelse af GUIDesign klasse efter jeg har kigget lidt på det i dag&#10;Add'et javafx library. &#10;&#10;Har prøvet at commit ændringer fra min stationære, men uden held, så prøver nu fra min bærbar." />
   </component>
 </project>
