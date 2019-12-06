@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 /*
 import javafx.application.Application;
 
+=======
+/*import javafx.application.Application;
+>>>>>>> 145ae26ad314f43b449ac4c2b8b626bdc3d7851b
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;

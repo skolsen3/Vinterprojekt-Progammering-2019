@@ -4,6 +4,15 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.nio.file.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.JPanel;
 
 public class FileReader {
     private BufferedReader bufferedReader;
@@ -27,8 +36,8 @@ public class FileReader {
     /*Loads the two given files of movies and series, creates the respective Movie and Series
      objects, puts the objects in a List of Media and returns them as an ArrayList.
      */
-    public static List<Media> readMedia() {
-        List<Media> media = new ArrayList<>();
+    public static ArrayList<Media> readMedia() {
+        ArrayList<Media> media = new ArrayList<>();
         String line;
 
         try {
@@ -41,8 +50,15 @@ public class FileReader {
                 String[] genres = info[2].split(",");
                 String rating = info[3];
 
-                Movie movie = new Movie(name, year, genres, rating);
-                media.add(movie);
+                try {
+                    BufferedImage image = ImageIO.read(new File("D:\\GitHub\\Vinterprojekt-Progammering-2019\\Film - billeder\\" + name));
+                    Movie movie = new Movie(name, year, genres, rating, image);
+                    media.add(movie);
+                } catch (IOException e) {
+                    e.getStackTrace();
+                }
+
+
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -59,12 +75,17 @@ public class FileReader {
                 String[] genres = info[2].split(",");
                 String rating = info[3];
 
-                Series series = new Series(name, year, genres, rating, null);
-                media.add(series);
+                try {
+                    BufferedImage image = ImageIO.read(new File("D:\\GitHub\\Vinterprojekt-Progammering-2019\\Film - billeder\\" + name));
+                    Series series = new Series(name, year, genres, rating, image,null);
+                    media.add(series);
+                } catch (IOException e) {
+                    e.getStackTrace();
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("IOException: Error loading file.");
+            System.out.println("IOException: Error loading files.");
         }
 
 
