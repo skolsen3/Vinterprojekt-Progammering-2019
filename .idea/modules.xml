@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Damien/Damien.iml" filepath="$PROJECT_DIR$/Damien/Damien.iml" />
       <module fileurl="file://$PROJECT_DIR$/Juleprojekt færdig prototype/Juleprojekt færdig prototype.iml" filepath="$PROJECT_DIR$/Juleprojekt færdig prototype/Juleprojekt færdig prototype.iml" />
       <module fileurl="file://$PROJECT_DIR$/Juleprojekt-undervejs/Juleprojekt-undervejs.iml" filepath="$PROJECT_DIR$/Juleprojekt-undervejs/Juleprojekt-undervejs.iml" />
       <module fileurl="file://$PROJECT_DIR$/Damien/Projekt færdig prototype.iml" filepath="$PROJECT_DIR$/Damien/Projekt færdig prototype.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Damien/Projekt undervejs.iml" filepath="$PROJECT_DIR$/Damien/Projekt undervejs.iml" />
     </modules>
   </component>
 </project>
