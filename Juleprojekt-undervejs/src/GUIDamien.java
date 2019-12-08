@@ -80,6 +80,15 @@ public class GUIDamien {
 
                         mediaContentPane.add(aboutPanel);
 
+                        JButton playButton = new JButton("Play");
+                        playButton.addActionListener(ex -> {
+                                    if (playButton.getBackground() == Color.GREEN) {
+                                        playButton.setBackground(Color.RED);
+                                    } else {
+                                        playButton.setBackground(Color.GREEN);
+                                    }
+                                });
+                        mediaContentPane.add(playButton, BorderLayout.EAST);
                         mediaFrame.pack();
                         mediaFrame.setVisible(true);
 
