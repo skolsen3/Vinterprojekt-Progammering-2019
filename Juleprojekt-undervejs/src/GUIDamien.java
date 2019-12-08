@@ -37,28 +37,61 @@ public class GUIDamien {
                 JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
                 JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
-        GridLayout centerGrid = new GridLayout(0, 7);
+        GridLayout centerGrid = new GridLayout(0, 9);
         centerJPanel.setLayout(centerGrid);
 
         SearchEngine searchEngine = new SearchEngine();
 
-
+        /*Hele den her for-løkke gennemløber medierne i søgemaskinens library. Den opretter medierne i et Grid-layout, tilføjer billederne til medierne, tilføjer "knapper" så man kan trykke på medierne,
+        og desuden tilføjer en label der viser filmens titel under billedet. Det er denne her lange metode, som nok skal sættes som en separat metode, således at man kan opdatere film-listen alt efter input
+        fra brugeren.
+        */
         for(Media m : searchEngine.getLibrary()) {
             JPanel gridPanel = new JPanel();
             gridPanel.setLayout(new BorderLayout());
 
-            JLabel picLabel = new JLabel(new ImageIcon(m.getPictureFile()));
-            gridPanel.add(picLabel, BorderLayout.CENTER);
+            //Billedet hentes direkte fra medie-objektet og bliver sat som ikon til en JButton, så man kan trykke på den.
+            JButton picButton = new JButton(new ImageIcon(m.getPictureFile()));
+            //Billedknappens funktion. Hvad skal der ske, når man trykker på en film. Måske dialogboks?
 
-            JTextArea textLabel = new JTextArea(m.getName() + " (" + m.getYear() + ")");
-            textLabel.setLineWrap(true);
+            //Prøver at få den til at åbne et nyt Frame, og så tage den derfra.
+
+            picButton.addActionListener(e -> {
+                    JFrame mediaFrame = new JFrame(m.getName());
+                    Container mediaContentPane = mediaFrame.getContentPane();
+
+
+
+
+                    mediaFrame.pack();
+                    mediaFrame.setVisible (true);
+
+                }
+            );
+
+            //Gør knappen lidt pænere, og sådan at den kun fylder billedet.
+            picButton.setBorderPainted(false);
+            picButton.setFocusPainted(false);
+            picButton.setContentAreaFilled(false);
+
+
+            gridPanel.add(picButton, BorderLayout.CENTER);
+
+            //Opretter tekst-lablen under billedet. Jeg tjekker efter et (abritært) antal tegn, og forkorter med "..." til sidst hvis titlen er for lang (ellers kommer der mellemrum mellem filmene).
+            JLabel textLabel;
+            if(m.getName().length() <= 17) {
+                textLabel = new JLabel(m.getName(), SwingConstants.CENTER);
+            } else {
+                String shortenedText = "";
+                for(int i = 0; i<=17; i++) {
+                    shortenedText = shortenedText + m.getName().charAt(i);
+                }
+                textLabel = new JLabel(shortenedText + "...", SwingConstants.CENTER);
+
+            }
             gridPanel.add(textLabel, BorderLayout.SOUTH);
-
             centerJPanel.add(gridPanel);
-        }
-
-
-
+            }
 
         contentPane.add(centerJScrollPane, BorderLayout.CENTER);
 
