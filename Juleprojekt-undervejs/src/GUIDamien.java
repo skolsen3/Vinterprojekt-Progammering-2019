@@ -15,6 +15,7 @@ public class GUIDamien {
     public static void main(String[] args) {
         makeFrame();
     }
+
     public static void makeFrame() {
         JFrame frame = new JFrame("playIT");
 
@@ -46,7 +47,7 @@ public class GUIDamien {
         og desuden tilføjer en label der viser filmens titel under billedet. Det er denne her lange metode, som nok skal sættes som en separat metode, således at man kan opdatere film-listen alt efter input
         fra brugeren.
         */
-        for(Media m : searchEngine.getLibrary()) {
+        for (Media m : searchEngine.getLibrary()) {
             JPanel gridPanel = new JPanel();
             gridPanel.setLayout(new BorderLayout());
 
@@ -57,16 +58,32 @@ public class GUIDamien {
             //Prøver at få den til at åbne et nyt Frame, og så tage den derfra.
 
             picButton.addActionListener(e -> {
-                    JFrame mediaFrame = new JFrame(m.getName());
-                    Container mediaContentPane = mediaFrame.getContentPane();
+                        JFrame mediaFrame = new JFrame(m.getName());
+                        Container mediaContentPane = mediaFrame.getContentPane();
 
+                        mediaContentPane.setLayout(new BorderLayout());
 
+                        JLabel picture = new JLabel(new ImageIcon(m.getPictureFile()));
+                        mediaContentPane.add(picture, BorderLayout.WEST);
 
+                        JPanel aboutPanel = new JPanel();
+                        aboutPanel.setLayout(new BoxLayout(aboutPanel, BoxLayout.Y_AXIS));
+                        aboutPanel.add(new JLabel("About: "));
+                        aboutPanel.add(new JLabel("Title: " + m.getName()));
+                        aboutPanel.add(new JLabel("Year: " + m.getYear()));
+                        String genresAbout = "Genres: ";
+                        for (int i = 0; i < m.getGenres().length; i++) {
+                            genresAbout = genresAbout + m.getGenres()[i];
+                        }
+                        aboutPanel.add(new JLabel(genresAbout));
+                        aboutPanel.add(new JLabel("Rating: " + m.getRating()));
 
-                    mediaFrame.pack();
-                    mediaFrame.setVisible (true);
+                        mediaContentPane.add(aboutPanel);
 
-                }
+                        mediaFrame.pack();
+                        mediaFrame.setVisible(true);
+
+                    }
             );
 
             //Gør knappen lidt pænere, og sådan at den kun fylder billedet.
@@ -79,11 +96,11 @@ public class GUIDamien {
 
             //Opretter tekst-lablen under billedet. Jeg tjekker efter et (abritært) antal tegn, og forkorter med "..." til sidst hvis titlen er for lang (ellers kommer der mellemrum mellem filmene).
             JLabel textLabel;
-            if(m.getName().length() <= 17) {
+            if (m.getName().length() <= 17) {
                 textLabel = new JLabel(m.getName(), SwingConstants.CENTER);
             } else {
                 String shortenedText = "";
-                for(int i = 0; i<=17; i++) {
+                for (int i = 0; i <= 17; i++) {
                     shortenedText = shortenedText + m.getName().charAt(i);
                 }
                 textLabel = new JLabel(shortenedText + "...", SwingConstants.CENTER);
@@ -91,10 +108,9 @@ public class GUIDamien {
             }
             gridPanel.add(textLabel, BorderLayout.SOUTH);
             centerJPanel.add(gridPanel);
-            }
+        }
 
         contentPane.add(centerJScrollPane, BorderLayout.CENTER);
-
 
 
         //SOUTH
