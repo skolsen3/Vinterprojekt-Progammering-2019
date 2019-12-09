@@ -36,9 +36,11 @@ public class FileReader {
     /*Loads the two given files of movies and series, creates the respective Movie and Series
      objects, puts the objects in a List of Media and returns them as an ArrayList.
      */
-    public static ArrayList<Media> readMedia() {
+    public static ArrayList<ArrayList> readMedia() {
+        ArrayList<ArrayList> tempList = new ArrayList();
         ArrayList<Media> media = new ArrayList<>();
         String line;
+        ArrayList<String> genreList = new ArrayList();
 
         try {
             FileReader fileReaderMovie = new FileReader("D:\\GitHub\\Vinterprojekt-Progammering-2019\\film.txt");
@@ -54,6 +56,10 @@ public class FileReader {
                     BufferedImage image = ImageIO.read(new File("D:\\GitHub\\Vinterprojekt-Progammering-2019\\Film - billeder\\" + name + ".jpg"));
                     Movie movie = new Movie(name, year, genres, rating, image);
                     media.add(movie);
+                    for (String g : genres) {
+                        if (genreList.contains(g) == false)
+                            genreList.add(g);
+                    }
                 } catch (IOException e) {
                     e.getStackTrace();
                 }
@@ -77,8 +83,12 @@ public class FileReader {
 
                 try {
                     BufferedImage image = ImageIO.read(new File("D:\\GitHub\\Vinterprojekt-Progammering-2019\\Serier - billeder\\" + name + ".jpg"));
-                    Series series = new Series(name, year, genres, rating, image,null);
+                    Series series = new Series(name, year, genres, rating, image, null);
                     media.add(series);
+                    for (String g : genres) {
+                        if (genreList.contains(g) == false)
+                            genreList.add(g);
+                    }
                 } catch (IOException e) {
                     e.getStackTrace();
                 }
@@ -88,7 +98,9 @@ public class FileReader {
             System.out.println("IOException: Error loading files.");
         }
 
+        tempList.add(media);
+        tempList.add(genreList);
+        return tempList;
 
-        return media;
     }
 }

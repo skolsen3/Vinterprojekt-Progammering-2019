@@ -2,9 +2,11 @@ import java.util.ArrayList;
 
 public class SearchEngine {
     protected ArrayList<Media> library;
+    protected ArrayList<String> genreList;
 
     public SearchEngine() {
-        library = FileReader.readMedia();
+        library = FileReader.readMedia().get(0);
+        genreList = FileReader.readMedia().get(1);
     }
 
     public ArrayList<Media> getLibrary() {
@@ -12,7 +14,8 @@ public class SearchEngine {
     }
 
     public ArrayList<Media> resetMedia() {
-        library = FileReader.readMedia();
+        genreList = FileReader.readMedia().get(1);
+        library = FileReader.readMedia().get(0);
         return library;
     }
 
@@ -97,5 +100,9 @@ public class SearchEngine {
             }
         }
         return tempList;
+    }
+
+    public ArrayList<String> getGenreList() {
+        return genreList;
     }
 }

@@ -1,6 +1,7 @@
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.util.ArrayList;
 
 
 /**
@@ -37,10 +38,12 @@ public class GUISebastian {
         contentPane.setLayout(new BorderLayout());
 
 
-
+    // Nedenfor laves den store contentPane, som senere bliver fyldt ud med Damiens og Tobias arbejde
         contentPane.add(new JPanel(), BorderLayout.NORTH);
         JLabel northLabel = new JLabel("This is the northLabel");
+        JLabel northLabel2 = new JLabel("This is the second northLabel");
         contentPane.add(northLabel,BorderLayout.NORTH);
+        contentPane.add(northLabel2,BorderLayout.NORTH);
 
         contentPane.add(new JPanel(), BorderLayout.SOUTH);
         JLabel southLabel = new JLabel("This is the southLabel");
@@ -50,13 +53,41 @@ public class GUISebastian {
         JLabel centerLabel = new JLabel("This is the centerLabel");
         contentPane.add(centerLabel,BorderLayout.CENTER);
 
+
+        //Nedenfor laves JPanel'et i West, som senere kommer til at indeholde nogle mindre paneler
         JPanel westJPanel = new JPanel();
         contentPane.add(westJPanel, BorderLayout.WEST);
 
-
+        //JPanel'et bliver lavet som vertikalt boxlayout, det er her hhv kategorier og checkboxe kommer til at stå under hinanden
         westJPanel.setLayout(new BoxLayout(westJPanel, BoxLayout.Y_AXIS));
+/*
+        //add'er et mini Panel som ligger inde i westPanel'et, panelet er i center og skal indeholde en titel
+        Panel miniPanel1Center = new Panel();
+        westJPanel.add(miniPanel1Center,BorderLayout.CENTER);
+        //add'er endnu et mini panel som står til højre for titlen, og skal indeholde en checkbox
+        Panel miniPanel1East = new Panel();
+        westJPanel.add(miniPanel1East,BorderLayout.EAST);
+        Panel miniPanel2East = new Panel();
+        westJPanel.add(miniPanel2East,BorderLayout.EAST);
+        */
 
-        westJPanel.add(new JLabel("This is the west Label"));
+
+        //Jeg laver et array af genre som eksempel, for at vise hvordan vi kan autogenerere sortering for nye genrer
+        //Det kræver blot at vi har en liste af genrer, den kan vi generere på flere forskellige måder.
+
+
+        /*genreList = SearchEngine.getGenreList();
+        genreList.add("Gysere");
+        genreList.add("Krimier");
+        genreList.add("Kærlighedsfilm");
+
+        for(String s : genreList){
+            westJPanel.add(new JCheckBox(s));
+        }
+        */
+
+
+
         /*
         Container westMiniContainer1 = new Container();
         westMiniContainer1.add(new JLabel("genre 1"), BorderLayout.CENTER);
