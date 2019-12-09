@@ -43,7 +43,7 @@ public class View {
 
 
         ArrayList<JCheckBox> jCheckBoxArrayList = new ArrayList();
-        for (String s : genreList) {
+        /*for (String s : genreList) {
             JCheckBox tempBoxReference = new JCheckBox(s);
             westJPanel.add(tempBoxReference);
             jCheckBoxArrayList.add(tempBoxReference);
@@ -51,7 +51,7 @@ public class View {
             tempBoxReference.addActionListener(e -> {
             searchByGenre();
             }
-        }
+        }*/
 
         //center
         update(media);
