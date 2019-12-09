@@ -7,7 +7,7 @@ public class Controller {
 
     public ArrayList<Media> searchByGenre() {
         ArrayList<String> tempListOfGenres = new ArrayList();
-        GUIFællesPrototype1.getJCheckBox();
+       // GUIFællesPrototype1.getJCheckBox();
 
         for (String currentGenre : tempListOfGenres) {
             searchEngine.sortByCategory(currentGenre);
