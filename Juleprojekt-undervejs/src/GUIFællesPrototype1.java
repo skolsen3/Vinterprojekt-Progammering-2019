@@ -1,4 +1,3 @@
-/*
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -12,7 +11,9 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-public class GUIDamien {
+public class GUIFællesPrototype1 {
+
+
     public static void main(String[] args) {
         makeFrame();
     }
@@ -24,13 +25,41 @@ public class GUIDamien {
         contentPane.setLayout(new BorderLayout());
 
         //NORTH
-        JButton northButton = new JButton("North");
-        contentPane.add(northButton, BorderLayout.NORTH);
+        JPanel northPanel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
+        JButton myListButton = new JButton("Min Liste");
+        JButton seriesButton = new JButton("Serier");
+        JButton movieButton = new JButton("Film");
+        JTextField searchField = new JTextField(16);
+        JButton searchButton = new JButton("?");
+        JButton userProfileButton = new JButton("(Bruger)");
+        northPanel.add(myListButton);
+        northPanel.add(seriesButton);
+        northPanel.add(movieButton);
+        northPanel.add(searchField);
+        northPanel.add(searchButton);
+        northPanel.add(userProfileButton);
+
+        contentPane.add(northPanel, BorderLayout.NORTH);
 
 
         //WEST
-        JButton westButton = new JButton("West");
-        contentPane.add(westButton, BorderLayout.WEST);
+        //Nedenfor laves JPanel'et i West, som senere kommer til at indeholde nogle checkboxe
+        JPanel westJPanel = new JPanel();
+        contentPane.add(westJPanel, BorderLayout.WEST);
+
+        //JPanel'et bliver lavet som vertikalt boxlayout, det er her hhv checkboxe og kategorier kommer til at stå under hinanden
+        westJPanel.setLayout(new BoxLayout(westJPanel, BoxLayout.Y_AXIS));
+
+        //Tilføjer checkboxene
+        ArrayList<String> genreList = new ArrayList();
+        genreList.add("Gysere");
+        genreList.add("Krimier");
+        genreList.add("Kærlighedsfilm");
+
+        for(String s : genreList){
+            westJPanel.add(new JCheckBox(s));
+        }
+
 
 
         //CENTER
@@ -48,7 +77,6 @@ public class GUIDamien {
         og desuden tilføjer en label der viser filmens titel under billedet. Det er denne her lange metode, som nok skal sættes som en separat metode, således at man kan opdatere film-listen alt efter input
         fra brugeren.
         */
-/*
         for (Media m : searchEngine.getLibrary()) {
             JPanel gridPanel = new JPanel();
             gridPanel.setLayout(new BorderLayout());
@@ -125,12 +153,16 @@ public class GUIDamien {
 
 
         //SOUTH
-        JButton southJButton = new JButton("South");
-        contentPane.add(southJButton, BorderLayout.SOUTH);
+        JPanel southPanel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
+        JLabel rightsLabel = new JLabel("ALL RIGHTS RESERVED. TM & COPYRIGHT");
+        southPanel.add(rightsLabel);
+        contentPane.add(southPanel, BorderLayout.SOUTH);
 
 
         frame.pack();
         frame.setVisible(true);
     }
 }
-*/
+
+
+

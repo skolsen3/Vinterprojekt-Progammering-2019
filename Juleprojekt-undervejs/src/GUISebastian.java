@@ -76,7 +76,7 @@ public class GUISebastian {
         //Det kræver blot at vi har en liste af genrer, den kan vi generere på flere forskellige måder.
 
 
-        /*genreList = SearchEngine.getGenreList();
+        ArrayList<String> genreList = new ArrayList();
         genreList.add("Gysere");
         genreList.add("Krimier");
         genreList.add("Kærlighedsfilm");
@@ -84,7 +84,7 @@ public class GUISebastian {
         for(String s : genreList){
             westJPanel.add(new JCheckBox(s));
         }
-        */
+
 
 
 
