@@ -1,11 +1,13 @@
 import javax.swing.*;
 import java.awt.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class View {
     protected static JFrame frame;
+    protected ArrayList<JCheckBox> jCheckBoxArrayList;
 
-    public static void run(ArrayList<Media> media) {
+    public static void run(ArrayList<Media> media, ArrayList<String> genreList) {
         frame = new JFrame("playIT");
 
         Container contentPane = frame.getContentPane();
@@ -38,10 +40,7 @@ public class View {
         westJPanel.setLayout(new BoxLayout(westJPanel, BoxLayout.Y_AXIS));
 
         //Tilføjer checkboxene
-        ArrayList<String> genreList = new ArrayList();
-        genreList.add("Gysere");
-        genreList.add("Krimier");
-        genreList.add("Kærlighedsfilm");
+
 
         ArrayList<JCheckBox> jCheckBoxArrayList = new ArrayList();
         for (String s : genreList) {
@@ -49,11 +48,9 @@ public class View {
             westJPanel.add(tempBoxReference);
             jCheckBoxArrayList.add(tempBoxReference);
 
-
-
-            /*tempBoxReference.addActionListener(e -> {
+            tempBoxReference.addActionListener(e -> {
             searchByGenre();
-            }*/
+            }
         }
 
         //center
@@ -70,6 +67,8 @@ public class View {
         frame.pack();
         frame.setVisible(true);
     }
+
+    public ArrayList<JCheckBox> getJCheckBoxArrayList(){return jCheckBoxArrayList;}
 
     public static void update(ArrayList<Media> media) {
         JPanel centerJPanel = new JPanel();

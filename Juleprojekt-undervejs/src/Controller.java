@@ -9,11 +9,12 @@ public class Controller {
     public static void main(String[] args) {
         SearchEngine searchEngine = new SearchEngine();
         View view = new View();
+        view.run(searchEngine.getLibrary(),searchEngine.getGenreList());
     }
 
     public ArrayList<Media> searchByGenre() {
         ArrayList<String> tempListOfGenres = new ArrayList();
-        ArrayList<JCheckBox> tempListOfCheckBoxes = GUIFællesPrototype1.getJCheckBoxArrayList();
+        ArrayList<JCheckBox> tempListOfCheckBoxes = view.getJCheckBoxArrayList();
         for (JCheckBox jCheckBox : tempListOfCheckBoxes) {
             if (jCheckBox.isSelected()) {
                 tempListOfGenres.add(jCheckBox.getText());
