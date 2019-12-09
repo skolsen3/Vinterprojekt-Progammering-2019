@@ -62,7 +62,7 @@ public class GUIDesign extends Application {
 
         StackPane mainLayout = new StackPane();
         mainLayout.getChildren().add(logoutButton);
-        scene2 = new Scene(mainLayout, 400, 400);
+        scene2 = new Scene(mainLayout, 1920/2, 1080/2);
 
         window.setScene(scene1);
         window.setTitle("Netflix 2.0");

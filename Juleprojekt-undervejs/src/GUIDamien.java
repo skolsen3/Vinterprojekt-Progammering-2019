@@ -1,3 +1,4 @@
+/*
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -47,6 +48,7 @@ public class GUIDamien {
         og desuden tilføjer en label der viser filmens titel under billedet. Det er denne her lange metode, som nok skal sættes som en separat metode, således at man kan opdatere film-listen alt efter input
         fra brugeren.
         */
+/*
         for (Media m : searchEngine.getLibrary()) {
             JPanel gridPanel = new JPanel();
             gridPanel.setLayout(new BorderLayout());
@@ -82,12 +84,12 @@ public class GUIDamien {
 
                         JButton playButton = new JButton("Play");
                         playButton.addActionListener(ex -> {
-                                    if (playButton.getBackground() == Color.GREEN) {
-                                        playButton.setBackground(Color.RED);
-                                    } else {
-                                        playButton.setBackground(Color.GREEN);
-                                    }
-                                });
+                            if (playButton.getBackground() == Color.GREEN) {
+                                playButton.setBackground(Color.RED);
+                            } else {
+                                playButton.setBackground(Color.GREEN);
+                            }
+                        });
                         mediaContentPane.add(playButton, BorderLayout.EAST);
                         mediaFrame.pack();
                         mediaFrame.setVisible(true);
@@ -131,3 +133,4 @@ public class GUIDamien {
         frame.setVisible(true);
     }
 }
+*/
