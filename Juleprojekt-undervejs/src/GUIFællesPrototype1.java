@@ -70,7 +70,7 @@ public class GUIFællesPrototype1 {
                 JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
                 JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
-        GridLayout centerGrid = new GridLayout(0, 9);
+        GridLayout centerGrid = new GridLayout(0, 8);
         centerJPanel.setLayout(centerGrid);
 
         SearchEngine searchEngine = new SearchEngine();
