@@ -43,7 +43,7 @@ public class FileReader {
         ArrayList<String> genreList = new ArrayList();
 
         try {
-            FileReader fileReaderMovie = new FileReader("D:\\GitHub\\Vinterprojekt-Progammering-2019\\film.txt");
+            FileReader fileReaderMovie = new FileReader("C:\\Users\\Bruger\\Documents\\GitHub\\Vinterprojekt-Progammering-2019\\film.txt");
             while ((line = fileReaderMovie.getBufferedReader().readLine()) != null) {
                 String[] info = line.split(";");
 
@@ -53,7 +53,7 @@ public class FileReader {
                 String rating = info[3];
 
                 try {
-                    BufferedImage image = ImageIO.read(new File("D:\\GitHub\\Vinterprojekt-Progammering-2019\\Film - billeder\\" + name + ".jpg"));
+                    BufferedImage image = ImageIO.read(new File("C:\\Users\\Bruger\\Documents\\GitHub\\Vinterprojekt-Progammering-2019\\Film - billeder\\" + name + ".jpg"));
                     Movie movie = new Movie(name, year, genres, rating, image);
                     media.add(movie);
                     for (String g : genres) {
@@ -72,7 +72,7 @@ public class FileReader {
         }
 
         try {
-            FileReader fileReaderSeries = new FileReader("D:\\GitHub\\Vinterprojekt-Progammering-2019\\serier.txt");
+            FileReader fileReaderSeries = new FileReader("C:\\Users\\Bruger\\Documents\\GitHub\\Vinterprojekt-Progammering-2019\\serier.txt");
             while ((line = fileReaderSeries.getBufferedReader().readLine()) != null) {
                 String[] info = line.split(";");
 
@@ -82,7 +82,7 @@ public class FileReader {
                 String rating = info[3];
 
                 try {
-                    BufferedImage image = ImageIO.read(new File("D:\\GitHub\\Vinterprojekt-Progammering-2019\\Serier - billeder\\" + name + ".jpg"));
+                    BufferedImage image = ImageIO.read(new File("C:\\Users\\Bruger\\Documents\\GitHub\\Vinterprojekt-Progammering-2019\\Serier - billeder\\" + name + ".jpg"));
                     Series series = new Series(name, year, genres, rating, image, null);
                     media.add(series);
                     for (String g : genres) {

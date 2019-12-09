@@ -3,14 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="ccbb397d-ec83-46ad-8a65-8a42efb69eb9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/GUIDesign.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/GUIDesign.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/GUITobias.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/GUITobias.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/FileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/FileReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Library.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Tester.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/FileReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/FileReader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/GUISebastian.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/GUISebastian.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/GUITobias.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/GUITobias.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/SearchEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/SearchEngine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Tester.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Tester.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Library.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Tester.class" beforeDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,7 +72,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.GUITobias">
+  <component name="RunManager" selected="Application.GUIDamien">
     <configuration name="GUIDamien" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUIDamien" />
       <module name="Juleprojekt-undervejs" />
@@ -87,15 +87,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GUITobias" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="GUITobias" />
+    <configuration name="GUISebastian" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUISebastian" />
       <module name="Juleprojekt-undervejs" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Tester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Tester" />
+    <configuration name="GUITobias" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUITobias" />
       <module name="Juleprojekt-undervejs" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -110,11 +110,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.GUITobias" />
         <item itemvalue="Application.GUIDamien" />
+        <item itemvalue="Application.GUISebastian" />
+        <item itemvalue="Application.GUITobias" />
         <item itemvalue="Application.GUIDesign" />
         <item itemvalue="Application.UIDesign" />
-        <item itemvalue="Application.Tester" />
       </list>
     </recent_temporary>
   </component>
@@ -138,6 +138,7 @@
       <workItem from="1575766593448" duration="27000" />
       <workItem from="1575817433207" duration="6350000" />
       <workItem from="1575835833672" duration="577000" />
+      <workItem from="1575886539930" duration="1445000" />
     </task>
     <servers />
   </component>
