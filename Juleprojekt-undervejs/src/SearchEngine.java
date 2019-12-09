@@ -2,10 +2,12 @@ import java.util.ArrayList;
 
 public class SearchEngine {
     protected ArrayList<Media> library;
+    protected ArrayList<Media> originalLibrary;
     protected ArrayList<String> genreList;
 
     public SearchEngine() {
         library = FileReader.readMedia().get(0);
+        originalLibrary = library;
         genreList = FileReader.readMedia().get(1);
     }
 
@@ -14,9 +16,7 @@ public class SearchEngine {
     }
 
     public ArrayList<Media> resetMedia() {
-        genreList = FileReader.readMedia().get(1);
-        library = FileReader.readMedia().get(0);
-        return library;
+        return originalLibrary;
     }
 
     public ArrayList<Media> sortByName(String s) {

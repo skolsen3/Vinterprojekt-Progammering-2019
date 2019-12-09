@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ccbb397d-ec83-46ad-8a65-8a42efb69eb9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Form1.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Form1.java" afterDir="false" />
+    <list default="true" id="ccbb397d-ec83-46ad-8a65-8a42efb69eb9" name="Default Changelist" comment="Den nye fælles GUI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/GUIDamien.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/GUIDamien.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/GUIDesign.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/GUIDesign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/FileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/FileReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/GUIFællesPrototype1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/GUIFællesPrototype1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/GUISebastian.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/GUISebastian.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/GUISebastian.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/GUISebastian.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/GUITobias.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/GUITobias.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Juleprojekt-undervejs/src/SearchEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/Juleprojekt-undervejs/src/SearchEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/FileReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/FileReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/GUIDamien.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/GUISebastian.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/GUITobias.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Juleprojekt-undervejs/SearchEngine.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +76,14 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.GUITobias">
+  <component name="RunManager" selected="Application.Controller">
+    <configuration name="Controller" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Controller" />
+      <module name="Juleprojekt-undervejs" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GUIDamien" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUIDamien" />
       <module name="Juleprojekt-undervejs" />
@@ -93,13 +105,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Tester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Tester" />
-      <module name="Juleprojekt-undervejs" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="UIDesign" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="UIDesign" />
       <module name="Juleprojekt-undervejs" />
@@ -109,11 +114,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Controller" />
         <item itemvalue="Application.GUITobias" />
         <item itemvalue="Application.GUIDamien" />
         <item itemvalue="Application.GUIDesign" />
         <item itemvalue="Application.UIDesign" />
-        <item itemvalue="Application.Tester" />
       </list>
     </recent_temporary>
   </component>
@@ -138,6 +143,14 @@
       <workItem from="1575817433207" duration="6350000" />
       <workItem from="1575835833672" duration="577000" />
     </task>
+    <task id="LOCAL-00001" summary="Den nye fælles GUI">
+      <created>1575889164993</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1575889164993</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,6 +168,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Den nye fælles GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Den nye fælles GUI" />
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1575654239235">

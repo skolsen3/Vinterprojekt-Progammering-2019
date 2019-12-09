@@ -1,3 +1,4 @@
+/*
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
  * @author Michael Kölling and David J. Barnes.
  * @version 0.2
  */
-
+/*
 
 
 public class GUISebastian {
@@ -29,7 +30,7 @@ public class GUISebastian {
     }
     /**
      * Create the Swing frame and its content.
-     */
+
     private void makeFrame() {
         frame = new JFrame("SebastiansImageViewer");
         makeMenuBar(frame);
@@ -60,7 +61,7 @@ public class GUISebastian {
 
         //JPanel'et bliver lavet som vertikalt boxlayout, det er her hhv kategorier og checkboxe kommer til at stå under hinanden
         westJPanel.setLayout(new BoxLayout(westJPanel, BoxLayout.Y_AXIS));
-/*
+
         //add'er et mini Panel som ligger inde i westPanel'et, panelet er i center og skal indeholde en titel
         Panel miniPanel1Center = new Panel();
         westJPanel.add(miniPanel1Center,BorderLayout.CENTER);
@@ -69,7 +70,7 @@ public class GUISebastian {
         westJPanel.add(miniPanel1East,BorderLayout.EAST);
         Panel miniPanel2East = new Panel();
         westJPanel.add(miniPanel2East,BorderLayout.EAST);
-        */
+
 
 
         //Jeg laver et array af genre som eksempel, for at vise hvordan vi kan autogenerere sortering for nye genrer
@@ -104,7 +105,7 @@ public class GUISebastian {
 
         westMiniContainer2.add(new JLabel("genre 2"));
 
-*/
+
 
         // building is done - arrange the components and show
         frame.pack();
@@ -123,3 +124,4 @@ public class GUISebastian {
         menubar.add(fileMenu);
     }
 }
+*/

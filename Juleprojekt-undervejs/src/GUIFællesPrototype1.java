@@ -1,17 +1,10 @@
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
 import java.util.ArrayList;
-import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 public class GUIFællesPrototype1 {
+    ArrayList<JCheckBox> jCheckBoxArrayList = new ArrayList();
 
 
     public static void main(String[] args) {
@@ -56,8 +49,17 @@ public class GUIFællesPrototype1 {
         genreList.add("Krimier");
         genreList.add("Kærlighedsfilm");
 
-        for(String s : genreList){
-            westJPanel.add(new JCheckBox(s));
+        ArrayList<JCheckBox> jCheckBoxArrayList = new ArrayList();
+        for (String s : genreList) {
+            JCheckBox tempBoxReference = new JCheckBox(s);
+            westJPanel.add(tempBoxReference);
+            jCheckBoxArrayList.add(tempBoxReference);
+
+
+
+            /*tempBoxReference.addActionListener(e -> {
+            searchByGenre();
+            }*/
         }
 
 
@@ -161,6 +163,9 @@ public class GUIFællesPrototype1 {
 
         frame.pack();
         frame.setVisible(true);
+    }
+    public ArrayList<JCheckBox> getJCheckBoxArrayList () {
+        return jCheckBoxArrayList;
     }
 }
 
