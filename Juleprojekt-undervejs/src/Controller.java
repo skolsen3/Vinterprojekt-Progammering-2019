@@ -7,10 +7,10 @@ public class Controller {
     protected SearchEngine searchEngine;
     protected View view;
 
-    public Controller(){
+    public Controller() {
         SearchEngine searchEngine = new SearchEngine();
         View view = new View(this);
-        view.run(searchEngine.getLibrary(),searchEngine.getGenreList());
+        view.run(searchEngine.getLibrary(), searchEngine.getGenreList());
     }
 
     public void searchByGenre() {
@@ -21,15 +21,15 @@ public class Controller {
                 tempListOfGenres.add(jCheckBox.getText());
             }
         }
-        for (String currentGenre : tempListOfGenres) {
-            searchEngine.sortByCategory(currentGenre);
-        }
-        view.update(searchEngine.getLibrary());
-    }
-    public void searchByGenre2(){
+        searchEngine.sortByCategory(tempListOfGenres);
         view.update(searchEngine.getLibrary());
     }
 
+
+    public void searchByGenre2() {
+        System.out.println("4Head");
+        //view.update(searchEngine.getLibrary());
+    }
 
 
 }

@@ -41,17 +41,18 @@ public class SearchEngine {
         }
     }
 
-    public ArrayList<Media> sortByCategory(String category1) {
+    public ArrayList<Media> sortByCategory(ArrayList<String> Categories) {
         clearLibrary();
+        for(String cat : Categories){
         for (Media m : originalLibrary) {
             String str = Arrays.toString(m.getGenres());
-            if (str.contains(category1)) {
+            if (str.contains(cat) && !library.contains(m)) {
                 library.add(m);
             }
-
+        }
         }
         if (library.isEmpty()) {
-            throw new NoSuchMediaException(category1);
+            throw new NoSuchMediaException(Categories.get(0));
         } else {
             return library;
         }

@@ -3,6 +3,8 @@ import java.util.Arrays;
 
 public class Tester {
     public static void main(String[] args) {
+         new Controller();
+
         SearchEngine s = new SearchEngine();
 
         System.out.println(s.getLibrary().size());
@@ -18,10 +20,9 @@ public class Tester {
         s.resetMedia();
         System.out.println(s.getLibrary().size());
 
-
-
-
-        System.out.println(s.sortByCategory("Crime").get(0).getName());
+        ArrayList<String> a1 = new ArrayList();
+        a1.add("Crime");
+        System.out.println(s.sortByCategory(a1).get(0).getName());
 
 
         String[] errorSoon = new String[2];
@@ -29,6 +30,14 @@ public class Tester {
         errorSoon[1] = "bar";
         String str = Arrays.toString(errorSoon);
         System.out.println(str);
+
+
+        ArrayList<String> a2= new ArrayList();
+        a2.add("Crime");
+        a2.add("Drama");
+        for (int i = 0; i < 5; i++) {
+            System.out.println(s.sortByCategory(a2).get(i).getName());
+        }
 
     }
 
