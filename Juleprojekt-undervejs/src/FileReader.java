@@ -58,8 +58,8 @@ public class FileReader {
                     Movie movie = new Movie(name, year, genres, rating, image);
                     media.add(movie);
                     for (String g : genres) {
-                        if (genreList.contains(g) == false)
-                            genreList.add(g);
+                        if (genreList.contains(g.trim()) == false)
+                            genreList.add(g.trim());
                     }
                 } catch (IOException e) {
                     e.getStackTrace();
@@ -87,8 +87,8 @@ public class FileReader {
                     Series series = new Series(name, year, genres, rating, image, null);
                     media.add(series);
                     for (String g : genres) {
-                        if (genreList.contains(g) == false)
-                            genreList.add(g);
+                        if (genreList.contains(g.trim()) == false)
+                            genreList.add(g.trim());
                     }
                 } catch (IOException e) {
                     e.getStackTrace();

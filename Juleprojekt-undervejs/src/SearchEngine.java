@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class SearchEngine {
     protected ArrayList<Media> library;
@@ -37,7 +38,8 @@ public class SearchEngine {
     public ArrayList<Media> sortByCategory(String category1) {
         ArrayList<Media> tempList = new ArrayList<>();
         for (Media m : library) {
-            if (m.getGenres().toString().contains(category1)) {
+            String str = Arrays.toString(m.getGenres());
+            if (str.contains(category1)) {
                 tempList.add(m);
             }
 
