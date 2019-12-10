@@ -73,7 +73,7 @@ public class FileReader {
         }
 
         try {
-            FileReader fileReaderSeries = new FileReader("D:\\GitHub\\Vinterprojekt-Progammering-2019\\serier.txt");
+            FileReader fileReaderSeries = new FileReader("C:\\Users\\sebas\\OneDrive\\Skrivebord\\Dokumenter\\GitHub\\Vinterprojekt-Progammering-2019\\serier.txt");
             while ((line = fileReaderSeries.getBufferedReader().readLine()) != null) {
                 String[] info = line.split(";");
 
