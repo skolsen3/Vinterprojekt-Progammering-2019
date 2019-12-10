@@ -38,10 +38,10 @@ public class FileReader {
      objects, puts the objects in a List of Media and returns them as an ArrayList.
      */
     public static ArrayList<ArrayList> readMedia() {
-        ArrayList<ArrayList> tempList = new ArrayList();
+        ArrayList<ArrayList> tempList = new ArrayList<>();
         ArrayList<Media> media = new ArrayList<>();
         String line;
-        ArrayList<String> genreList = new ArrayList();
+        ArrayList<String> genreList = new ArrayList<>();
 
         try {
             FileReader fileReaderMovie = new FileReader("C:\\Users\\sebas\\OneDrive\\Skrivebord\\Dokumenter\\GitHub\\Vinterprojekt-Progammering-2019\\film.txt");
@@ -73,7 +73,7 @@ public class FileReader {
         }
 
         try {
-            FileReader fileReaderSeries = new FileReader("C:\\Users\\sebas\\OneDrive\\Skrivebord\\Dokumenter\\GitHub\\Vinterprojekt-Progammering-2019\\serier.txt");
+            FileReader fileReaderSeries = new FileReader("D:\\GitHub\\Vinterprojekt-Progammering-2019\\serier.txt");
             while ((line = fileReaderSeries.getBufferedReader().readLine()) != null) {
                 String[] info = line.split(";");
 
