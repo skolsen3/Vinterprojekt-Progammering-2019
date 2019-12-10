@@ -42,7 +42,7 @@ public class View {
         //Tilføjer checkboxene
 
 
-        ArrayList<JCheckBox> jCheckBoxArrayList = new ArrayList();
+        ArrayList<JCheckBox> jCheckBoxArrayList = new ArrayList<>();
         /*for (String s : genreList) {
             JCheckBox tempBoxReference = new JCheckBox(s);
             westJPanel.add(tempBoxReference);

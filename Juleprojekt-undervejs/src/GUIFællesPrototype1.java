@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import javax.swing.JPanel;
 
 public class GUIFællesPrototype1 {
-    ArrayList<JCheckBox> jCheckBoxArrayList = new ArrayList();
+    ArrayList<JCheckBox> jCheckBoxArrayList = new ArrayList<>();
 
 
     public static void main(String[] args) {
@@ -44,12 +44,12 @@ public class GUIFællesPrototype1 {
         westJPanel.setLayout(new BoxLayout(westJPanel, BoxLayout.Y_AXIS));
 
         //Tilføjer checkboxene
-        ArrayList<String> genreList = new ArrayList();
+        ArrayList<String> genreList = new ArrayList<>();
         genreList.add("Gysere");
         genreList.add("Krimier");
         genreList.add("Kærlighedsfilm");
 
-        ArrayList<JCheckBox> jCheckBoxArrayList = new ArrayList();
+        ArrayList<JCheckBox> jCheckBoxArrayList = new ArrayList<>();
         for (String s : genreList) {
             JCheckBox tempBoxReference = new JCheckBox(s);
             westJPanel.add(tempBoxReference);
