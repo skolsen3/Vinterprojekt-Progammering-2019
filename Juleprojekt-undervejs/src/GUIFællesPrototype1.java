@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import javax.swing.JPanel;
 
 public class GUIFællesPrototype1 {
-    ArrayList<JCheckBox> jCheckBoxArrayList = new ArrayList();
+    protected ArrayList<JCheckBox> jCheckBoxArrayList = new ArrayList();
 
 
     public static void main(String[] args) {
@@ -13,6 +13,7 @@ public class GUIFællesPrototype1 {
 
     public static void makeFrame() {
         JFrame frame = new JFrame("playIT");
+        Controller controller;
 
         Container contentPane = frame.getContentPane();
         contentPane.setLayout(new BorderLayout());
@@ -57,9 +58,9 @@ public class GUIFællesPrototype1 {
 
 
 
-            /*tempBoxReference.addActionListener(e -> {
-            searchByGenre();
-            }*/
+            tempBoxReference.addActionListener(e -> {
+            //.searchByGenre();
+            } );
         }
 
 

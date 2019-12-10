@@ -6,9 +6,15 @@ import java.util.ArrayList;
 public class View {
     protected static JFrame frame;
     protected ArrayList<JCheckBox> jCheckBoxArrayList;
+    protected Controller controller;
 
-    public static void run(ArrayList<Media> media, ArrayList<String> genreList) {
+    public View(Controller controller){
+        this.controller = controller;
+    }
+
+    public void run(ArrayList<Media> media, ArrayList<String> genreList) {
         frame = new JFrame("playIT");
+
 
         Container contentPane = frame.getContentPane();
         contentPane.setLayout(new BorderLayout());
@@ -43,15 +49,15 @@ public class View {
 
 
         ArrayList<JCheckBox> jCheckBoxArrayList = new ArrayList();
-        /*for (String s : genreList) {
+        for (String s : genreList) {
             JCheckBox tempBoxReference = new JCheckBox(s);
             westJPanel.add(tempBoxReference);
             jCheckBoxArrayList.add(tempBoxReference);
 
             tempBoxReference.addActionListener(e -> {
-            searchByGenre();
-            }
-        }*/
+            controller.searchByGenre2();
+                } );
+        }
 
         //center
         update(media);

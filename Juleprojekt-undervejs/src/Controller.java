@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 
@@ -6,13 +7,13 @@ public class Controller {
     protected SearchEngine searchEngine;
     protected View view;
 
-    public static void main(String[] args) {
+    public Controller(){
         SearchEngine searchEngine = new SearchEngine();
-        View view = new View();
+        View view = new View(this);
         view.run(searchEngine.getLibrary(),searchEngine.getGenreList());
     }
 
-    public ArrayList<Media> searchByGenre() {
+    public void searchByGenre() {
         ArrayList<String> tempListOfGenres = new ArrayList();
         ArrayList<JCheckBox> tempListOfCheckBoxes = view.getJCheckBoxArrayList();
         for (JCheckBox jCheckBox : tempListOfCheckBoxes) {
@@ -23,8 +24,12 @@ public class Controller {
         for (String currentGenre : tempListOfGenres) {
             searchEngine.sortByCategory(currentGenre);
         }
-        return searchEngine.getLibrary();
+        view.update(searchEngine.getLibrary());
     }
+    public void searchByGenre2(){
+        view.update(searchEngine.getLibrary());
+    }
+
 
 
 }

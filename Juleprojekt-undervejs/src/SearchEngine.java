@@ -42,7 +42,7 @@ public class SearchEngine {
             }
 
         }
-        if (tempList.get(0) == null) {
+        if (tempList.isEmpty()) {
             throw new NoSuchMediaException(category1);
         } else {
             return tempList;
