@@ -54,8 +54,9 @@ public class SearchEngine {
     public ArrayList<Media> sortByCategory(String category1, String category2) {
         ArrayList<Media> tempList = new ArrayList<>();
         for (Media m : library) {
-            if (m.getGenres().toString().contains(category1) ||
-                    (m.getGenres().toString().contains(category2))) {
+            String str = Arrays.toString(m.getGenres());
+            if (str.contains(category1) ||
+                    (str.contains(category2))) {
                 tempList.add(m);
             }
 
@@ -70,9 +71,10 @@ public class SearchEngine {
     public ArrayList<Media> sortByCategory(String category1, String category2, String category3) {
         ArrayList<Media> tempList = new ArrayList<>();
         for (Media m : library) {
+            String str = Arrays.toString(m.getGenres());
             if (m.getGenres().toString().contains(category1) ||
-                    (m.getGenres().toString().contains(category2)) ||
-                    (m.getGenres().toString().contains(category3))) {
+                    (str.contains(category2)) ||
+                    (str.contains(category3))) {
                 tempList.add(m);
             }
 
