@@ -16,8 +16,8 @@ public class SearchEngine {
         return library;
     }
 
-    public ArrayList<Media> resetMedia() {
-        return originalLibrary;
+    public void resetMedia() {
+        library = originalLibrary;
     }
 
     public ArrayList<String> getGenreList() {
@@ -52,7 +52,7 @@ public class SearchEngine {
         }
         }
         if (library.isEmpty()) {
-            throw new NoSuchMediaException(Categories.get(0));
+            throw new NoSuchMediaException("LegalString");
         } else {
             return library;
         }

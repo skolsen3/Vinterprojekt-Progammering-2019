@@ -10,6 +10,7 @@ public class View {
 
     public View(Controller controller){
         this.controller = controller;
+        jCheckBoxArrayList = new ArrayList();
     }
 
     public void run(ArrayList<Media> media, ArrayList<String> genreList) {
@@ -48,14 +49,14 @@ public class View {
         //Tilføjer checkboxene
 
 
-        ArrayList<JCheckBox> jCheckBoxArrayList = new ArrayList();
+
         for (String s : genreList) {
             JCheckBox tempBoxReference = new JCheckBox(s);
             westJPanel.add(tempBoxReference);
             jCheckBoxArrayList.add(tempBoxReference);
 
             tempBoxReference.addActionListener(e -> {
-            controller.searchByGenre2();
+            controller.searchByGenre();
                 } );
         }
 
