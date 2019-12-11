@@ -10,4 +10,16 @@ public class Season {
         this.episodes = episodes;
         this.numberOfEpisodes = numberOfEpisodes;
     }
+
+    public int getNumberOfEpisodes() {
+        return numberOfEpisodes;
+    }
+
+    public int getSeasonNumber() {
+        return seasonNumber;
+    }
+
+    public ArrayList<Episode> getEpisodes() {
+        return episodes;
+    }
 }
