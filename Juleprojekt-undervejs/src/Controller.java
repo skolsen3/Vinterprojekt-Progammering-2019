@@ -7,14 +7,12 @@ import java.util.concurrent.TimeUnit;
 public class Controller {
     protected SearchEngine searchEngine;
     protected View view;
-    protected int i;
+
 
     public Controller() {
         searchEngine = new SearchEngine();
         view = new View(this);
         view.run(searchEngine.getLibrary(), searchEngine.getGenreList());
-        i = 12;
-        // * Her testet af update() kan kaldes uden fejl. Der bliver ikke kastet fejl men vinduet bliver lidt bollet view.update(searchEngine.getLibrary());
     }
 
     public void searchByGenre() {
