@@ -15,6 +15,14 @@ public class View {
 
     public void run(ArrayList<Media> media, ArrayList<String> genreList) {
         frame = new JFrame("playIT");
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+
+
+        int frameHeight = screenSize.height;
+        int frameWidth = screenSize.width;
+
+
+        //frame.setPreferredSize(new Dimension(frameWidth, frameHeight));
 
 
         Container contentPane = frame.getContentPane();
@@ -60,8 +68,7 @@ public class View {
                 } );
         }
 
-        //center
-        update(media);
+
 
 
         //SOUTH
@@ -70,9 +77,12 @@ public class View {
         southPanel.add(rightsLabel);
         contentPane.add(southPanel, BorderLayout.SOUTH);
 
+        //CENTER
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        update(media);
 
-        frame.pack();
-        frame.setVisible(true);
+
+
     }
 
     public ArrayList<JCheckBox> getJCheckBoxArrayList(){return jCheckBoxArrayList;}
@@ -104,6 +114,8 @@ public class View {
             picButton.addActionListener(e -> {
                         JFrame mediaFrame = new JFrame(m.getName());
 
+                        //skalerer framet, så det ser pænere ud
+
                         // get the screen size as a java dimension
                         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
@@ -118,7 +130,16 @@ public class View {
 
                         mediaContentPane.setLayout(new BorderLayout());
 
-                        JLabel picture = new JLabel(new ImageIcon(m.getPictureFile()));
+                        //skalering af billede, så det passer med sit frame
+                        int picWidth = m.getPictureFile().getWidth();
+                        int picHeight = m.getPictureFile().getHeight();
+                        double picAspectRatio = (picWidth+0.0)/(picHeight+0.0);
+                        picHeight = frameHeight;
+                        double newPicWidth  = picAspectRatio*picHeight;
+
+
+                        JLabel picture = new JLabel(new ImageIcon(new ImageIcon(m.getPictureFile()).getImage().getScaledInstance((int) newPicWidth, picHeight, Image.SCALE_SMOOTH)));
+
                         mediaContentPane.add(picture, BorderLayout.WEST);
 
                         JPanel aboutPanel = new JPanel();
@@ -181,6 +202,7 @@ public class View {
         }
 
         frame.getContentPane().add(centerJScrollPane, BorderLayout.CENTER);
+
         frame.pack();
         frame.setVisible(true);
     }
