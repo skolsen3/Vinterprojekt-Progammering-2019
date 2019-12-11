@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 public class FileReader {
     private BufferedReader bufferedReader;
     private String sebStationær = "C:\\Users\\sebas\\OneDrive\\Skrivebord\\Dokumenter\\GitHub\\Vinterprojekt-Progammering-2019";
-    private String sebBærbar = "C:\\Users\\seba5899.NEXT\\OneDrive\\Skrivebord\\Dokumenter\\GitHub\\Vinterprojekt-Progammering-2019";
+    private static String filePath = new File("").getAbsolutePath();
 
     // Creates BufferedReader which loads a file at the given filepath. Catches IOException in case of failure.
     // @param fileName - filepath of given file
@@ -43,9 +43,9 @@ public class FileReader {
         ArrayList<Media> media = new ArrayList<>();
         String line;
         ArrayList<String> genreList = new ArrayList<>();
-
+        System.out.println(filePath);
         try {
-            FileReader fileReaderMovie = new FileReader("C:\\Users\\seba5899.NEXT\\OneDrive\\Skrivebord\\Dokumenter\\GitHub\\Vinterprojekt-Progammering-2019\\film.txt");
+            FileReader fileReaderMovie = new FileReader(filePath + "/film.txt");
             while ((line = fileReaderMovie.getBufferedReader().readLine()) != null) {
                 String[] info = line.split(";");
 
@@ -55,11 +55,11 @@ public class FileReader {
                 String rating = info[3];
 
                 try {
-                    BufferedImage image = ImageIO.read(new File("C:\\Users\\seba5899.NEXT\\OneDrive\\Skrivebord\\Dokumenter\\GitHub\\Vinterprojekt-Progammering-2019\\Film - billeder\\" + name + ".jpg"));
+                    BufferedImage image = ImageIO.read(new File(filePath + "/Film - billeder/" + name + ".jpg"));
                     Movie movie = new Movie(name, year, genres, rating, image);
                     media.add(movie);
                     for (String g : genres) {
-                        if (genreList.contains(g.trim()) == false)
+                        if (!genreList.contains(g.trim()))
                             genreList.add(g.trim());
                     }
                 } catch (IOException e) {
@@ -74,7 +74,7 @@ public class FileReader {
         }
 
         try {
-            FileReader fileReaderSeries = new FileReader("C:\\Users\\seba5899.NEXT\\OneDrive\\Skrivebord\\Dokumenter\\GitHub\\Vinterprojekt-Progammering-2019\\serier.txt");
+            FileReader fileReaderSeries = new FileReader(filePath + "/serier.txt");
             while ((line = fileReaderSeries.getBufferedReader().readLine()) != null) {
                 String[] info = line.split(";");
 
@@ -84,11 +84,11 @@ public class FileReader {
                 String rating = info[3];
 
                 try {
-                    BufferedImage image = ImageIO.read(new File("C:\\Users\\seba5899.NEXT\\OneDrive\\Skrivebord\\Dokumenter\\GitHub\\Vinterprojekt-Progammering-2019\\Serier - billeder\\" + name + ".jpg"));
+                    BufferedImage image = ImageIO.read(new File(filePath + "/Serier - billeder/" + name + ".jpg"));
                     Series series = new Series(name, year, genres, rating, image, null);
                     media.add(series);
                     for (String g : genres) {
-                        if (genreList.contains(g.trim()) == false)
+                        if (!genreList.contains(g.trim()))
                             genreList.add(g.trim());
                     }
                 } catch (IOException e) {
