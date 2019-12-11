@@ -16,4 +16,13 @@ public class Series extends Media {
         super(name, year, genres, rating, pictureFile);
         this.seasons = seasons;
     }
+
+    public int numberOfSeasons() {
+        if(seasons.size() > 0) {
+            return seasons.size();
+        } else {
+            return 0;
+        }
+    }
+
 }

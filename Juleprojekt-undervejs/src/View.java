@@ -48,7 +48,7 @@ public class View {
         //Tilføjer checkboxene
 
 
-        ArrayList<JCheckBox> jCheckBoxArrayList = new ArrayList();
+        ArrayList<JCheckBox> jCheckBoxArrayList = new ArrayList<>();
         for (String s : genreList) {
             JCheckBox tempBoxReference = new JCheckBox(s);
             westJPanel.add(tempBoxReference);
@@ -102,6 +102,17 @@ public class View {
 
             picButton.addActionListener(e -> {
                         JFrame mediaFrame = new JFrame(m.getName());
+
+                        // get the screen size as a java dimension
+                        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+
+                        // get 2/3 of the height, and 2/3 of the width
+                        int frameHeight = screenSize.height * 2 / 3;
+                        int frameWidth = screenSize.width * 2 / 3;
+
+                        // set the jframe height and width
+                        mediaFrame.setPreferredSize(new Dimension(frameWidth, frameHeight));
+
                         Container mediaContentPane = mediaFrame.getContentPane();
 
                         mediaContentPane.setLayout(new BorderLayout());
@@ -112,12 +123,15 @@ public class View {
                         JPanel aboutPanel = new JPanel();
                         aboutPanel.setLayout(new BoxLayout(aboutPanel, BoxLayout.Y_AXIS));
                         aboutPanel.add(new JLabel("About: "));
+                        aboutPanel.add(new JLabel("   "));
                         aboutPanel.add(new JLabel("Title: " + m.getName()));
                         aboutPanel.add(new JLabel("Year: " + m.getYear()));
                         String genresAbout = "Genres: ";
-                        for (int i = 0; i < m.getGenres().length; i++) {
-                            genresAbout = genresAbout + m.getGenres()[i];
+                        for (int i = 0; i < m.getGenres().length-1; i++) {
+                            genresAbout = genresAbout + m.getGenres()[i] + ", ";
                         }
+                        genresAbout = genresAbout + m.getGenres()[m.getGenres().length-1];
+
                         aboutPanel.add(new JLabel(genresAbout));
                         aboutPanel.add(new JLabel("Rating: " + m.getRating()));
 
@@ -131,8 +145,11 @@ public class View {
                                 playButton.setBackground(Color.GREEN);
                             }
                         });
+                        playButton.setBorderPainted(false);
+                        playButton.setFocusPainted(false);
                         mediaContentPane.add(playButton, BorderLayout.EAST);
                         mediaFrame.pack();
+                        mediaFrame.setLocationRelativeTo(null);
                         mediaFrame.setVisible(true);
 
                     }
