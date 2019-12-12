@@ -33,6 +33,13 @@ public class Controller {
         }
     }
 
-
+    public void searchForString() {
+        try {
+            view.update(searchEngine.sortByName(view.getSearchField()));
+        } catch (NoSuchMediaException n) {
+            System.out.println(n);
+            view.update(searchEngine.originalLibrary);
+        }
+    }
 }
 

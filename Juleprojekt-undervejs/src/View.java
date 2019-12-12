@@ -7,6 +7,7 @@ public class View {
     protected static JFrame frame;
     protected ArrayList<JCheckBox> jCheckBoxArrayList;
     protected Controller controller;
+    protected JTextField searchField;
 
     public View(Controller controller){
         this.controller = controller;
@@ -33,7 +34,7 @@ public class View {
         JButton myListButton = new JButton("Min Liste");
         JButton seriesButton = new JButton("Serier");
         JButton movieButton = new JButton("Film");
-        JTextField searchField = new JTextField(16);
+        searchField = new JTextField(16);
         JButton searchButton = new JButton("?");
         JButton userProfileButton = new JButton("(Bruger)");
         northPanel.add(myListButton);
@@ -44,6 +45,9 @@ public class View {
         northPanel.add(userProfileButton);
 
         contentPane.add(northPanel, BorderLayout.NORTH);
+
+        searchButton.addActionListener(e -> { controller.searchForString(); } );
+
 
 
         //WEST
@@ -86,6 +90,8 @@ public class View {
     }
 
     public ArrayList<JCheckBox> getJCheckBoxArrayList(){return jCheckBoxArrayList;}
+
+    public String getSearchField(){return searchField.getText();}
 
     public void update(ArrayList<Media> media) {
 
