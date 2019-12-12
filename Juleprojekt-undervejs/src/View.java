@@ -10,7 +10,7 @@ public class View {
 
     public View(Controller controller){
         this.controller = controller;
-        jCheckBoxArrayList = new ArrayList();
+        jCheckBoxArrayList = new ArrayList<>();
     }
 
     public void run(ArrayList<Media> media, ArrayList<String> genreList) {
@@ -87,7 +87,8 @@ public class View {
 
     public ArrayList<JCheckBox> getJCheckBoxArrayList(){return jCheckBoxArrayList;}
 
-    public static void update(ArrayList<Media> media) {
+    public void update(ArrayList<Media> media) {
+
         JPanel centerJPanel = new JPanel();
         JScrollPane centerJScrollPane = new JScrollPane(centerJPanel,
                 JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
@@ -201,7 +202,15 @@ public class View {
             centerJPanel.add(gridPanel);
         }
 
-        frame.getContentPane().add(centerJScrollPane, BorderLayout.CENTER);
+
+
+        BorderLayout tempLayout = (BorderLayout) frame.getContentPane().getLayout();
+        if(tempLayout.getLayoutComponent(BorderLayout.CENTER) != null) {
+            frame.getContentPane().remove(tempLayout.getLayoutComponent(BorderLayout.CENTER));
+        }
+        frame.getContentPane().add(centerJScrollPane);
+
+
 
         frame.pack();
         frame.setVisible(true);

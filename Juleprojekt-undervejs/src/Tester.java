@@ -20,7 +20,7 @@ public class Tester {
         s.resetMedia();
         System.out.println(s.getLibrary().size());
 
-        ArrayList<String> a1 = new ArrayList();
+        ArrayList<String> a1 = new ArrayList<>();
         a1.add("Crime");
         System.out.println(s.sortByCategory(a1).get(0).getName());
 
@@ -32,7 +32,7 @@ public class Tester {
         System.out.println(str);
 
 
-        ArrayList<String> a2= new ArrayList();
+        ArrayList<String> a2= new ArrayList<>();
         a2.add("Crime");
         a2.add("Drama");
         for (int i = 0; i < 5; i++) {
