@@ -1,6 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 import java.lang.reflect.Array;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 
 public class View {
@@ -9,10 +12,10 @@ public class View {
     protected Controller controller;
     protected JTextField searchField;
 
-    public View(Controller controller){
+    public View(Controller controller) {
         this.controller = controller;
         jCheckBoxArrayList = new ArrayList<>();
-        }
+    }
 
     public void run(ArrayList<Media> media, ArrayList<String> genreList) {
         frame = new JFrame("playIT");
@@ -46,8 +49,9 @@ public class View {
 
         contentPane.add(northPanel, BorderLayout.NORTH);
 
-        searchButton.addActionListener(e -> { controller.searchForString(); } );
-
+        searchButton.addActionListener(e -> {
+            controller.searchForString();
+        });
 
 
         //WEST
@@ -61,18 +65,15 @@ public class View {
         //Tilføjer checkboxene
 
 
-
         for (String s : genreList) {
             JCheckBox tempBoxReference = new JCheckBox(s);
             westJPanel.add(tempBoxReference);
             jCheckBoxArrayList.add(tempBoxReference);
 
             tempBoxReference.addActionListener(e -> {
-            controller.searchByGenre();
-                } );
+                controller.searchByGenre();
+            });
         }
-
-
 
 
         //SOUTH
@@ -86,12 +87,15 @@ public class View {
         update(media);
 
 
-
     }
 
-    public ArrayList<JCheckBox> getJCheckBoxArrayList(){return jCheckBoxArrayList;}
+    public ArrayList<JCheckBox> getJCheckBoxArrayList() {
+        return jCheckBoxArrayList;
+    }
 
-    public String getSearchField(){return searchField.getText();}
+    public String getSearchField() {
+        return searchField.getText();
+    }
 
     public void update(ArrayList<Media> media) {
 
@@ -140,9 +144,9 @@ public class View {
                         //skalering af billede, så det passer med sit frame
                         int picWidth = m.getPictureFile().getWidth();
                         int picHeight = m.getPictureFile().getHeight();
-                        double picAspectRatio = (picWidth+0.0)/(picHeight+0.0);
+                        double picAspectRatio = (picWidth + 0.0) / (picHeight + 0.0);
                         picHeight = frameHeight;
-                        double newPicWidth  = picAspectRatio*picHeight;
+                        double newPicWidth = picAspectRatio * picHeight;
 
 
                         JLabel picture = new JLabel(new ImageIcon(new ImageIcon(m.getPictureFile()).getImage().getScaledInstance((int) newPicWidth, picHeight, Image.SCALE_SMOOTH)));
@@ -156,10 +160,10 @@ public class View {
                         aboutPanel.add(new JLabel("Title: " + m.getName()));
                         aboutPanel.add(new JLabel("Year: " + m.getYear()));
                         String genresAbout = "Genres: ";
-                        for (int i = 0; i < m.getGenres().length-1; i++) {
+                        for (int i = 0; i < m.getGenres().length - 1; i++) {
                             genresAbout = genresAbout + m.getGenres()[i] + ", ";
                         }
-                        genresAbout = genresAbout + m.getGenres()[m.getGenres().length-1];
+                        genresAbout = genresAbout + m.getGenres()[m.getGenres().length - 1];
 
                         aboutPanel.add(new JLabel(genresAbout));
                         aboutPanel.add(new JLabel("Rating: " + m.getRating()));
@@ -168,13 +172,14 @@ public class View {
 
                         JButton playButton = new JButton("Play");
                         playButton.addActionListener(ex -> {
-                            if (playButton.getBackground() == Color.GREEN) {
-                                playButton.setBackground(Color.RED);
-                            } else {
-                                playButton.setBackground(Color.GREEN);
-                            }
-                        });
-                        playButton.setBorderPainted(false);
+                                    if (playButton.getBackground() == Color.GREEN) {
+                                        playButton.setBackground(Color.RED);
+                                    } else {
+                                        playButton.setBackground(Color.GREEN);
+                                    }
+                                });
+
+                                playButton.setBorderPainted(false);
                         playButton.setFocusPainted(false);
                         mediaContentPane.add(playButton, BorderLayout.EAST);
                         mediaFrame.pack();
@@ -209,17 +214,17 @@ public class View {
         }
 
 
-
         BorderLayout tempLayout = (BorderLayout) frame.getContentPane().getLayout();
-        if(tempLayout.getLayoutComponent(BorderLayout.CENTER) != null) {
+        if (tempLayout.getLayoutComponent(BorderLayout.CENTER) != null) {
             frame.getContentPane().remove(tempLayout.getLayoutComponent(BorderLayout.CENTER));
         }
         frame.getContentPane().add(centerJScrollPane);
 
         frame.setVisible(true);
     }
-    public void displayNoSuchMovieException(){
-        JOptionPane.showMessageDialog(frame,"No movies matched your search-criteria");
+
+    public void displayNoSuchMovieException() {
+        JOptionPane.showMessageDialog(frame, "No movies matched your search-criteria");
 
     }
 }
