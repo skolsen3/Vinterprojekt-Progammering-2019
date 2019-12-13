@@ -24,32 +24,34 @@ public class SearchEngine {
         return genreList;
     }
 
-    public void clearLibrary(){library = new ArrayList();}
+    public void clearLibrary() {
+        library = new ArrayList();
+    }
 
     public ArrayList<Media> sortByName(String s) {
-        ArrayList<Media> tempList = new ArrayList<>();
-        for (Media m : library) {
+        clearLibrary();
+        for (Media m : originalLibrary) {
             if (m.getName().toLowerCase().contains(s)) {
-                tempList.add(m);
+                library.add(m);
             }
 
         }
         if (library.isEmpty()) {
             throw new NoSuchMediaException(s);
         } else {
-            return tempList;
+            return library;
         }
     }
 
     public ArrayList<Media> sortByCategory(ArrayList<String> Categories) {
         clearLibrary();
-        for(String cat : Categories){
-        for (Media m : originalLibrary) {
-            String str = Arrays.toString(m.getGenres());
-            if (str.contains(cat) && !library.contains(m)) {
-                library.add(m);
+        for (String cat : Categories) {
+            for (Media m : originalLibrary) {
+                String str = Arrays.toString(m.getGenres());
+                if (str.contains(cat) && !library.contains(m)) {
+                    library.add(m);
+                }
             }
-        }
         }
         if (library.isEmpty()) {
             throw new NoSuchMediaException("LegalString");
@@ -58,40 +60,6 @@ public class SearchEngine {
         }
     }
 
-    public ArrayList<Media> sortByCategory(String category1, String category2) {
-        clearLibrary();
-        for (Media m : originalLibrary) {
-            String str = Arrays.toString(m.getGenres());
-            if (str.contains(category1) ||
-                    (str.contains(category2))) {
-                library.add(m);
-            }
-
-        }
-        if (library.isEmpty()) {
-            throw new NoSuchMediaException(category1+","+category2);
-        } else {
-            return library;
-        }
-    }
-
-    public ArrayList<Media> sortByCategory(String category1, String category2, String category3) {
-       clearLibrary();
-        for (Media m : originalLibrary) {
-            String str = Arrays.toString(m.getGenres());
-            if (m.getGenres().toString().contains(category1) ||
-                    (str.contains(category2)) ||
-                    (str.contains(category3))) {
-                library.add(m);
-            }
-
-        }
-        if (library.isEmpty()) {
-            throw new NoSuchMediaException(category1+","+category2+","+category3);
-        } else {
-            return library;
-        }
-    }
 
     public ArrayList<Media> sortByTypeOfMedia(String typeOfMedia) {
         ArrayList<Media> tempList = new ArrayList<>();

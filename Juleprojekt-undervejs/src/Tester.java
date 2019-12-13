@@ -39,6 +39,8 @@ public class Tester {
             System.out.println(s.sortByCategory(a2).get(i).getName());
         }
 
+        System.out.println(s.getLibrary().get(0).getName());
+
     }
 
 }
