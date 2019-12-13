@@ -100,14 +100,15 @@ public class View {
                 JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
                 JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
-        GridLayout centerGrid = new GridLayout(0, 8);
-        //centerJPanel.setLayout(centerGrid);
+        //Her bruges WrapLayout klassen, som er en klasse vi har inkluderet i projektet, og som er fundet på nettet. Den extender FlowLayout,
+        //og "wrapper" teksten således at medierne tilpasser sig, når man resizer frame. Constructoren tager en "alignment" man tager direkte fra flowlayout
+        // som i det her tilfælde er FlowLayout.LEADING, sådan at medierne placeres venstre-mod-højre og ikke centreres, hvis der en sidste række med
+        // færre medier end de forrige rækker.
         centerJPanel.setLayout(new WrapLayout(FlowLayout.LEADING));
 
 
-        /*Hele den her for-løkke gennemløber medierne i søgemaskinens library. Den opretter medierne i et Grid-layout, tilføjer billederne til medierne, tilføjer "knapper" så man kan trykke på medierne,
-        og desuden tilføjer en label der viser filmens titel under billedet. Det er denne her lange metode, som nok skal sættes som en separat metode, således at man kan opdatere film-listen alt efter input
-        fra brugeren.
+        /*Hele den her for-løkke gennemløber medierne i søgemaskinens library. Den opretter medierne, tilføjer billederne til medierne, tilføjer "knapper" så man kan trykke på medierne,
+        og desuden tilføjer en label der viser filmens titel under billedet.
         */
         for (Media m : media) {
             JPanel gridPanel = new JPanel();
