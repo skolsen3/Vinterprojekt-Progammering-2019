@@ -38,6 +38,7 @@ public class Controller {
             view.update(searchEngine.sortByName(view.getSearchField()));
         } catch (NoSuchMediaException n) {
             System.out.println(n);
+            view.displayNoSuchMovieException();
             view.update(searchEngine.originalLibrary);
         }
     }

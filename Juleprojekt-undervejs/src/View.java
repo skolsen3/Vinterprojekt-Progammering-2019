@@ -218,4 +218,8 @@ public class View {
 
         frame.setVisible(true);
     }
+    public void displayNoSuchMovieException(){
+        JOptionPane.showMessageDialog(frame,"No movies matched your search-criteria");
+
+    }
 }
