@@ -12,7 +12,7 @@ public class View {
     public View(Controller controller){
         this.controller = controller;
         jCheckBoxArrayList = new ArrayList<>();
-    }
+        }
 
     public void run(ArrayList<Media> media, ArrayList<String> genreList) {
         frame = new JFrame("playIT");
