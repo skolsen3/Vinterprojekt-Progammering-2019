@@ -26,7 +26,7 @@ public class SearchEngine {
     }
 
     public void clearLibrary() {
-        library = new ArrayList();
+        library = new ArrayList<>();
     }
 
     public ArrayList<Media> sortByName(String s) {

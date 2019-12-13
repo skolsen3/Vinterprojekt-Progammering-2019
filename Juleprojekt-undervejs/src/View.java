@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -8,6 +9,7 @@ public class View {
     protected ArrayList<JCheckBox> jCheckBoxArrayList;
     protected Controller controller;
     protected JTextField searchField;
+    private static String filePath = new File("").getAbsolutePath();
 
     public View(Controller controller){
         this.controller = controller;
@@ -16,19 +18,15 @@ public class View {
 
     public void run(ArrayList<Media> media, ArrayList<String> genreList) {
         frame = new JFrame("playIT");
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
 
-        int frameHeight = screenSize.height;
-        int frameWidth = screenSize.width;
+        JLabel contentPane = new JLabel();
+        contentPane.setIcon(new ImageIcon(filePath + "/biografsæderbaggrundsbillede.jpg"));
 
+        // Container contentPane = frame.getContentPane();
 
-        //frame.setPreferredSize(new Dimension(frameWidth, frameHeight));
-
-
-        Container contentPane = frame.getContentPane();
         contentPane.setLayout(new BorderLayout());
-
+        frame.setContentPane(contentPane);
         //NORTH
         JPanel northPanel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
         JButton myListButton = new JButton("Min Liste");
@@ -171,6 +169,8 @@ public class View {
 
                         mediaContentPane.add(aboutPanel);
 
+                        //nogle knapper. en playknap, og to knapper, som kan tilføje eller fjerne film fra mylist. smider det hele ind i et boxlayout
+
                         JButton playButton = new JButton("Play");
                         playButton.addActionListener(ex -> {
                             if (playButton.getBackground() == Color.GREEN) {
@@ -181,7 +181,25 @@ public class View {
                         });
                         playButton.setBorderPainted(false);
                         playButton.setFocusPainted(false);
-                        mediaContentPane.add(playButton, BorderLayout.EAST);
+
+
+                        JButton addToMyListButton = new JButton("Add to MyList");
+                        addToMyListButton.setBorderPainted(false);
+                        addToMyListButton.setFocusPainted(false);
+
+
+                        JButton removeFromMyListButton = new JButton("Remove from MyList");
+                        removeFromMyListButton.setBorderPainted(false);
+                        removeFromMyListButton.setFocusPainted(false);
+
+                        JPanel buttonPanel = new JPanel();
+                        buttonPanel.setLayout(new GridLayout(0, 1));
+                        buttonPanel.add(playButton);
+                        buttonPanel.add(addToMyListButton);
+                        buttonPanel.add(removeFromMyListButton);
+
+                        mediaContentPane.add(buttonPanel, BorderLayout.EAST);
+
                         mediaFrame.pack();
                         mediaFrame.setLocationRelativeTo(null);
                         mediaFrame.setVisible(true);
