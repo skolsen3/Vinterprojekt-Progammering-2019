@@ -66,6 +66,14 @@ public class Controller {
     public void removeFromMyList(Media m){
         searchEngine.removeFromMyList(m);
     }
-
+   public void displayMyList(){
+       try {
+           view.update(searchEngine.getMyList());
+       } catch (NoSuchMediaException n) {
+           System.out.println(n);
+           view.displayNoSuchMovieException();
+           view.update(searchEngine.originalLibrary);
+       }
+   }
 }
 

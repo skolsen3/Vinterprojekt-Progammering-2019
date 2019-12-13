@@ -92,5 +92,6 @@ public class SearchEngine {
             myList.remove(m);
     }
 
+    public ArrayList<Media> getMyList(){ return myList; }
 
 }
