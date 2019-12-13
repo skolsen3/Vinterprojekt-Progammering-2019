@@ -16,7 +16,6 @@ import javax.swing.JPanel;
 
 public class FileReader {
     private BufferedReader bufferedReader;
-    private String sebStationær = "C:\\Users\\sebas\\OneDrive\\Skrivebord\\Dokumenter\\GitHub\\Vinterprojekt-Progammering-2019";
     private static String filePath = new File("").getAbsolutePath();
 
     // Creates BufferedReader which loads a file at the given filepath. Catches IOException in case of failure.
