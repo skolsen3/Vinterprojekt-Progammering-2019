@@ -29,7 +29,7 @@ public class SearchEngine {
     public ArrayList<Media> sortByName(String s) {
         ArrayList<Media> tempList = new ArrayList<>();
         for (Media m : library) {
-            if (m.getName().contains(s)) {
+            if (m.getName().toLowerCase().contains(s)) {
                 tempList.add(m);
             }
 
