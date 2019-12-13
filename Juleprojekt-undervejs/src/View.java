@@ -169,6 +169,8 @@ public class View {
 
                         mediaContentPane.add(aboutPanel);
 
+                        //nogle knapper. en playknap, og to knapper, som kan tilføje eller fjerne film fra mylist. smider det hele ind i et boxlayout
+
                         JButton playButton = new JButton("Play");
                         playButton.addActionListener(ex -> {
                             if (playButton.getBackground() == Color.GREEN) {
@@ -179,7 +181,25 @@ public class View {
                         });
                         playButton.setBorderPainted(false);
                         playButton.setFocusPainted(false);
-                        mediaContentPane.add(playButton, BorderLayout.EAST);
+
+
+                        JButton addToMyListButton = new JButton("Add to MyList");
+                        addToMyListButton.setBorderPainted(false);
+                        addToMyListButton.setFocusPainted(false);
+
+
+                        JButton removeFromMyListButton = new JButton("Remove from MyList");
+                        removeFromMyListButton.setBorderPainted(false);
+                        removeFromMyListButton.setFocusPainted(false);
+
+                        JPanel buttonPanel = new JPanel();
+                        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
+                        buttonPanel.add(playButton);
+                        buttonPanel.add(addToMyListButton);
+                        buttonPanel.add(removeFromMyListButton);
+
+                        mediaContentPane.add(buttonPanel, BorderLayout.EAST);
+
                         mediaFrame.pack();
                         mediaFrame.setLocationRelativeTo(null);
                         mediaFrame.setVisible(true);
