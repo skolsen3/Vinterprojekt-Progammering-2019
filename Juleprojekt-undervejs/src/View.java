@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -8,6 +9,7 @@ public class View {
     protected ArrayList<JCheckBox> jCheckBoxArrayList;
     protected Controller controller;
     protected JTextField searchField;
+    private static String filePath = new File("").getAbsolutePath();
 
     public View(Controller controller){
         this.controller = controller;
@@ -16,19 +18,15 @@ public class View {
 
     public void run(ArrayList<Media> media, ArrayList<String> genreList) {
         frame = new JFrame("playIT");
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
 
-        int frameHeight = screenSize.height;
-        int frameWidth = screenSize.width;
+        JLabel contentPane = new JLabel();
+        contentPane.setIcon(new ImageIcon(filePath + "/biografsæderbaggrundsbillede.jpg"));
 
+        // Container contentPane = frame.getContentPane();
 
-        //frame.setPreferredSize(new Dimension(frameWidth, frameHeight));
-
-
-        Container contentPane = frame.getContentPane();
         contentPane.setLayout(new BorderLayout());
-
+        frame.setContentPane(contentPane);
         //NORTH
         JPanel northPanel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
         JButton myListButton = new JButton("Min Liste");
