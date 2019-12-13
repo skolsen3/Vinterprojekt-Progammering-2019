@@ -48,6 +48,8 @@ public class View {
 
         searchButton.addActionListener(e -> { controller.searchForString(); } );
 
+        seriesButton.addActionListener(e1 -> {controller.showSeries(); });
+        movieButton.addActionListener(e2 -> { controller.showMovies(); });
 
 
         //WEST

@@ -42,5 +42,23 @@ public class Controller {
             view.update(searchEngine.originalLibrary);
         }
     }
+    public void showSeries(){
+        try {
+            view.update(searchEngine.sortByTypeOfMedia("Series"));
+        } catch (NoSuchMediaException n) {
+            System.out.println(n);
+            view.displayNoSuchMovieException();
+            view.update(searchEngine.originalLibrary);
+        }
+    }
+    public void showMovies(){
+        try {
+            view.update(searchEngine.sortByTypeOfMedia("Movie"));
+        } catch (NoSuchMediaException n) {
+            System.out.println(n);
+            view.displayNoSuchMovieException();
+            view.update(searchEngine.originalLibrary);
+        }
+    }
 }
 
