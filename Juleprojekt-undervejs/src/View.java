@@ -193,7 +193,7 @@ public class View {
                         removeFromMyListButton.setFocusPainted(false);
 
                         JPanel buttonPanel = new JPanel();
-                        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
+                        buttonPanel.setLayout(new GridLayout(0, 1));
                         buttonPanel.add(playButton);
                         buttonPanel.add(addToMyListButton);
                         buttonPanel.add(removeFromMyListButton);
