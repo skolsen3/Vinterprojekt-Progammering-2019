@@ -18,7 +18,7 @@ public class View {
 
     public void run(ArrayList<Media> media, ArrayList<String> genreList) {
         frame = new JFrame("playIT");
-
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         JLabel contentPane = new JLabel();
         contentPane.setIcon(new ImageIcon(filePath + "/biografsæderbaggrundsbillede.jpg"));
