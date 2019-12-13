@@ -33,7 +33,7 @@ public class SearchEngine {
     public ArrayList<Media> sortByName(String s) {
         clearLibrary();
         for (Media m : originalLibrary) {
-            if (m.getName().toLowerCase().contains(s)) {
+            if (m.getName().toLowerCase().contains(s.toLowerCase())) {
                 library.add(m);
             }
 
@@ -64,23 +64,22 @@ public class SearchEngine {
 
 
     public ArrayList<Media> sortByTypeOfMedia(String typeOfMedia) {
-        ArrayList<Media> tempList = new ArrayList<>();
-
+        clearLibrary();
         if (typeOfMedia.contains("Movie")) {
-            for (Media m : library) {
+            for (Media m : originalLibrary) {
                 if (m instanceof Movie) {
-                    tempList.add(m);
+                    library.add(m);
                 }
             }
         }
         if (typeOfMedia.contains("Series")) {
-            for (Media m : library) {
+            for (Media m : originalLibrary) {
                 if (m instanceof Series) {
-                    tempList.add(m);
+                    library.add(m);
                 }
             }
         }
-        return tempList;
+        return library;
     }
 
     public void addToMyList(Media m) {
