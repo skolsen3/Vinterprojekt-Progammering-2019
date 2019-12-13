@@ -60,5 +60,12 @@ public class Controller {
             view.update(searchEngine.originalLibrary);
         }
     }
+    public void addToMyList(Media m){
+        searchEngine.addToMyList(m);
+    }
+    public void removeFromMyList(Media m){
+        searchEngine.removeFromMyList(m);
+    }
+
 }
 

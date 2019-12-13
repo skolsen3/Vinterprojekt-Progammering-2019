@@ -5,6 +5,7 @@ public class SearchEngine {
     protected ArrayList<Media> library;
     protected ArrayList<Media> originalLibrary;
     protected ArrayList<String> genreList;
+    protected ArrayList<Media> myList;
 
     public SearchEngine() {
         library = FileReader.readMedia().get(0);
@@ -79,6 +80,16 @@ public class SearchEngine {
             }
         }
         return tempList;
+    }
+
+    public void addToMyList(Media m) {
+        if (!myList.contains(m))
+            myList.add(m);
+    }
+
+    public void removeFromMyList(Media m) {
+        if (!myList.contains(m))
+            myList.remove(m);
     }
 
 
