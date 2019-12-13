@@ -48,7 +48,7 @@ public class View {
 
         seriesButton.addActionListener(e1 -> {controller.showSeries(); });
         movieButton.addActionListener(e2 -> { controller.showMovies(); });
-
+        myListButton.addActionListener(e3 -> { controller.displayMyList();});
 
         //WEST
         //Nedenfor laves JPanel'et i West, som senere kommer til at indeholde nogle checkboxe
@@ -186,11 +186,13 @@ public class View {
                         JButton addToMyListButton = new JButton("Add to MyList");
                         addToMyListButton.setBorderPainted(false);
                         addToMyListButton.setFocusPainted(false);
+                        addToMyListButton.addActionListener(e5 -> {controller.addToMyList(m);});
 
 
                         JButton removeFromMyListButton = new JButton("Remove from MyList");
                         removeFromMyListButton.setBorderPainted(false);
                         removeFromMyListButton.setFocusPainted(false);
+                        removeFromMyListButton.addActionListener(e4 -> {controller.removeFromMyList(m);});
 
                         JPanel buttonPanel = new JPanel();
                         buttonPanel.setLayout(new GridLayout(0, 1));
