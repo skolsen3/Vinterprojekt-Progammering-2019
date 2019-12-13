@@ -216,9 +216,6 @@ public class View {
         }
         frame.getContentPane().add(centerJScrollPane);
 
-
-
-        frame.pack();
         frame.setVisible(true);
     }
 }
