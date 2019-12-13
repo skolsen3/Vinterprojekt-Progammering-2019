@@ -101,7 +101,8 @@ public class View {
                 JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
         GridLayout centerGrid = new GridLayout(0, 8);
-        centerJPanel.setLayout(centerGrid);
+        //centerJPanel.setLayout(centerGrid);
+        centerJPanel.setLayout(new WrapLayout(FlowLayout.LEADING));
 
 
         /*Hele den her for-løkke gennemløber medierne i søgemaskinens library. Den opretter medierne i et Grid-layout, tilføjer billederne til medierne, tilføjer "knapper" så man kan trykke på medierne,
@@ -110,13 +111,14 @@ public class View {
         */
         for (Media m : media) {
             JPanel gridPanel = new JPanel();
-            gridPanel.setLayout(new BorderLayout());
+            //Jeg sætter billedet sammen med en textLabel i et vertikalt BoxLayout, sådan så jeg sørger for, at der aldrig kommer luft mellem billede og tekst.
+            BoxLayout boxLayout = new BoxLayout(gridPanel, BoxLayout.Y_AXIS);
+            gridPanel.setLayout(boxLayout);
 
             //Billedet hentes direkte fra medie-objektet og bliver sat som ikon til en JButton, så man kan trykke på den.
             JButton picButton = new JButton(new ImageIcon(m.getPictureFile()));
-            //Billedknappens funktion. Hvad skal der ske, når man trykker på en film. Måske dialogboks?
 
-            //Prøver at få den til at åbne et nyt Frame, og så tage den derfra.
+            //Billedet åbner et nyt frame, henter information om mediet direkte fra objektet, og opretter en playknap :)
 
             picButton.addActionListener(e -> {
                         JFrame mediaFrame = new JFrame(m.getName());
@@ -183,28 +185,31 @@ public class View {
 
                     }
             );
-
             //Gør knappen lidt pænere, og sådan at den kun fylder billedet.
             picButton.setBorderPainted(false);
             picButton.setFocusPainted(false);
             picButton.setContentAreaFilled(false);
 
-
-            gridPanel.add(picButton, BorderLayout.CENTER);
+            //gamle kode, her blev billedeknap og tekstlabel blot tilføjet en ad gangen.
+            gridPanel.add(picButton);
 
             //Opretter tekst-lablen under billedet. Jeg tjekker efter et (abritært) antal tegn, og forkorter med "..." til sidst hvis titlen er for lang (ellers kommer der mellemrum mellem filmene).
             JLabel textLabel;
             if (m.getName().length() <= 17) {
-                textLabel = new JLabel(m.getName(), SwingConstants.CENTER);
+                textLabel = new JLabel(m.getName(), JLabel.CENTER);
             } else {
                 String shortenedText = "";
                 for (int i = 0; i <= 17; i++) {
                     shortenedText = shortenedText + m.getName().charAt(i);
                 }
-                textLabel = new JLabel(shortenedText + "...", SwingConstants.CENTER);
+                textLabel = new JLabel(shortenedText + "...", JLabel.CENTER);
 
             }
-            gridPanel.add(textLabel, BorderLayout.SOUTH);
+            gridPanel.add(textLabel);
+
+            textLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+            picButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+
             centerJPanel.add(gridPanel);
         }
 
