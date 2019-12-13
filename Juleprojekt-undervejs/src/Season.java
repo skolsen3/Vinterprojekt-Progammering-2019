@@ -11,6 +11,14 @@ public class Season {
         this.numberOfEpisodes = numberOfEpisodes;
     }
 
+    public void addEpisode(Episode episode) {
+        episodes.add(episode);
+    }
+
+    public void setEpisodes(ArrayList<Episode> episodes) {
+        this.episodes = episodes;
+    }
+
     public int getNumberOfEpisodes() {
         return numberOfEpisodes;
     }

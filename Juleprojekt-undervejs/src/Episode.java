@@ -1,8 +1,8 @@
 public class Episode {
-    protected boolean playable;
+    protected int episodeNumber;
 
-    public Episode(boolean playable) {
-        this.playable = playable;
+    public Episode(int episodeNumber) {
+        this.episodeNumber = episodeNumber;
     }
 
 

@@ -82,9 +82,27 @@ public class FileReader {
                 String[] genres = info[2].split(",");
                 String rating = info[3];
 
+                String[] seasonData = info[4].split(",");
+                String[][] seasonAndEpisodeData = new String[seasonData.length][2];
+
+                for(int i = 0; i<seasonData.length; i++) {
+                     seasonAndEpisodeData[i] = seasonData[i].split("-");
+                }
+
+                ArrayList<Season> seasons = new ArrayList<>();
+                for(int i = 0; i<seasonData.length; i++) {
+                    ArrayList<Episode> episodes = new ArrayList<>();
+                    for(int j = 0; j < Integer.parseInt(seasonAndEpisodeData[i][1]); j++) {
+                        Episode episode = new Episode(j);
+                        episodes.add(episode);
+                    }
+                    Season season = new Season(i+1, episodes, Integer.parseInt(seasonAndEpisodeData[i][1]));
+                    //Season constructor: int seasonNumber, ArrayList<Episode> episodes, int numberOfEpisodes
+                    seasons.add(season);
+                }
                 try {
                     BufferedImage image = ImageIO.read(new File(filePath + "/Serier - billeder/" + name + ".jpg"));
-                    Series series = new Series(name, year, genres, rating, image, null);
+                    Series series = new Series(name, year, genres, rating, image, seasons);
                     media.add(series);
                     for (String g : genres) {
                         if (!genreList.contains(g.trim()))
