@@ -11,6 +11,7 @@ public class SearchEngine {
         library = FileReader.readMedia().get(0);
         originalLibrary = library;
         genreList = FileReader.readMedia().get(1);
+        myList = new ArrayList<>();
     }
 
     public ArrayList<Media> getLibrary() {
@@ -88,7 +89,7 @@ public class SearchEngine {
     }
 
     public void removeFromMyList(Media m) {
-        if (!myList.contains(m))
+        if (myList.contains(m))
             myList.remove(m);
     }
 
