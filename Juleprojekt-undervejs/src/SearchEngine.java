@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -59,24 +60,27 @@ public class SearchEngine {
             }
         }
         if (viewState == 1) {
-            for (Media m : library) {
-                if (!(m instanceof Series)) {
-                    library.remove(m);
+            ArrayList<Media> tempList = new ArrayList<>();
+            for (Media m2 : library) {
+                if (!(m2 instanceof Movie)) {
+                    tempList.add(m2);
                 }
             }
+            library=tempList;
         }
         if (viewState == 2) {
-            for (Media m : library) {
-                if (!(m instanceof Movie)) {
-                    library.remove(m);
+            ArrayList<Media> tempList = new ArrayList<>();
+            for (Media m3 : library) {
+                if (!(m3 instanceof Series)) {
+                    tempList.add(m3);
                 }
             }
+            library = tempList;
         }
         if (library.isEmpty()) {
             throw new NoSuchMediaException("LegalString");
         } else {
             return library;
-
         }
     }
 
