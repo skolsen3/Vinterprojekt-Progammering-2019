@@ -6,6 +6,7 @@ public class SearchEngine {
     protected ArrayList<Media> originalLibrary;
     protected ArrayList<String> genreList;
     protected ArrayList<Media> myList;
+    protected int viewState;
 
     public SearchEngine() {
         library = FileReader.readMedia().get(0);
@@ -48,10 +49,26 @@ public class SearchEngine {
     public ArrayList<Media> sortByCategory(ArrayList<String> Categories) {
         clearLibrary();
         for (String cat : Categories) {
-            for (Media m : originalLibrary) {
-                String str = Arrays.toString(m.getGenres());
-                if (str.contains(cat) && !library.contains(m)) {
-                    library.add(m);
+
+                for (Media m : originalLibrary) {
+                    String str = Arrays.toString(m.getGenres());
+                    if (str.contains(cat) && !library.contains(m)) {
+                        library.add(m);
+
+                }
+            }
+        }
+        if (viewState == 1) {
+            for (Media m : library) {
+                if (!(m instanceof Series)) {
+                    library.remove(m);
+                }
+            }
+        }
+        if (viewState == 2) {
+            for (Media m : library) {
+                if (!(m instanceof Movie)) {
+                    library.remove(m);
                 }
             }
         }
@@ -59,6 +76,7 @@ public class SearchEngine {
             throw new NoSuchMediaException("LegalString");
         } else {
             return library;
+
         }
     }
 
@@ -92,6 +110,11 @@ public class SearchEngine {
             myList.remove(m);
     }
 
-    public ArrayList<Media> getMyList(){ return myList; }
+    public ArrayList<Media> getMyList() {
+        return myList;
+    }
 
+    public void setViewState(int viewState) {
+        this.viewState = viewState;
+    }
 }
