@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.io.File;
 import java.lang.reflect.Array;
@@ -11,89 +12,149 @@ public class View {
     protected JTextField searchField;
     private static String filePath = new File("").getAbsolutePath();
 
-    public View(Controller controller){
+    public View(Controller controller) {
         this.controller = controller;
         jCheckBoxArrayList = new ArrayList<>();
-        }
-
-    public void run(ArrayList<Media> media, ArrayList<String> genreList) {
-        frame = new JFrame("playIT");
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-        JLabel contentPane = new JLabel();
-        contentPane.setIcon(new ImageIcon(filePath + "/biografsæderbaggrundsbillede.jpg"));
-
-        // Container contentPane = frame.getContentPane();
-
-        contentPane.setLayout(new BorderLayout());
-        frame.setContentPane(contentPane);
-        //NORTH
-        JPanel northPanel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
-        JButton myListButton = new JButton("Min Liste");
-        JButton seriesButton = new JButton("Serier");
-        JButton movieButton = new JButton("Film");
-        searchField = new JTextField(16);
-        JButton searchButton = new JButton("?");
-        JButton userProfileButton = new JButton("(Bruger)");
-        northPanel.add(myListButton);
-        northPanel.add(seriesButton);
-        northPanel.add(movieButton);
-        northPanel.add(searchField);
-        northPanel.add(searchButton);
-        northPanel.add(userProfileButton);
-
-        contentPane.add(northPanel, BorderLayout.NORTH);
-
-        searchButton.addActionListener(e -> { controller.searchForString(); } );
-
-        seriesButton.addActionListener(e1 -> {controller.showSeries(); });
-        movieButton.addActionListener(e2 -> { controller.showMovies(); });
-        myListButton.addActionListener(e3 -> { controller.displayMyList();});
-
-        //WEST
-        //Nedenfor laves JPanel'et i West, som senere kommer til at indeholde nogle checkboxe
-        JPanel westJPanel = new JPanel();
-        contentPane.add(westJPanel, BorderLayout.WEST);
-
-        //JPanel'et bliver lavet som vertikalt boxlayout, det er her hhv checkboxe og kategorier kommer til at stå under hinanden
-        westJPanel.setLayout(new BoxLayout(westJPanel, BoxLayout.Y_AXIS));
-
-        //Tilføjer checkboxene
-
-
-
-        for (String s : genreList) {
-            JCheckBox tempBoxReference = new JCheckBox(s);
-            westJPanel.add(tempBoxReference);
-            jCheckBoxArrayList.add(tempBoxReference);
-
-            tempBoxReference.addActionListener(e -> {
-            controller.searchByGenre();
-                } );
-        }
-
-
-
-
-        //SOUTH
-        JPanel southPanel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
-        JLabel rightsLabel = new JLabel("ALL RIGHTS RESERVED. TM & COPYRIGHT");
-        southPanel.add(rightsLabel);
-        contentPane.add(southPanel, BorderLayout.SOUTH);
-
-        //CENTER
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        update(media);
-
-
     }
 
-    public ArrayList<JCheckBox> getJCheckBoxArrayList(){return jCheckBoxArrayList;}
 
-    public String getSearchField(){return searchField.getText();}
+    public void run(ArrayList<Media> media, ArrayList<String> genreList) {
+        JFrame loginFrame = new JFrame("Login screen");
+        Container loginFrameContentPane = loginFrame.getContentPane();
+        loginFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        JPanel panelBox = new JPanel();
+        panelBox.setLayout(new BoxLayout(panelBox, BoxLayout.Y_AXIS));
+        JPanel upperRow = new JPanel(new GridLayout(1, 2));
+        JPanel lowerRow = new JPanel(new GridLayout(1, 2));
+        JLabel userLabel = new JLabel("Username: ");
+        JLabel passLabel = new JLabel("Password: ");
+        JTextField usernameField = new JTextField();
+        JTextField passwordField = new JTextField();
+        JButton loginButton = new JButton("Login");
+        upperRow.add(userLabel);
+        upperRow.add(usernameField);
+        lowerRow.add(passLabel);
+        lowerRow.add(passwordField);
+
+        // lidt visuelle tilføjelser.
+        usernameField.setColumns(20);
+        passwordField.setColumns(20);
+        usernameField.setBorder(new LineBorder(Color.DARK_GRAY, 1));
+        passwordField.setBorder(new LineBorder(Color.DARK_GRAY, 1));
+        upperRow.setBackground(Color.LIGHT_GRAY);
+        lowerRow.setBackground(Color.LIGHT_GRAY);
+        loginFrameContentPane.setBackground(Color.LIGHT_GRAY);
+
+        JLabel backGroundPicture = new JLabel(new ImageIcon(filePath + "/mald.png"));
+
+        panelBox.add(backGroundPicture);
+        panelBox.add(upperRow);
+        panelBox.add(lowerRow);
+        panelBox.add(loginButton);
+
+        loginFrameContentPane.add(panelBox);
+        loginFrame.pack();
+        loginFrameContentPane.setLocationRelativeTo(null);
+
+
+        loginFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        loginFrame.setVisible(true);
+
+        // hvis man klikker på login og har indtastet de rigtige oplysninger bliver vinduet usynligt
+        loginButton.addActionListener(login -> {
+            if (usernameField.getText().equals("admin") && passwordField.getText().equals("admin")) {
+                loginFrame.setVisible(false);
+                frame = new JFrame("playIT");
+                frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+                JLabel contentPane = new JLabel();
+                contentPane.setIcon(new ImageIcon(filePath + "/biografsæderbaggrundsbillede.jpg"));
+
+                // Container contentPane = frame.getContentPane();
+
+                contentPane.setLayout(new BorderLayout());
+                frame.setContentPane(contentPane);
+                //NORTH
+                JPanel northPanel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
+                JButton myListButton = new JButton("Min Liste");
+                JButton seriesButton = new JButton("Serier");
+                JButton movieButton = new JButton("Film");
+                searchField = new JTextField(16);
+                JButton searchButton = new JButton("?");
+                JButton userProfileButton = new JButton("(Bruger)");
+                northPanel.add(myListButton);
+                northPanel.add(seriesButton);
+                northPanel.add(movieButton);
+                northPanel.add(searchField);
+                northPanel.add(searchButton);
+                northPanel.add(userProfileButton);
+
+                contentPane.add(northPanel, BorderLayout.NORTH);
+
+                searchButton.addActionListener(e -> {
+                    controller.searchForString();
+                });
+
+                seriesButton.addActionListener(e1 -> {
+                    controller.showSeries();
+                });
+                movieButton.addActionListener(e2 -> {
+                    controller.showMovies();
+                });
+                myListButton.addActionListener(e3 -> {
+                    controller.displayMyList();
+                });
+
+                //WEST
+                //Nedenfor laves JPanel'et i West, som senere kommer til at indeholde nogle checkboxe
+                JPanel westJPanel = new JPanel();
+                contentPane.add(westJPanel, BorderLayout.WEST);
+
+                //JPanel'et bliver lavet som vertikalt boxlayout, det er her hhv checkboxe og kategorier kommer til at stå under hinanden
+                westJPanel.setLayout(new BoxLayout(westJPanel, BoxLayout.Y_AXIS));
+
+                //Tilføjer checkboxene
+
+
+                for (String s : genreList) {
+                    JCheckBox tempBoxReference = new JCheckBox(s);
+                    westJPanel.add(tempBoxReference);
+                    jCheckBoxArrayList.add(tempBoxReference);
+
+                    tempBoxReference.addActionListener(e -> {
+                        controller.searchByGenre();
+                    });
+                }
+
+
+                //SOUTH
+                JPanel southPanel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
+                JLabel rightsLabel = new JLabel("ALL RIGHTS RESERVED. TM & COPYRIGHT");
+                southPanel.add(rightsLabel);
+                contentPane.add(southPanel, BorderLayout.SOUTH);
+
+                //CENTER
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                update(media);
+            } else {
+                JOptionPane.showMessageDialog(loginFrame, "Wrong username or password.");
+            }
+
+
+
+        });
+    }
+
+    public ArrayList<JCheckBox> getJCheckBoxArrayList() {
+        return jCheckBoxArrayList;
+    }
+
+    public String getSearchField() {
+        return searchField.getText();
+    }
 
     public void update(ArrayList<Media> media) {
-
         JPanel centerJPanel = new JPanel();
         JScrollPane centerJScrollPane = new JScrollPane(centerJPanel,
                 JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
@@ -142,9 +203,9 @@ public class View {
                         //skalering af billede, så det passer med sit frame
                         int picWidth = m.getPictureFile().getWidth();
                         int picHeight = m.getPictureFile().getHeight();
-                        double picAspectRatio = (picWidth+0.0)/(picHeight+0.0);
+                        double picAspectRatio = (picWidth + 0.0) / (picHeight + 0.0);
                         picHeight = frameHeight;
-                        double newPicWidth  = picAspectRatio*picHeight;
+                        double newPicWidth = picAspectRatio * picHeight;
 
 
                         JLabel picture = new JLabel(new ImageIcon(new ImageIcon(m.getPictureFile()).getImage().getScaledInstance((int) newPicWidth, picHeight, Image.SCALE_SMOOTH)));
@@ -158,10 +219,10 @@ public class View {
                         aboutPanel.add(new JLabel("Title: " + m.getName()));
                         aboutPanel.add(new JLabel("Year: " + m.getYear()));
                         String genresAbout = "Genres: ";
-                        for (int i = 0; i < m.getGenres().length-1; i++) {
+                        for (int i = 0; i < m.getGenres().length - 1; i++) {
                             genresAbout = genresAbout + m.getGenres()[i] + ", ";
                         }
-                        genresAbout = genresAbout + m.getGenres()[m.getGenres().length-1];
+                        genresAbout = genresAbout + m.getGenres()[m.getGenres().length - 1];
 
                         aboutPanel.add(new JLabel(genresAbout));
                         aboutPanel.add(new JLabel("Rating: " + m.getRating()));
@@ -185,13 +246,17 @@ public class View {
                         JButton addToMyListButton = new JButton("Add to MyList");
                         addToMyListButton.setBorderPainted(false);
                         addToMyListButton.setFocusPainted(false);
-                        addToMyListButton.addActionListener(e5 -> {controller.addToMyList(m);});
+                        addToMyListButton.addActionListener(e5 -> {
+                            controller.addToMyList(m);
+                        });
 
 
                         JButton removeFromMyListButton = new JButton("Remove from MyList");
                         removeFromMyListButton.setBorderPainted(false);
                         removeFromMyListButton.setFocusPainted(false);
-                        removeFromMyListButton.addActionListener(e4 -> {controller.removeFromMyList(m);});
+                        removeFromMyListButton.addActionListener(e4 -> {
+                            controller.removeFromMyList(m);
+                        });
 
                         JPanel buttonPanel = new JPanel();
                         buttonPanel.setLayout(new GridLayout(0, 1));
@@ -236,16 +301,15 @@ public class View {
         }
 
 
-
         BorderLayout tempLayout = (BorderLayout) frame.getContentPane().getLayout();
-        if(tempLayout.getLayoutComponent(BorderLayout.CENTER) != null) {
+        if (tempLayout.getLayoutComponent(BorderLayout.CENTER) != null) {
             frame.getContentPane().remove(tempLayout.getLayoutComponent(BorderLayout.CENTER));
         }
         frame.getContentPane().add(centerJScrollPane);
 
         frame.setVisible(true);
-    }
 
+    }
 
     public void displayNoSuchMovieException() {
         JOptionPane.showMessageDialog(frame, "No movies matched your search-criteria");
