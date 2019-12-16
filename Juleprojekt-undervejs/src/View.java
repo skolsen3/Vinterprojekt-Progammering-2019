@@ -33,7 +33,7 @@ public class View {
         JButton seriesButton = new JButton("Serier");
         JButton movieButton = new JButton("Film");
         searchField = new JTextField(16);
-        JButton searchButton = new JButton("?");
+        JButton searchButton = new JButton("Search");
         JButton userProfileButton = new JButton("(Bruger)");
         northPanel.add(myListButton);
         northPanel.add(seriesButton);
