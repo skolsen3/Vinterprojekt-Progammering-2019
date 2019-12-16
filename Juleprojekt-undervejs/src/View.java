@@ -50,6 +50,8 @@ public class View {
             controller.searchForString();
         });
 
+        searchField.addActionListener(e7 -> {controller.searchForString();});
+
         seriesButton.addActionListener(e1 -> {
             controller.showSeries();
         });
