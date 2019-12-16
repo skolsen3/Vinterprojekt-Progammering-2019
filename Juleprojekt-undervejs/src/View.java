@@ -86,7 +86,6 @@ public class View {
         update(media);
 
 
-
     }
 
     public ArrayList<JCheckBox> getJCheckBoxArrayList(){return jCheckBoxArrayList;}
