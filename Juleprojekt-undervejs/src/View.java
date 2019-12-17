@@ -42,9 +42,11 @@ public class View {
         JTextField passwordField = new JPasswordField();
         passwordField.setFont(new Font("Verdana", Font.PLAIN, 26));
 
+
         JButton loginButton = new JButton("Login");
         loginButton.setFont(new Font("Verdana", Font.PLAIN, 26));
 
+        passwordField.addActionListener(e8 -> { loginButton.doClick();});
         upperRow.add(userLabel);
         upperRow.add(usernameField);
         lowerRow.add(passLabel);
