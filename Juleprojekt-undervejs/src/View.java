@@ -4,6 +4,8 @@ import java.awt.*;
 import java.io.File;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.io.*;
+import java.io.IOException;
 
 public class View {
     protected static JFrame frame;
@@ -16,7 +18,6 @@ public class View {
         this.controller = controller;
         jCheckBoxArrayList = new ArrayList<>();
     }
-
 
     public void run(ArrayList<Media> media, ArrayList<String> genreList) {
         JFrame loginFrame = new JFrame("Login screen");
@@ -71,9 +72,6 @@ public class View {
 
         loginFrameContentPane.add(panelBox);
 
-        //loginFrameContentPane.setLocationRelativeTo(null);
-
-
         loginFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         loginFrame.setVisible(true);
 
@@ -81,77 +79,102 @@ public class View {
         loginButton.addActionListener(login -> {
             if (usernameField.getText().equals("admin") && passwordField.getText().equals("admin")) {
                 loginFrame.setVisible(false);
+                runStreamingService(media, genreList);
+            } else {
+                JOptionPane.showMessageDialog(loginFrame, "Wrong username or password.");
+            }
+        });
+    }
+
+
+    public void runStreamingService(ArrayList<Media> media, ArrayList<String> genreList) {
                 frame = new JFrame("playIT");
                 frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-                JLabel contentPane = new JLabel();
-                contentPane.setIcon(new ImageIcon(filePath + "/mald.png"));
+        try {
+            final Image backgroundImage = javax.imageio.ImageIO.read(new File(filePath + "/biografsæderbaggrundsbillede.jpg"));
+            frame.setContentPane(new JPanel(new BorderLayout()) {
+                @Override public void paintComponent(Graphics g) {
+                    g.drawImage(backgroundImage, 0, 0, null);
+                }
+            });
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+                Container contentPane = frame.getContentPane();
 
                 // Container contentPane = frame.getContentPane();
 
-        contentPane.setLayout(new BorderLayout());
-        frame.setContentPane(contentPane);
-        //NORTH
-        JPanel northPanel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
-        JButton myListButton = new JButton("My List");
-        JButton allMediaButton = new JButton("All media");
-        JButton seriesButton = new JButton("Series");
-        JButton movieButton = new JButton("Movies");
-        searchField = new JTextField(16);
-        JButton searchButton = new JButton("Search");
-        JButton userProfileButton = new JButton("User");
-        northPanel.add(myListButton);
-        northPanel.add(allMediaButton);
-        northPanel.add(seriesButton);
-        northPanel.add(movieButton);
-        northPanel.add(searchField);
-        northPanel.add(searchButton);
-        northPanel.add(userProfileButton);
+                contentPane.setLayout(new BorderLayout());
+                frame.setContentPane(contentPane);
+                //NORTH
+                JPanel northPanel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
+                JButton myListButton = new JButton("My List");
+                JButton allMediaButton = new JButton("All media");
+                JButton seriesButton = new JButton("Series");
+                JButton movieButton = new JButton("Movies");
+                searchField = new JTextField(16);
+                JButton searchButton = new JButton("Search");
+                JButton userProfileButton = new JButton("User");
+                northPanel.add(myListButton);
+                northPanel.add(allMediaButton);
+                northPanel.add(seriesButton);
+                northPanel.add(movieButton);
+                northPanel.add(searchField);
+                northPanel.add(searchButton);
+                northPanel.add(userProfileButton);
 
-        contentPane.add(northPanel, BorderLayout.NORTH);
+                northPanel.setOpaque(false);
 
-        searchButton.addActionListener(e -> {
-            controller.searchForString();
-        });
+                contentPane.add(northPanel, BorderLayout.NORTH);
 
-        searchField.addActionListener(e7 -> {controller.searchForString();});
+                searchButton.addActionListener(e -> {
+                    controller.searchForString();
+                });
 
-        seriesButton.addActionListener(e1 -> {
-            controller.showSeries();
-        });
-        movieButton.addActionListener(e2 -> {
-            controller.showMovies();
-        });
-        myListButton.addActionListener(e3 -> {
-            controller.displayMyList();
-        });
-        allMediaButton.addActionListener(e6 -> {
-            controller.displayAllMedia();
-        });
-        //WEST
-        //Nedenfor laves JPanel'et i West, som senere kommer til at indeholde nogle checkboxe
-        JPanel westJPanel = new JPanel();
-        contentPane.add(westJPanel, BorderLayout.WEST);
+                searchField.addActionListener(e7 -> {
+                    controller.searchForString();
+                });
 
-        //JPanel'et bliver lavet som vertikalt boxlayout, det er her hhv checkboxe og kategorier kommer til at stå under hinanden
-        westJPanel.setLayout(new BoxLayout(westJPanel, BoxLayout.Y_AXIS));
+                seriesButton.addActionListener(e1 -> {
+                    controller.showSeries();
+                });
+                movieButton.addActionListener(e2 -> {
+                    controller.showMovies();
+                });
+                myListButton.addActionListener(e3 -> {
+                    controller.displayMyList();
+                });
+                allMediaButton.addActionListener(e6 -> {
+                    controller.displayAllMedia();
+                });
+                //WEST
+                //Nedenfor laves JPanel'et i West, som senere kommer til at indeholde nogle checkboxe
+                JPanel westJPanel = new JPanel();
+                contentPane.add(westJPanel, BorderLayout.WEST);
 
-        //Tilføjer checkboxene
-        JButton clearSearchButton = new JButton("Clear Search");
-        westJPanel.add(clearSearchButton);
-        clearSearchButton.addActionListener(e6 -> {
-            for(JCheckBox j: jCheckBoxArrayList){
-                if (j.isSelected()) {
-                j.doClick();
-                }
-                }
+                westJPanel.setOpaque(false);
 
-            controller.clearSearch(); });
+                //JPanel'et bliver lavet som vertikalt boxlayout, det er her hhv checkboxe og kategorier kommer til at stå under hinanden
+                westJPanel.setLayout(new BoxLayout(westJPanel, BoxLayout.Y_AXIS));
+
+                //Tilføjer checkboxene
+                JButton clearSearchButton = new JButton("Clear Search");
+                westJPanel.add(clearSearchButton);
+                clearSearchButton.addActionListener(e6 -> {
+                    for (JCheckBox j : jCheckBoxArrayList) {
+                        if (j.isSelected()) {
+                            j.doClick();
+                        }
+                    }
+
+                    controller.clearSearch();
+                });
 
 
-        //
-        for (String s : genreList) {
+                //
+                for (String s : genreList) {
             JCheckBox tempBoxReference = new JCheckBox(s);
+            tempBoxReference.setOpaque(false);
             westJPanel.add(tempBoxReference);
             jCheckBoxArrayList.add(tempBoxReference);
 
@@ -165,18 +188,13 @@ public class View {
                 JPanel southPanel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
                 JLabel rightsLabel = new JLabel("ALL RIGHTS RESERVED. TM & COPYRIGHT");
                 southPanel.add(rightsLabel);
+                southPanel.setOpaque(false);
                 contentPane.add(southPanel, BorderLayout.SOUTH);
 
                 //CENTER
                 frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 update(media);
-            } else {
-                JOptionPane.showMessageDialog(loginFrame, "Wrong username or password.");
-            }
 
-
-
-        });
     }
 
     public ArrayList<JCheckBox> getJCheckBoxArrayList() {
@@ -190,10 +208,11 @@ public class View {
     public void update(ArrayList<Media> media) {
 
         JPanel centerJPanel = new JPanel();
+        centerJPanel.setOpaque(false);
         JScrollPane centerJScrollPane = new JScrollPane(centerJPanel,
                 JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
                 JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-
+        centerJScrollPane.setOpaque(false);
         //Her bruges WrapLayout klassen, som er en klasse vi har inkluderet i projektet, og som er fundet på nettet. Den extender FlowLayout,
         //og "wrapper" teksten således at medierne tilpasser sig, når man resizer frame. Constructoren tager en "alignment" man tager direkte fra flowlayout
         // som i det her tilfælde er FlowLayout.LEADING, sådan at medierne placeres venstre-mod-højre og ikke centreres, hvis der en sidste række med
@@ -201,13 +220,17 @@ public class View {
         centerJPanel.setLayout(new WrapLayout(FlowLayout.LEADING));
 
 
+
         /*Hele den her for-løkke gennemløber medierne i søgemaskinens library. Den opretter medierne, tilføjer billederne til medierne, tilføjer "knapper" så man kan trykke på medierne,
         og desuden tilføjer en label der viser filmens titel under billedet.
         */
         for (Media m : media) {
             JPanel gridPanel = new JPanel();
+            gridPanel.setOpaque(false);
+
             //Jeg sætter billedet sammen med en textLabel i et vertikalt BoxLayout, sådan så jeg sørger for, at der aldrig kommer luft mellem billede og tekst.
             BoxLayout boxLayout = new BoxLayout(gridPanel, BoxLayout.Y_AXIS);
+
             gridPanel.setLayout(boxLayout);
 
             //Billedet hentes direkte fra medie-objektet og bliver sat som ikon til en JButton, så man kan trykke på den.
@@ -311,27 +334,31 @@ public class View {
             picButton.setFocusPainted(false);
             picButton.setContentAreaFilled(false);
 
-            //gamle kode, her blev billedeknap og tekstlabel blot tilføjet en ad gangen.
             gridPanel.add(picButton);
 
             //Opretter tekst-lablen under billedet. Jeg tjekker efter et (abritært) antal tegn, og forkorter med "..." til sidst hvis titlen er for lang (ellers kommer der mellemrum mellem filmene).
             JLabel textLabel;
+
             if (m.getName().trim().length() <= 17) {
                 textLabel = new JLabel(m.getName(), JLabel.CENTER);
             } else {
                 String shortenedText = "";
-                for (int i = 0; i <= 17; i++) {
+                for (int i = 0; i < 17; i++) {
                     shortenedText = shortenedText + m.getName().charAt(i);
                 }
                 textLabel = new JLabel(shortenedText + "...", JLabel.CENTER);
 
             }
+            textLabel.setOpaque(false);
             gridPanel.add(textLabel);
 
             textLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
             picButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+
+
             centerJPanel.add(gridPanel);
+
         }
 
 
@@ -339,8 +366,9 @@ public class View {
         if (tempLayout.getLayoutComponent(BorderLayout.CENTER) != null) {
             frame.getContentPane().remove(tempLayout.getLayoutComponent(BorderLayout.CENTER));
         }
-        frame.getContentPane().add(centerJScrollPane);
 
+
+        frame.getContentPane().add(centerJScrollPane);
         frame.setVisible(true);
     }
 
