@@ -274,7 +274,7 @@ public class View {
 
             picButton.addActionListener(e -> {
                         JFrame mediaFrame = new JFrame(m.getName());
-                        mediaFrame.getContentPane().setBackground(Color.black);
+
                         //skalerer framet, så det ser pænere ud
 
                         // get the screen size as a java dimension
