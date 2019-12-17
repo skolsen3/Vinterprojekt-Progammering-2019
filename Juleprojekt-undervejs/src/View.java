@@ -124,8 +124,16 @@ public class View {
         westJPanel.setLayout(new BoxLayout(westJPanel, BoxLayout.Y_AXIS));
 
         //Tilføjer checkboxene
-        JCheckBox clearSearch = new JCheckBox("Clear Search");
-        clearSearch.addActionListener(e6 -> {controller.clearSearch();});
+        JButton clearSearchButton = new JButton("Clear Search");
+        westJPanel.add(clearSearchButton);
+        clearSearchButton.addActionListener(e6 -> {
+            for(JCheckBox j: jCheckBoxArrayList){
+                if (j.isSelected()) {
+                j.doClick();
+                }
+                }
+
+            controller.clearSearch(); });
 
 
         //
