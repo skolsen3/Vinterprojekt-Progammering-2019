@@ -22,16 +22,19 @@ public class View {
         JFrame loginFrame = new JFrame("Login screen");
         Container loginFrameContentPane = loginFrame.getContentPane();
         loginFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
+        loginFrameContentPane.setLayout(new FlowLayout(FlowLayout.CENTER));
         JPanel panelBox = new JPanel();
         panelBox.setLayout(new BoxLayout(panelBox, BoxLayout.Y_AXIS));
+
         JPanel upperRow = new JPanel(new GridLayout(1, 2));
         JPanel lowerRow = new JPanel(new GridLayout(1, 2));
+
         JLabel userLabel = new JLabel("Username: ");
         JLabel passLabel = new JLabel("Password: ");
         JTextField usernameField = new JTextField();
         JTextField passwordField = new JTextField();
         JButton loginButton = new JButton("Login");
+
         upperRow.add(userLabel);
         upperRow.add(usernameField);
         lowerRow.add(passLabel);
@@ -54,8 +57,8 @@ public class View {
         panelBox.add(loginButton);
 
         loginFrameContentPane.add(panelBox);
-        loginFrame.pack();
-        loginFrameContentPane.setLocationRelativeTo(null);
+
+        //loginFrameContentPane.setLocationRelativeTo(null);
 
 
         loginFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
