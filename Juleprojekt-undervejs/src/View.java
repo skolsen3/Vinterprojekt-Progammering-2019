@@ -66,7 +66,8 @@ public class View {
         lowerRow.add(passLabel);
         lowerRow.add(passwordField);
 
-        JLabel loginIcon = new JLabel(new ImageIcon(filePath + "/mald.png"));
+        JLabel loginIcon = new JLabel(new ImageIcon(filePath + "/popcorn-cinema.jpg"));
+        loginIcon.setOpaque(false);
         loginIcon.setAlignmentX(Component.CENTER_ALIGNMENT);
         upperRow.setAlignmentX(Component.CENTER_ALIGNMENT);
         lowerRow.setAlignmentX(Component.CENTER_ALIGNMENT);
