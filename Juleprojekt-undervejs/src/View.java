@@ -31,12 +31,16 @@ public class View {
 
         JLabel userLabel = new JLabel("Username: ");
         userLabel.setFont(new Font("Verdana", Font.PLAIN, 26));
+
         JLabel passLabel = new JLabel("Password: ");
         passLabel.setFont(new Font("Verdana", Font.PLAIN, 26));
+
         JTextField usernameField = new JTextField();
         usernameField.setFont(new Font("Verdana", Font.PLAIN, 26));
-        JTextField passwordField = new JTextField();
+
+        JTextField passwordField = new JPasswordField();
         passwordField.setFont(new Font("Verdana", Font.PLAIN, 26));
+
         JButton loginButton = new JButton("Login");
         loginButton.setFont(new Font("Verdana", Font.PLAIN, 26));
 
