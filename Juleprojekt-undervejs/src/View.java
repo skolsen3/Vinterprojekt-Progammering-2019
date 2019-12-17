@@ -200,7 +200,7 @@ public class View {
         for (String s : genreList) {
             JCheckBox tempBoxReference = new JCheckBox(s);
             tempBoxReference.setOpaque(false);
-            tempBoxReference.setFont(new Font("Verdana", Font.PLAIN, 11));
+            tempBoxReference.setFont(new Font("Verdana", Font.BOLD, 11));
             tempBoxReference.setForeground(Color.white);
             westJPanel.add(tempBoxReference);
             jCheckBoxArrayList.add(tempBoxReference);
@@ -404,7 +404,7 @@ public class View {
                 textLabel = new JLabel(shortenedText + "...", JLabel.CENTER);
 
             }
-            textLabel.setFont(new Font("Verdana", Font.PLAIN, 11));
+            textLabel.setFont(new Font("Verdana", Font.BOLD, 11));
             textLabel.setForeground(Color.white);
             textLabel.setOpaque(false);
             gridPanel.add(textLabel);
