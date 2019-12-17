@@ -215,6 +215,7 @@ public class View {
                 JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
                 JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         centerJScrollPane.setOpaque(false);
+        centerJScrollPane.getViewport().setOpaque(false);
         //Her bruges WrapLayout klassen, som er en klasse vi har inkluderet i projektet, og som er fundet på nettet. Den extender FlowLayout,
         //og "wrapper" teksten således at medierne tilpasser sig, når man resizer frame. Constructoren tager en "alignment" man tager direkte fra flowlayout
         // som i det her tilfælde er FlowLayout.LEADING, sådan at medierne placeres venstre-mod-højre og ikke centreres, hvis der en sidste række med
@@ -237,7 +238,7 @@ public class View {
 
             //Billedet hentes direkte fra medie-objektet og bliver sat som ikon til en JButton, så man kan trykke på den.
             JButton picButton = new JButton(new ImageIcon(m.getPictureFile()));
-
+            picButton.setOpaque(false);
             //Billedet åbner et nyt frame, henter information om mediet direkte fra objektet, og opretter en playknap :)
 
             picButton.addActionListener(e -> {
