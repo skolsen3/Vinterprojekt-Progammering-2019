@@ -93,14 +93,14 @@ public class View {
                 frame = new JFrame("playIT");
                 frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         try {
-            final Image backgroundImage = javax.imageio.ImageIO.read(new File(filePath + "/biografsæderbaggrundsbillede.jpg"));
+            Image backgroundImage = javax.imageio.ImageIO.read(new File(filePath + "/biografsæderbaggrundsbillede.jpg"));
             frame.setContentPane(new JPanel(new BorderLayout()) {
                 @Override public void paintComponent(Graphics g) {
-                    g.drawImage(backgroundImage, 0, 0, null);
+                    g.drawImage(backgroundImage.getScaledInstance((Math.round((int)Toolkit.getDefaultToolkit().getScreenSize().getWidth())), -1, Image.SCALE_SMOOTH), 0, 0, null);
                 }
             });
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.getStackTrace();
         }
                 Container contentPane = frame.getContentPane();
 
