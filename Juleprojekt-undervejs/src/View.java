@@ -73,59 +73,68 @@ public class View {
 
                 // Container contentPane = frame.getContentPane();
 
-                contentPane.setLayout(new BorderLayout());
-                frame.setContentPane(contentPane);
-                //NORTH
-                JPanel northPanel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
-                JButton myListButton = new JButton("Min Liste");
-                JButton seriesButton = new JButton("Serier");
-                JButton movieButton = new JButton("Film");
-                searchField = new JTextField(16);
-                JButton searchButton = new JButton("?");
-                JButton userProfileButton = new JButton("(Bruger)");
-                northPanel.add(myListButton);
-                northPanel.add(seriesButton);
-                northPanel.add(movieButton);
-                northPanel.add(searchField);
-                northPanel.add(searchButton);
-                northPanel.add(userProfileButton);
+        contentPane.setLayout(new BorderLayout());
+        frame.setContentPane(contentPane);
+        //NORTH
+        JPanel northPanel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
+        JButton myListButton = new JButton("My List");
+        JButton allMediaButton = new JButton("All media");
+        JButton seriesButton = new JButton("Series");
+        JButton movieButton = new JButton("Movies");
+        searchField = new JTextField(16);
+        JButton searchButton = new JButton("Search");
+        JButton userProfileButton = new JButton("User");
+        northPanel.add(myListButton);
+        northPanel.add(allMediaButton);
+        northPanel.add(seriesButton);
+        northPanel.add(movieButton);
+        northPanel.add(searchField);
+        northPanel.add(searchButton);
+        northPanel.add(userProfileButton);
 
-                contentPane.add(northPanel, BorderLayout.NORTH);
+        contentPane.add(northPanel, BorderLayout.NORTH);
 
-                searchButton.addActionListener(e -> {
-                    controller.searchForString();
-                });
+        searchButton.addActionListener(e -> {
+            controller.searchForString();
+        });
 
-                seriesButton.addActionListener(e1 -> {
-                    controller.showSeries();
-                });
-                movieButton.addActionListener(e2 -> {
-                    controller.showMovies();
-                });
-                myListButton.addActionListener(e3 -> {
-                    controller.displayMyList();
-                });
+        searchField.addActionListener(e7 -> {controller.searchForString();});
 
-                //WEST
-                //Nedenfor laves JPanel'et i West, som senere kommer til at indeholde nogle checkboxe
-                JPanel westJPanel = new JPanel();
-                contentPane.add(westJPanel, BorderLayout.WEST);
+        seriesButton.addActionListener(e1 -> {
+            controller.showSeries();
+        });
+        movieButton.addActionListener(e2 -> {
+            controller.showMovies();
+        });
+        myListButton.addActionListener(e3 -> {
+            controller.displayMyList();
+        });
+        allMediaButton.addActionListener(e6 -> {
+            controller.displayAllMedia();
+        });
+        //WEST
+        //Nedenfor laves JPanel'et i West, som senere kommer til at indeholde nogle checkboxe
+        JPanel westJPanel = new JPanel();
+        contentPane.add(westJPanel, BorderLayout.WEST);
 
-                //JPanel'et bliver lavet som vertikalt boxlayout, det er her hhv checkboxe og kategorier kommer til at stå under hinanden
-                westJPanel.setLayout(new BoxLayout(westJPanel, BoxLayout.Y_AXIS));
+        //JPanel'et bliver lavet som vertikalt boxlayout, det er her hhv checkboxe og kategorier kommer til at stå under hinanden
+        westJPanel.setLayout(new BoxLayout(westJPanel, BoxLayout.Y_AXIS));
 
-                //Tilføjer checkboxene
+        //Tilføjer checkboxene
+        JCheckBox clearSearch = new JCheckBox("Clear Search");
+        clearSearch.addActionListener(e6 -> {controller.clearSearch();});
 
 
-                for (String s : genreList) {
-                    JCheckBox tempBoxReference = new JCheckBox(s);
-                    westJPanel.add(tempBoxReference);
-                    jCheckBoxArrayList.add(tempBoxReference);
+        //
+        for (String s : genreList) {
+            JCheckBox tempBoxReference = new JCheckBox(s);
+            westJPanel.add(tempBoxReference);
+            jCheckBoxArrayList.add(tempBoxReference);
 
-                    tempBoxReference.addActionListener(e -> {
-                        controller.searchByGenre();
-                    });
-                }
+            tempBoxReference.addActionListener(e -> {
+                controller.searchByGenre();
+            });
+        }
 
 
                 //SOUTH
@@ -155,6 +164,7 @@ public class View {
     }
 
     public void update(ArrayList<Media> media) {
+
         JPanel centerJPanel = new JPanel();
         JScrollPane centerJScrollPane = new JScrollPane(centerJPanel,
                 JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
@@ -308,8 +318,8 @@ public class View {
         frame.getContentPane().add(centerJScrollPane);
 
         frame.setVisible(true);
-
     }
+
 
     public void displayNoSuchMovieException() {
         JOptionPane.showMessageDialog(frame, "No movies matched your search-criteria");

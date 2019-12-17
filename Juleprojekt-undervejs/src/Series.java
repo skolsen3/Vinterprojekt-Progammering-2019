@@ -17,7 +17,7 @@ public class Series extends Media {
         this.seasons = seasons;
     }
 
-    public int numberOfSeasons() {
+    public int getNumberOfSeasons() {
         if(seasons.size() > 0) {
             return seasons.size();
         } else {
