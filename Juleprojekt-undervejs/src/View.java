@@ -30,10 +30,15 @@ public class View {
         JPanel lowerRow = new JPanel(new GridLayout(1, 2));
 
         JLabel userLabel = new JLabel("Username: ");
+        userLabel.setFont(new Font("Verdana", Font.PLAIN, 26));
         JLabel passLabel = new JLabel("Password: ");
+        passLabel.setFont(new Font("Verdana", Font.PLAIN, 26));
         JTextField usernameField = new JTextField();
+        usernameField.setFont(new Font("Verdana", Font.PLAIN, 26));
         JTextField passwordField = new JTextField();
+        passwordField.setFont(new Font("Verdana", Font.PLAIN, 26));
         JButton loginButton = new JButton("Login");
+        loginButton.setFont(new Font("Verdana", Font.PLAIN, 26));
 
         upperRow.add(userLabel);
         upperRow.add(usernameField);
@@ -41,15 +46,19 @@ public class View {
         lowerRow.add(passwordField);
 
         // lidt visuelle tilføjelser.
-        usernameField.setColumns(20);
+       /*usernameField.setColumns(20);
         passwordField.setColumns(20);
         usernameField.setBorder(new LineBorder(Color.DARK_GRAY, 1));
         passwordField.setBorder(new LineBorder(Color.DARK_GRAY, 1));
         upperRow.setBackground(Color.LIGHT_GRAY);
         lowerRow.setBackground(Color.LIGHT_GRAY);
         loginFrameContentPane.setBackground(Color.LIGHT_GRAY);
-
+*/
         JLabel backGroundPicture = new JLabel(new ImageIcon(filePath + "/mald.png"));
+        backGroundPicture.setAlignmentX(Component.CENTER_ALIGNMENT);
+        upperRow.setAlignmentX(Component.CENTER_ALIGNMENT);
+        lowerRow.setAlignmentX(Component.CENTER_ALIGNMENT);
+        loginButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         panelBox.add(backGroundPicture);
         panelBox.add(upperRow);
@@ -72,7 +81,7 @@ public class View {
                 frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
                 JLabel contentPane = new JLabel();
-                contentPane.setIcon(new ImageIcon(filePath + "/biografsæderbaggrundsbillede.jpg"));
+                contentPane.setIcon(new ImageIcon(filePath + "/mald.png"));
 
                 // Container contentPane = frame.getContentPane();
 
@@ -295,7 +304,7 @@ public class View {
 
             //Opretter tekst-lablen under billedet. Jeg tjekker efter et (abritært) antal tegn, og forkorter med "..." til sidst hvis titlen er for lang (ellers kommer der mellemrum mellem filmene).
             JLabel textLabel;
-            if (m.getName().length() <= 17) {
+            if (m.getName().trim().length() <= 17) {
                 textLabel = new JLabel(m.getName(), JLabel.CENTER);
             } else {
                 String shortenedText = "";
