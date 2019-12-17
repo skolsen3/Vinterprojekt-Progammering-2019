@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.io.File;
@@ -21,6 +22,17 @@ public class View {
 
     public void run(ArrayList<Media> media, ArrayList<String> genreList) {
         JFrame loginFrame = new JFrame("Login screen");
+        try {
+            Image backgroundImage = javax.imageio.ImageIO.read(new File(filePath + "/biografsæderbaggrundsbillede.jpg"));
+            loginFrame.setContentPane(new JPanel(new BorderLayout()) {
+                @Override
+                public void paintComponent(Graphics g) {
+                    g.drawImage(backgroundImage.getScaledInstance((Math.round((int) Toolkit.getDefaultToolkit().getScreenSize().getWidth())), -1, Image.SCALE_SMOOTH), 0, 0, null);
+                }
+            });
+        } catch (IOException e) {
+            e.getStackTrace();
+        }
         Container loginFrameContentPane = loginFrame.getContentPane();
         loginFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         loginFrameContentPane.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -46,28 +58,21 @@ public class View {
         JButton loginButton = new JButton("Login");
         loginButton.setFont(new Font("Verdana", Font.PLAIN, 26));
 
-        passwordField.addActionListener(e8 -> { loginButton.doClick();});
+        passwordField.addActionListener(e8 -> {
+            loginButton.doClick();
+        });
         upperRow.add(userLabel);
         upperRow.add(usernameField);
         lowerRow.add(passLabel);
         lowerRow.add(passwordField);
 
-        // lidt visuelle tilføjelser.
-       /*usernameField.setColumns(20);
-        passwordField.setColumns(20);
-        usernameField.setBorder(new LineBorder(Color.DARK_GRAY, 1));
-        passwordField.setBorder(new LineBorder(Color.DARK_GRAY, 1));
-        upperRow.setBackground(Color.LIGHT_GRAY);
-        lowerRow.setBackground(Color.LIGHT_GRAY);
-        loginFrameContentPane.setBackground(Color.LIGHT_GRAY);
-*/
-        JLabel backGroundPicture = new JLabel(new ImageIcon(filePath + "/mald.png"));
-        backGroundPicture.setAlignmentX(Component.CENTER_ALIGNMENT);
+        JLabel loginIcon = new JLabel(new ImageIcon(filePath + "/mald.png"));
+        loginIcon.setAlignmentX(Component.CENTER_ALIGNMENT);
         upperRow.setAlignmentX(Component.CENTER_ALIGNMENT);
         lowerRow.setAlignmentX(Component.CENTER_ALIGNMENT);
         loginButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        panelBox.add(backGroundPicture);
+        panelBox.add(loginIcon);
         panelBox.add(upperRow);
         panelBox.add(lowerRow);
         panelBox.add(loginButton);
@@ -90,93 +95,112 @@ public class View {
 
 
     public void runStreamingService(ArrayList<Media> media, ArrayList<String> genreList) {
-                frame = new JFrame("playIT");
-                frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame = new JFrame("playIT");
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         try {
             Image backgroundImage = javax.imageio.ImageIO.read(new File(filePath + "/biografsæderbaggrundsbillede.jpg"));
             frame.setContentPane(new JPanel(new BorderLayout()) {
-                @Override public void paintComponent(Graphics g) {
-                    g.drawImage(backgroundImage.getScaledInstance((Math.round((int)Toolkit.getDefaultToolkit().getScreenSize().getWidth())), -1, Image.SCALE_SMOOTH), 0, 0, null);
+                @Override
+                public void paintComponent(Graphics g) {
+                    g.drawImage(backgroundImage.getScaledInstance((Math.round((int) Toolkit.getDefaultToolkit().getScreenSize().getWidth())), -1, Image.SCALE_SMOOTH), 0, 0, null);
                 }
             });
         } catch (IOException e) {
             e.getStackTrace();
         }
-                Container contentPane = frame.getContentPane();
+        Container contentPane = frame.getContentPane();
 
-                // Container contentPane = frame.getContentPane();
+        // Container contentPane = frame.getContentPane();
 
-                contentPane.setLayout(new BorderLayout());
-                frame.setContentPane(contentPane);
-                //NORTH
-                JPanel northPanel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
-                JButton myListButton = new JButton("My List");
-                JButton allMediaButton = new JButton("All media");
-                JButton seriesButton = new JButton("Series");
-                JButton movieButton = new JButton("Movies");
-                searchField = new JTextField(16);
-                JButton searchButton = new JButton("Search");
-                JButton userProfileButton = new JButton("User");
-                northPanel.add(myListButton);
-                northPanel.add(allMediaButton);
-                northPanel.add(seriesButton);
-                northPanel.add(movieButton);
-                northPanel.add(searchField);
-                northPanel.add(searchButton);
-                northPanel.add(userProfileButton);
+        contentPane.setLayout(new BorderLayout(0, 0));
+        frame.setContentPane(contentPane);
+        //NORTH
+        JPanel northPanel = new JPanel(new FlowLayout(FlowLayout.TRAILING, 0, 0));
+        northPanel.setBorder(BorderFactory.createEmptyBorder());
+        JButton myListButton = new JButton("My List");
+        myListButton.setFont(new Font("Verdana", Font.PLAIN, 11));
 
-                northPanel.setOpaque(false);
+        JButton allMediaButton = new JButton("All media");
+        allMediaButton.setFont(new Font("Verdana", Font.PLAIN, 11));
 
-                contentPane.add(northPanel, BorderLayout.NORTH);
+        JButton seriesButton = new JButton("Series");
+        seriesButton.setFont(new Font("Verdana", Font.PLAIN, 11));
 
-                searchButton.addActionListener(e -> {
-                    controller.searchForString();
-                });
+        JButton movieButton = new JButton("Movies");
+        movieButton.setFont(new Font("Verdana", Font.PLAIN, 11));
 
-                searchField.addActionListener(e7 -> {
-                    controller.searchForString();
-                });
+        searchField = new JTextField(16);
+        JButton searchButton = new JButton("Search");
+        searchButton.setFont(new Font("Verdana", Font.PLAIN, 11));
 
-                seriesButton.addActionListener(e1 -> {
-                    controller.showSeries();
-                });
-                movieButton.addActionListener(e2 -> {
-                    controller.showMovies();
-                });
-                myListButton.addActionListener(e3 -> {
-                    controller.displayMyList();
-                });
-                allMediaButton.addActionListener(e6 -> {
-                    controller.displayAllMedia();
-                });
-                //WEST
-                //Nedenfor laves JPanel'et i West, som senere kommer til at indeholde nogle checkboxe
-                JPanel westJPanel = new JPanel();
-                contentPane.add(westJPanel, BorderLayout.WEST);
+        JButton userProfileButton = new JButton("User");
+        userProfileButton.setFont(new Font("Verdana", Font.PLAIN, 11));
 
-                westJPanel.setOpaque(false);
+        northPanel.add(myListButton);
+        northPanel.add(allMediaButton);
+        northPanel.add(seriesButton);
+        northPanel.add(movieButton);
+        northPanel.add(searchField);
+        northPanel.add(searchButton);
+        northPanel.add(userProfileButton);
 
-                //JPanel'et bliver lavet som vertikalt boxlayout, det er her hhv checkboxe og kategorier kommer til at stå under hinanden
-                westJPanel.setLayout(new BoxLayout(westJPanel, BoxLayout.Y_AXIS));
+        northPanel.setOpaque(false);
 
-                //Tilføjer checkboxene
-                JButton clearSearchButton = new JButton("Clear Search");
-                westJPanel.add(clearSearchButton);
-                clearSearchButton.addActionListener(e6 -> {
-                    for (JCheckBox j : jCheckBoxArrayList) {
-                        if (j.isSelected()) {
-                            j.doClick();
-                        }
-                    }
+        contentPane.add(northPanel, BorderLayout.NORTH);
 
-                    controller.clearSearch();
-                });
+        searchButton.addActionListener(e -> {
+            controller.searchForString();
+        });
+
+        searchField.addActionListener(e7 -> {
+            controller.searchForString();
+        });
+
+        seriesButton.addActionListener(e1 -> {
+            controller.showSeries();
+        });
+        movieButton.addActionListener(e2 -> {
+            controller.showMovies();
+        });
+        myListButton.addActionListener(e3 -> {
+            controller.displayMyList();
+        });
+        allMediaButton.addActionListener(e6 -> {
+            controller.displayAllMedia();
+        });
+        //WEST
+        //Nedenfor laves JPanel'et i West, som senere kommer til at indeholde nogle checkboxe
+        JPanel westJPanel = new JPanel();
+        westJPanel.setBorder(BorderFactory.createEmptyBorder());
+        contentPane.add(westJPanel, BorderLayout.WEST);
+
+        westJPanel.setOpaque(false);
+
+        //JPanel'et bliver lavet som vertikalt boxlayout, det er her hhv checkboxe og kategorier kommer til at stå under hinanden
+        westJPanel.setLayout(new BoxLayout(westJPanel, BoxLayout.Y_AXIS));
+
+        //Tilføjer checkboxene
+        JButton clearSearchButton = new JButton("Clear Search");
+        clearSearchButton.setFont(new Font("Verdana", Font.PLAIN, 11));
+
+        westJPanel.add(clearSearchButton);
+        clearSearchButton.addActionListener(e6 -> {
+            for (JCheckBox j : jCheckBoxArrayList) {
+                if (j.isSelected()) {
+                    j.doClick();
+                }
+            }
+
+            controller.clearSearch();
+        });
 
 
-                //
-                for (String s : genreList) {
+        //
+        for (String s : genreList) {
             JCheckBox tempBoxReference = new JCheckBox(s);
             tempBoxReference.setOpaque(false);
+            tempBoxReference.setFont(new Font("Verdana", Font.PLAIN, 11));
+            tempBoxReference.setForeground(Color.white);
             westJPanel.add(tempBoxReference);
             jCheckBoxArrayList.add(tempBoxReference);
 
@@ -186,16 +210,19 @@ public class View {
         }
 
 
-                //SOUTH
-                JPanel southPanel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
-                JLabel rightsLabel = new JLabel("ALL RIGHTS RESERVED. TM & COPYRIGHT");
-                southPanel.add(rightsLabel);
-                southPanel.setOpaque(false);
-                contentPane.add(southPanel, BorderLayout.SOUTH);
+        //SOUTH
+        JPanel southPanel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
+        //southPanel.setBorder(BorderFactory.createEmptyBorder());
+        JLabel rightsLabel = new JLabel("ALL RIGHTS RESERVED. TM & COPYRIGHT");
+        rightsLabel.setFont(new Font("Verdana", Font.PLAIN, 8));
+        rightsLabel.setForeground(Color.white);
+        southPanel.add(rightsLabel);
+        southPanel.setBackground(Color.black);
+        contentPane.add(southPanel, BorderLayout.SOUTH);
 
-                //CENTER
-                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                update(media);
+        //CENTER
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        update(media);
 
     }
 
@@ -210,12 +237,15 @@ public class View {
     public void update(ArrayList<Media> media) {
 
         JPanel centerJPanel = new JPanel();
+        centerJPanel.setBorder(BorderFactory.createEmptyBorder());
         centerJPanel.setOpaque(false);
         JScrollPane centerJScrollPane = new JScrollPane(centerJPanel,
                 JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
                 JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         centerJScrollPane.setOpaque(false);
         centerJScrollPane.getViewport().setOpaque(false);
+        centerJScrollPane.setBorder(BorderFactory.createEmptyBorder());
+
         //Her bruges WrapLayout klassen, som er en klasse vi har inkluderet i projektet, og som er fundet på nettet. Den extender FlowLayout,
         //og "wrapper" teksten således at medierne tilpasser sig, når man resizer frame. Constructoren tager en "alignment" man tager direkte fra flowlayout
         // som i det her tilfælde er FlowLayout.LEADING, sådan at medierne placeres venstre-mod-højre og ikke centreres, hvis der en sidste række med
@@ -243,15 +273,15 @@ public class View {
 
             picButton.addActionListener(e -> {
                         JFrame mediaFrame = new JFrame(m.getName());
-
+                        mediaFrame.getContentPane().setBackground(Color.black);
                         //skalerer framet, så det ser pænere ud
 
                         // get the screen size as a java dimension
                         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
                         // get 2/3 of the height, and 2/3 of the width
-                        int frameHeight = screenSize.height * 2 / 3;
-                        int frameWidth = screenSize.width * 2 / 3;
+                        int frameHeight = screenSize.height * 1 / 2;
+                        int frameWidth = screenSize.width * 1 / 2;
 
                         // set the jframe height and width
                         mediaFrame.setPreferredSize(new Dimension(frameWidth, frameHeight));
@@ -274,20 +304,41 @@ public class View {
 
                         JPanel aboutPanel = new JPanel();
                         aboutPanel.setLayout(new BoxLayout(aboutPanel, BoxLayout.Y_AXIS));
-                        aboutPanel.add(new JLabel("About: "));
+
+                        JLabel aboutLabel = new JLabel("About: ");
+                        aboutLabel.setFont(new Font("Verdana", Font.PLAIN, 12));
+
+                        aboutPanel.add(aboutLabel);
+
                         aboutPanel.add(new JLabel("   "));
-                        aboutPanel.add(new JLabel("Title: " + m.getName()));
-                        aboutPanel.add(new JLabel("Year: " + m.getYear()));
+
+                        JLabel titleLabel = new JLabel("Title: " + m.getName());
+                        titleLabel.setFont(new Font("Verdana", Font.PLAIN, 12));
+
+                        aboutPanel.add(titleLabel);
+
+                        JLabel yearLabel = new JLabel("Year: " + m.getYear());
+                        yearLabel.setFont(new Font("Verdana", Font.PLAIN, 12));
+
+                        aboutPanel.add(yearLabel);
+
                         String genresAbout = "Genres: ";
                         for (int i = 0; i < m.getGenres().length - 1; i++) {
                             genresAbout = genresAbout + m.getGenres()[i] + ", ";
                         }
                         genresAbout = genresAbout + m.getGenres()[m.getGenres().length - 1];
 
-                        aboutPanel.add(new JLabel(genresAbout));
-                        aboutPanel.add(new JLabel("Rating: " + m.getRating()));
+                        JLabel genresAboutLabel = new JLabel(genresAbout);
+                        genresAboutLabel.setFont(new Font("Verdana", Font.PLAIN, 12));
 
-                        mediaContentPane.add(aboutPanel);
+                        aboutPanel.add(genresAboutLabel);
+
+                        JLabel ratingLabel = new JLabel("Rating: " + m.getRating());
+                        ratingLabel.setFont(new Font("Verdana", Font.PLAIN, 12));
+
+                        aboutPanel.add(ratingLabel);
+
+                        mediaContentPane.add(aboutPanel, BorderLayout.CENTER);
 
                         //nogle knapper. en playknap, og to knapper, som kan tilføje eller fjerne film fra mylist. smider det hele ind i et boxlayout
 
@@ -352,12 +403,14 @@ public class View {
                 textLabel = new JLabel(shortenedText + "...", JLabel.CENTER);
 
             }
+            textLabel.setFont(new Font("Verdana", Font.PLAIN, 11));
+            textLabel.setForeground(Color.white);
             textLabel.setOpaque(false);
             gridPanel.add(textLabel);
 
+
             textLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
             picButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-
 
 
             centerJPanel.add(gridPanel);
