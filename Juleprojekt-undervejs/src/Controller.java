@@ -25,7 +25,6 @@ public class Controller {
             }
         }
         try {
-
             view.update(searchEngine.sortByCategory(tempListOfGenres));
         } catch (NoSuchMediaException n) {
             System.out.println(n);
@@ -42,7 +41,20 @@ public class Controller {
             view.update(searchEngine.originalLibrary);
         }
     }
-    public void showSeries(){
+
+    public void displayAllMedia() {
+        searchEngine.setViewState(0);
+        try {
+            view.update(searchEngine.originalLibrary);
+        } catch (NoSuchMediaException n) {
+            System.out.println(n);
+            view.displayNoSuchMovieException();
+            view.update(searchEngine.originalLibrary);
+        }
+    }
+
+    public void showSeries() {
+        searchEngine.setViewState(1);
         try {
             view.update(searchEngine.sortByTypeOfMedia("Series"));
         } catch (NoSuchMediaException n) {
@@ -51,7 +63,9 @@ public class Controller {
             view.update(searchEngine.originalLibrary);
         }
     }
-    public void showMovies(){
+
+    public void showMovies() {
+        searchEngine.setViewState(2);
         try {
             view.update(searchEngine.sortByTypeOfMedia("Movie"));
         } catch (NoSuchMediaException n) {
@@ -60,20 +74,30 @@ public class Controller {
             view.update(searchEngine.originalLibrary);
         }
     }
-    public void addToMyList(Media m){
+
+
+    public void addToMyList(Media m) {
         searchEngine.addToMyList(m);
     }
-    public void removeFromMyList(Media m){
+
+    public void removeFromMyList(Media m) {
         searchEngine.removeFromMyList(m);
     }
-   public void displayMyList(){
-       try {
-           view.update(searchEngine.getMyList());
-       } catch (NoSuchMediaException n) {
-           System.out.println(n);
-           view.displayNoSuchMovieException();
-           view.update(searchEngine.originalLibrary);
-       }
-   }
+
+    public void displayMyList() {
+        try {
+            view.update(searchEngine.getMyList());
+        } catch (NoSuchMediaException n) {
+            System.out.println(n);
+            view.displayNoSuchMovieException();
+            view.update(searchEngine.originalLibrary);
+        }
+    }
+
+
+    public void clearSearch() {
+        searchEngine.resetMedia();
+        displayAllMedia();
+    }
 }
 
