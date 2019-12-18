@@ -3,7 +3,7 @@ import java.util.Arrays;
 
 public class Tester {
     public static void main(String[] args) {
-         new Controller();
+        new Controller();
 
         SearchEngine s = new SearchEngine();
 
@@ -32,7 +32,7 @@ public class Tester {
         System.out.println(str);
 
 
-        ArrayList<String> a2= new ArrayList<>();
+        ArrayList<String> a2 = new ArrayList<>();
         a2.add("Crime");
         a2.add("Drama");
         for (int i = 0; i < 5; i++) {

@@ -1,8 +1,12 @@
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.io.File;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.io.*;
+import java.io.IOException;
 
 public class View {
     protected static JFrame frame;
@@ -11,94 +15,237 @@ public class View {
     protected JTextField searchField;
     private static String filePath = new File("").getAbsolutePath();
 
-    public View(Controller controller){
+    public View(Controller controller) {
         this.controller = controller;
         jCheckBoxArrayList = new ArrayList<>();
-        }
+    }
 
     public void run(ArrayList<Media> media, ArrayList<String> genreList) {
+        JFrame loginFrame = new JFrame("Login screen");
+        try {
+            Image backgroundImage = javax.imageio.ImageIO.read(new File(filePath + "/biografsæderbaggrundsbillede.jpg"));
+            loginFrame.setContentPane(new JPanel(new BorderLayout()) {
+                @Override
+                public void paintComponent(Graphics g) {
+                    g.drawImage(backgroundImage.getScaledInstance((Math.round((int) Toolkit.getDefaultToolkit().getScreenSize().getWidth())), -1, Image.SCALE_SMOOTH), 0, 0, null);
+                }
+            });
+        } catch (IOException e) {
+            e.getStackTrace();
+        }
+        Container loginFrameContentPane = loginFrame.getContentPane();
+        loginFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        loginFrameContentPane.setLayout(new FlowLayout(FlowLayout.CENTER));
+        JPanel panelBox = new JPanel();
+        panelBox.setLayout(new BoxLayout(panelBox, BoxLayout.Y_AXIS));
+
+        JPanel upperRow = new JPanel(new GridLayout(1, 2));
+        JPanel lowerRow = new JPanel(new GridLayout(1, 2));
+
+        JLabel userLabel = new JLabel("Username: ");
+        userLabel.setFont(new Font("Verdana", Font.PLAIN, 26));
+
+        JLabel passLabel = new JLabel("Password: ");
+        passLabel.setFont(new Font("Verdana", Font.PLAIN, 26));
+
+        JTextField usernameField = new JTextField();
+        usernameField.setFont(new Font("Verdana", Font.PLAIN, 26));
+
+        JTextField passwordField = new JPasswordField();
+        passwordField.setFont(new Font("Verdana", Font.PLAIN, 26));
+
+
+        JButton loginButton = new JButton("Login");
+        loginButton.setFont(new Font("Verdana", Font.PLAIN, 26));
+
+        passwordField.addActionListener(e8 -> {
+            loginButton.doClick();
+        });
+        upperRow.add(userLabel);
+        upperRow.add(usernameField);
+        lowerRow.add(passLabel);
+        lowerRow.add(passwordField);
+
+        JLabel loginIcon = new JLabel(new ImageIcon(filePath + "/popcorn-cinema.jpg"));
+        loginIcon.setOpaque(false);
+        loginIcon.setAlignmentX(Component.CENTER_ALIGNMENT);
+        upperRow.setAlignmentX(Component.CENTER_ALIGNMENT);
+        lowerRow.setAlignmentX(Component.CENTER_ALIGNMENT);
+        loginButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        panelBox.add(loginIcon);
+        panelBox.add(upperRow);
+        panelBox.add(lowerRow);
+        panelBox.add(loginButton);
+
+        loginFrameContentPane.add(panelBox);
+
+        loginFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        loginFrame.setVisible(true);
+
+        // hvis man klikker på login og har indtastet de rigtige oplysninger bliver vinduet usynligt
+        loginButton.addActionListener(login -> {
+            if (usernameField.getText().equals("admin") && passwordField.getText().equals("admin")) {
+                loginFrame.setVisible(false);
+                runStreamingService(media, genreList);
+            } else {
+                JOptionPane.showMessageDialog(loginFrame, "Wrong username or password.");
+            }
+        });
+    }
+
+
+    public void runStreamingService(ArrayList<Media> media, ArrayList<String> genreList) {
         frame = new JFrame("playIT");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-        JLabel contentPane = new JLabel();
-        contentPane.setIcon(new ImageIcon(filePath + "/biografsæderbaggrundsbillede.jpg"));
+        try {
+            Image backgroundImage = javax.imageio.ImageIO.read(new File(filePath + "/biografsæderbaggrundsbillede.jpg"));
+            frame.setContentPane(new JPanel(new BorderLayout()) {
+                @Override
+                public void paintComponent(Graphics g) {
+                    g.drawImage(backgroundImage.getScaledInstance((Math.round((int) Toolkit.getDefaultToolkit().getScreenSize().getWidth())), -1, Image.SCALE_SMOOTH), 0, 0, null);
+                }
+            });
+        } catch (IOException e) {
+            e.getStackTrace();
+        }
+        Container contentPane = frame.getContentPane();
 
         // Container contentPane = frame.getContentPane();
 
-        contentPane.setLayout(new BorderLayout());
+        contentPane.setLayout(new BorderLayout(0, 0));
         frame.setContentPane(contentPane);
         //NORTH
-        JPanel northPanel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
-        JButton myListButton = new JButton("Min Liste");
-        JButton seriesButton = new JButton("Serier");
-        JButton movieButton = new JButton("Film");
+        JPanel northPanel = new JPanel(new FlowLayout(FlowLayout.TRAILING, 0, 0));
+        northPanel.setBorder(BorderFactory.createEmptyBorder());
+        JButton myListButton = new JButton("My List");
+        myListButton.setFont(new Font("Verdana", Font.PLAIN, 11));
+
+        JButton allMediaButton = new JButton("All media");
+        allMediaButton.setFont(new Font("Verdana", Font.PLAIN, 11));
+
+        JButton seriesButton = new JButton("Series");
+        seriesButton.setFont(new Font("Verdana", Font.PLAIN, 11));
+
+        JButton movieButton = new JButton("Movies");
+        movieButton.setFont(new Font("Verdana", Font.PLAIN, 11));
+
         searchField = new JTextField(16);
-        JButton searchButton = new JButton("?");
-        JButton userProfileButton = new JButton("(Bruger)");
+        JButton searchButton = new JButton("Search");
+        searchButton.setFont(new Font("Verdana", Font.PLAIN, 11));
+
+        JButton userProfileButton = new JButton("User");
+        userProfileButton.setFont(new Font("Verdana", Font.PLAIN, 11));
+
         northPanel.add(myListButton);
+        northPanel.add(allMediaButton);
         northPanel.add(seriesButton);
         northPanel.add(movieButton);
         northPanel.add(searchField);
         northPanel.add(searchButton);
         northPanel.add(userProfileButton);
 
+        northPanel.setOpaque(false);
+
         contentPane.add(northPanel, BorderLayout.NORTH);
 
-        searchButton.addActionListener(e -> { controller.searchForString(); } );
+        searchButton.addActionListener(e -> {
+            controller.searchForString();
+        });
 
-        seriesButton.addActionListener(e1 -> {controller.showSeries(); });
-        movieButton.addActionListener(e2 -> { controller.showMovies(); });
-        myListButton.addActionListener(e3 -> { controller.displayMyList();});
+        searchField.addActionListener(e7 -> {
+            controller.searchForString();
+        });
 
+        seriesButton.addActionListener(e1 -> {
+            controller.showSeries();
+        });
+        movieButton.addActionListener(e2 -> {
+            controller.showMovies();
+        });
+        myListButton.addActionListener(e3 -> {
+            controller.displayMyList();
+        });
+        allMediaButton.addActionListener(e6 -> {
+            controller.displayAllMedia();
+        });
         //WEST
         //Nedenfor laves JPanel'et i West, som senere kommer til at indeholde nogle checkboxe
         JPanel westJPanel = new JPanel();
+        westJPanel.setBorder(BorderFactory.createEmptyBorder());
         contentPane.add(westJPanel, BorderLayout.WEST);
+
+        westJPanel.setOpaque(false);
 
         //JPanel'et bliver lavet som vertikalt boxlayout, det er her hhv checkboxe og kategorier kommer til at stå under hinanden
         westJPanel.setLayout(new BoxLayout(westJPanel, BoxLayout.Y_AXIS));
 
         //Tilføjer checkboxene
+        JButton clearSearchButton = new JButton("Clear Search");
+        clearSearchButton.setFont(new Font("Verdana", Font.PLAIN, 11));
+
+        westJPanel.add(clearSearchButton);
+        clearSearchButton.addActionListener(e6 -> {
+            for (JCheckBox j : jCheckBoxArrayList) {
+                if (j.isSelected()) {
+                    j.doClick();
+                }
+            }
+
+            controller.clearSearch();
+        });
 
 
-
+        //
         for (String s : genreList) {
             JCheckBox tempBoxReference = new JCheckBox(s);
+            tempBoxReference.setOpaque(false);
+            tempBoxReference.setFont(new Font("Verdana", Font.BOLD, 11));
+            tempBoxReference.setForeground(Color.white);
             westJPanel.add(tempBoxReference);
             jCheckBoxArrayList.add(tempBoxReference);
 
             tempBoxReference.addActionListener(e -> {
-            controller.searchByGenre();
-                } );
+                controller.searchByGenre();
+            });
         }
-
-
 
 
         //SOUTH
         JPanel southPanel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
+        //southPanel.setBorder(BorderFactory.createEmptyBorder());
         JLabel rightsLabel = new JLabel("ALL RIGHTS RESERVED. TM & COPYRIGHT");
+        rightsLabel.setFont(new Font("Verdana", Font.PLAIN, 8));
+        rightsLabel.setForeground(Color.white);
         southPanel.add(rightsLabel);
+        southPanel.setBackground(Color.black);
         contentPane.add(southPanel, BorderLayout.SOUTH);
 
         //CENTER
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         update(media);
 
-
-
     }
 
-    public ArrayList<JCheckBox> getJCheckBoxArrayList(){return jCheckBoxArrayList;}
+    public ArrayList<JCheckBox> getJCheckBoxArrayList() {
+        return jCheckBoxArrayList;
+    }
 
-    public String getSearchField(){return searchField.getText();}
+    public String getSearchField() {
+        return searchField.getText();
+    }
 
     public void update(ArrayList<Media> media) {
 
         JPanel centerJPanel = new JPanel();
+        centerJPanel.setBorder(BorderFactory.createEmptyBorder());
+        centerJPanel.setOpaque(false);
         JScrollPane centerJScrollPane = new JScrollPane(centerJPanel,
                 JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
                 JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        centerJScrollPane.setOpaque(false);
+        centerJScrollPane.getViewport().setOpaque(false);
+        centerJScrollPane.setBorder(BorderFactory.createEmptyBorder());
 
         //Her bruges WrapLayout klassen, som er en klasse vi har inkluderet i projektet, og som er fundet på nettet. Den extender FlowLayout,
         //og "wrapper" teksten således at medierne tilpasser sig, når man resizer frame. Constructoren tager en "alignment" man tager direkte fra flowlayout
@@ -107,18 +254,22 @@ public class View {
         centerJPanel.setLayout(new WrapLayout(FlowLayout.LEADING));
 
 
+
         /*Hele den her for-løkke gennemløber medierne i søgemaskinens library. Den opretter medierne, tilføjer billederne til medierne, tilføjer "knapper" så man kan trykke på medierne,
         og desuden tilføjer en label der viser filmens titel under billedet.
         */
         for (Media m : media) {
             JPanel gridPanel = new JPanel();
+            gridPanel.setOpaque(false);
+
             //Jeg sætter billedet sammen med en textLabel i et vertikalt BoxLayout, sådan så jeg sørger for, at der aldrig kommer luft mellem billede og tekst.
             BoxLayout boxLayout = new BoxLayout(gridPanel, BoxLayout.Y_AXIS);
+
             gridPanel.setLayout(boxLayout);
 
             //Billedet hentes direkte fra medie-objektet og bliver sat som ikon til en JButton, så man kan trykke på den.
             JButton picButton = new JButton(new ImageIcon(m.getPictureFile()));
-
+            picButton.setOpaque(false);
             //Billedet åbner et nyt frame, henter information om mediet direkte fra objektet, og opretter en playknap :)
 
             picButton.addActionListener(e -> {
@@ -130,8 +281,8 @@ public class View {
                         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
                         // get 2/3 of the height, and 2/3 of the width
-                        int frameHeight = screenSize.height * 2 / 3;
-                        int frameWidth = screenSize.width * 2 / 3;
+                        int frameHeight = screenSize.height * 1 / 2;
+                        int frameWidth = screenSize.width * 1 / 2;
 
                         // set the jframe height and width
                         mediaFrame.setPreferredSize(new Dimension(frameWidth, frameHeight));
@@ -143,9 +294,9 @@ public class View {
                         //skalering af billede, så det passer med sit frame
                         int picWidth = m.getPictureFile().getWidth();
                         int picHeight = m.getPictureFile().getHeight();
-                        double picAspectRatio = (picWidth+0.0)/(picHeight+0.0);
+                        double picAspectRatio = (picWidth + 0.0) / (picHeight + 0.0);
                         picHeight = frameHeight;
-                        double newPicWidth  = picAspectRatio*picHeight;
+                        double newPicWidth = picAspectRatio * picHeight;
 
 
                         JLabel picture = new JLabel(new ImageIcon(new ImageIcon(m.getPictureFile()).getImage().getScaledInstance((int) newPicWidth, picHeight, Image.SCALE_SMOOTH)));
@@ -154,20 +305,41 @@ public class View {
 
                         JPanel aboutPanel = new JPanel();
                         aboutPanel.setLayout(new BoxLayout(aboutPanel, BoxLayout.Y_AXIS));
-                        aboutPanel.add(new JLabel("About: "));
+
+                        JLabel aboutLabel = new JLabel("About: ");
+                        aboutLabel.setFont(new Font("Verdana", Font.PLAIN, 12));
+
+                        aboutPanel.add(aboutLabel);
+
                         aboutPanel.add(new JLabel("   "));
-                        aboutPanel.add(new JLabel("Title: " + m.getName()));
-                        aboutPanel.add(new JLabel("Year: " + m.getYear()));
+
+                        JLabel titleLabel = new JLabel("Title: " + m.getName());
+                        titleLabel.setFont(new Font("Verdana", Font.PLAIN, 12));
+
+                        aboutPanel.add(titleLabel);
+
+                        JLabel yearLabel = new JLabel("Year: " + m.getYear());
+                        yearLabel.setFont(new Font("Verdana", Font.PLAIN, 12));
+
+                        aboutPanel.add(yearLabel);
+
                         String genresAbout = "Genres: ";
-                        for (int i = 0; i < m.getGenres().length-1; i++) {
+                        for (int i = 0; i < m.getGenres().length - 1; i++) {
                             genresAbout = genresAbout + m.getGenres()[i] + ", ";
                         }
-                        genresAbout = genresAbout + m.getGenres()[m.getGenres().length-1];
+                        genresAbout = genresAbout + m.getGenres()[m.getGenres().length - 1];
 
-                        aboutPanel.add(new JLabel(genresAbout));
-                        aboutPanel.add(new JLabel("Rating: " + m.getRating()));
+                        JLabel genresAboutLabel = new JLabel(genresAbout);
+                        genresAboutLabel.setFont(new Font("Verdana", Font.PLAIN, 12));
 
-                        mediaContentPane.add(aboutPanel);
+                        aboutPanel.add(genresAboutLabel);
+
+                        JLabel ratingLabel = new JLabel("Rating: " + m.getRating());
+                        ratingLabel.setFont(new Font("Verdana", Font.PLAIN, 12));
+
+                        aboutPanel.add(ratingLabel);
+
+                        mediaContentPane.add(aboutPanel, BorderLayout.CENTER);
 
                         //nogle knapper. en playknap, og to knapper, som kan tilføje eller fjerne film fra mylist. smider det hele ind i et boxlayout
 
@@ -186,13 +358,17 @@ public class View {
                         JButton addToMyListButton = new JButton("Add to MyList");
                         addToMyListButton.setBorderPainted(false);
                         addToMyListButton.setFocusPainted(false);
-                        addToMyListButton.addActionListener(e5 -> {controller.addToMyList(m);});
+                        addToMyListButton.addActionListener(e5 -> {
+                            controller.addToMyList(m);
+                        });
 
 
                         JButton removeFromMyListButton = new JButton("Remove from MyList");
                         removeFromMyListButton.setBorderPainted(false);
                         removeFromMyListButton.setFocusPainted(false);
-                        removeFromMyListButton.addActionListener(e4 -> {controller.removeFromMyList(m);});
+                        removeFromMyListButton.addActionListener(e4 -> {
+                            controller.removeFromMyList(m);
+                        });
 
                         JPanel buttonPanel = new JPanel();
                         buttonPanel.setLayout(new GridLayout(0, 1));
@@ -213,37 +389,43 @@ public class View {
             picButton.setFocusPainted(false);
             picButton.setContentAreaFilled(false);
 
-            //gamle kode, her blev billedeknap og tekstlabel blot tilføjet en ad gangen.
             gridPanel.add(picButton);
 
             //Opretter tekst-lablen under billedet. Jeg tjekker efter et (abritært) antal tegn, og forkorter med "..." til sidst hvis titlen er for lang (ellers kommer der mellemrum mellem filmene).
             JLabel textLabel;
-            if (m.getName().length() <= 17) {
+
+            if (m.getName().trim().length() <= 17) {
                 textLabel = new JLabel(m.getName(), JLabel.CENTER);
             } else {
                 String shortenedText = "";
-                for (int i = 0; i <= 17; i++) {
+                for (int i = 0; i < 17; i++) {
                     shortenedText = shortenedText + m.getName().charAt(i);
                 }
                 textLabel = new JLabel(shortenedText + "...", JLabel.CENTER);
 
             }
+            textLabel.setFont(new Font("Verdana", Font.BOLD, 11));
+            textLabel.setForeground(Color.white);
+            textLabel.setOpaque(false);
             gridPanel.add(textLabel);
+
 
             textLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
             picButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-            centerJPanel.add(gridPanel);
-        }
 
+            centerJPanel.add(gridPanel);
+
+        }
 
 
         BorderLayout tempLayout = (BorderLayout) frame.getContentPane().getLayout();
-        if(tempLayout.getLayoutComponent(BorderLayout.CENTER) != null) {
+        if (tempLayout.getLayoutComponent(BorderLayout.CENTER) != null) {
             frame.getContentPane().remove(tempLayout.getLayoutComponent(BorderLayout.CENTER));
         }
-        frame.getContentPane().add(centerJScrollPane);
 
+
+        frame.getContentPane().add(centerJScrollPane);
         frame.setVisible(true);
     }
 

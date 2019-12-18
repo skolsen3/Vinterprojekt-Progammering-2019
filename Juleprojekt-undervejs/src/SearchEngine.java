@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -6,6 +7,7 @@ public class SearchEngine {
     protected ArrayList<Media> originalLibrary;
     protected ArrayList<String> genreList;
     protected ArrayList<Media> myList;
+    protected int viewState;
 
     public SearchEngine() {
         library = FileReader.readMedia().get(0);
@@ -48,12 +50,32 @@ public class SearchEngine {
     public ArrayList<Media> sortByCategory(ArrayList<String> Categories) {
         clearLibrary();
         for (String cat : Categories) {
-            for (Media m : originalLibrary) {
-                String str = Arrays.toString(m.getGenres());
-                if (str.contains(cat) && !library.contains(m)) {
-                    library.add(m);
+
+                for (Media m : originalLibrary) {
+                    String str = Arrays.toString(m.getGenres());
+                    if (str.contains(cat) && !library.contains(m)) {
+                        library.add(m);
+
                 }
             }
+        }
+        if (viewState == 1) {
+            ArrayList<Media> tempList = new ArrayList<>();
+            for (Media m2 : library) {
+                if (!(m2 instanceof Movie)) {
+                    tempList.add(m2);
+                }
+            }
+            library=tempList;
+        }
+        if (viewState == 2) {
+            ArrayList<Media> tempList = new ArrayList<>();
+            for (Media m3 : library) {
+                if (!(m3 instanceof Series)) {
+                    tempList.add(m3);
+                }
+            }
+            library = tempList;
         }
         if (library.isEmpty()) {
             throw new NoSuchMediaException("LegalString");
@@ -92,6 +114,11 @@ public class SearchEngine {
             myList.remove(m);
     }
 
-    public ArrayList<Media> getMyList(){ return myList; }
+    public ArrayList<Media> getMyList() {
+        return myList;
+    }
 
+    public void setViewState(int viewState) {
+        this.viewState = viewState;
+    }
 }
