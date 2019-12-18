@@ -8,6 +8,10 @@ import java.util.ArrayList;
 import java.io.*;
 import java.io.IOException;
 
+/**
+ * This class represents the GUI section of the application. It currently holds all the relevant elements to create and run the GUI. 
+ */
+
 public class View {
     protected static JFrame frame;
     protected ArrayList<JCheckBox> jCheckBoxArrayList;
@@ -15,11 +19,24 @@ public class View {
     protected JTextField searchField;
     private static String filePath = new File("").getAbsolutePath();
 
+    /**
+     * Creates a View-object with a specified Controller-object and initializes the jCheckBoxArrayList.
+     *
+     * @param controller The specified Controller-object which controls the program.
+     */
     public View(Controller controller) {
         this.controller = controller;
         jCheckBoxArrayList = new ArrayList<>();
     }
 
+    /**
+     * Runs the login screen GUI of the streaming service. At the moment only checks if the
+     * username and password both equals "admin", and if true, closes the login-screen frame
+     * and calls runStreamingService().
+     *
+     * @param genreList An ArrayList of all genres of the media.
+     * @param media     An ArrayList of Media objects.
+     */
     public void run(ArrayList<Media> media, ArrayList<String> genreList) {
         JFrame loginFrame = new JFrame("Login screen");
         try {
@@ -83,7 +100,7 @@ public class View {
         loginFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         loginFrame.setVisible(true);
 
-        // hvis man klikker på login og har indtastet de rigtige oplysninger bliver vinduet usynligt
+        //Checks if the username and password both contains "admin". If true, runs the streaming service.
         loginButton.addActionListener(login -> {
             if (usernameField.getText().equals("admin") && passwordField.getText().equals("admin")) {
                 loginFrame.setVisible(false);
@@ -94,7 +111,13 @@ public class View {
         });
     }
 
-
+    /**
+     * Creates the GUI of the streaming service. Uses the genreList to create an appropriate number of JCheckBoxes, which calls methods in the Controller-object. Also calls the
+     * update method to create the BorderLayout.CENTER panel with the media variable.
+     *
+     * @param genreList An ArrayList of all genres of the media.
+     * @param media     An ArrayList of Media objects.
+     */
     public void runStreamingService(ArrayList<Media> media, ArrayList<String> genreList) {
         frame = new JFrame("playIT");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -111,10 +134,9 @@ public class View {
         }
         Container contentPane = frame.getContentPane();
 
-        // Container contentPane = frame.getContentPane();
-
         contentPane.setLayout(new BorderLayout(0, 0));
         frame.setContentPane(contentPane);
+
         //NORTH
         JPanel northPanel = new JPanel(new FlowLayout(FlowLayout.TRAILING, 0, 0));
         northPanel.setBorder(BorderFactory.createEmptyBorder());
@@ -169,15 +191,15 @@ public class View {
         allMediaButton.addActionListener(e6 -> {
             controller.displayAllMedia();
         });
+
         //WEST
-        //Nedenfor laves JPanel'et i West, som senere kommer til at indeholde nogle checkboxe
         JPanel westJPanel = new JPanel();
         westJPanel.setBorder(BorderFactory.createEmptyBorder());
         contentPane.add(westJPanel, BorderLayout.WEST);
 
         westJPanel.setOpaque(false);
 
-        //JPanel'et bliver lavet som vertikalt boxlayout, det er her hhv checkboxe og kategorier kommer til at stå under hinanden
+        //JPanel'et bliver lavet som vertikalt boxlayout, det er her hhv. checkboxe og kategorier kommer til at stå under hinanden
         westJPanel.setLayout(new BoxLayout(westJPanel, BoxLayout.Y_AXIS));
 
         //Tilføjer checkboxene
@@ -195,8 +217,6 @@ public class View {
             controller.clearSearch();
         });
 
-
-        //
         for (String s : genreList) {
             JCheckBox tempBoxReference = new JCheckBox(s);
             tempBoxReference.setOpaque(false);
@@ -210,13 +230,13 @@ public class View {
             });
         }
 
-
         //SOUTH
         JPanel southPanel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
-        //southPanel.setBorder(BorderFactory.createEmptyBorder());
+
         JLabel rightsLabel = new JLabel("ALL RIGHTS RESERVED. TM & COPYRIGHT");
         rightsLabel.setFont(new Font("Verdana", Font.PLAIN, 8));
         rightsLabel.setForeground(Color.white);
+
         southPanel.add(rightsLabel);
         southPanel.setBackground(Color.black);
         contentPane.add(southPanel, BorderLayout.SOUTH);
@@ -227,14 +247,27 @@ public class View {
 
     }
 
+    /**
+     * Returns the current ArrayList of JCheckBoxes.
+     */
     public ArrayList<JCheckBox> getJCheckBoxArrayList() {
         return jCheckBoxArrayList;
     }
 
+    /**
+     * Returns the String of text in the searchField.
+     */
     public String getSearchField() {
         return searchField.getText();
     }
 
+    /**
+     * Creates and/or updates the current BorderLayout.CENTER panel by creating media panels (in code: gridPanel) for each of the Media objects given by the media parameter.
+     * A media panel is created with information from the get-methods from the Media-class, loading the medias BufferedImage field as a JButton. The JButton is then given the actionPerformed method
+     * of creating and displaying a new frame with a play-button, other relevant buttons, and information about the specific media.
+     *
+     * @param media An ArrayList of Media objects.
+     */
     public void update(ArrayList<Media> media) {
 
         JPanel centerJPanel = new JPanel();
@@ -256,7 +289,8 @@ public class View {
 
 
         /*Hele den her for-løkke gennemløber medierne i søgemaskinens library. Den opretter medierne, tilføjer billederne til medierne, tilføjer "knapper" så man kan trykke på medierne,
-        og desuden tilføjer en label der viser filmens titel under billedet.
+        * og desuden tilføjer en label der viser filmens titel under billedet. Knapperne, som vises som mediernes respektive billeder, får funktionen at åbne et nyt frame,
+        * med information om filmen, en play-knap, en tilføj-til-min-liste-knap, og en fjern-fra-min-liste-knap.
         */
         for (Media m : media) {
             JPanel gridPanel = new JPanel();
@@ -275,23 +309,19 @@ public class View {
             picButton.addActionListener(e -> {
                         JFrame mediaFrame = new JFrame(m.getName());
 
-                        //skalerer framet, så det ser pænere ud
-
-                        // get the screen size as a java dimension
+                        //Skalerer framet, så det ser pænere ud
                         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
-                        // get 2/3 of the height, and 2/3 of the width
                         int frameHeight = screenSize.height * 1 / 2;
                         int frameWidth = screenSize.width * 1 / 2;
 
-                        // set the jframe height and width
                         mediaFrame.setPreferredSize(new Dimension(frameWidth, frameHeight));
 
                         Container mediaContentPane = mediaFrame.getContentPane();
 
                         mediaContentPane.setLayout(new BorderLayout());
 
-                        //skalering af billede, så det passer med sit frame
+                        //Skalering af billede, så det passer med sit frame
                         int picWidth = m.getPictureFile().getWidth();
                         int picHeight = m.getPictureFile().getHeight();
                         double picAspectRatio = (picWidth + 0.0) / (picHeight + 0.0);
@@ -429,7 +459,9 @@ public class View {
         frame.setVisible(true);
     }
 
-
+    /**
+     * Creates and displays a messageDialog in case of failed search.
+     */
     public void displayNoSuchMovieException() {
         JOptionPane.showMessageDialog(frame, "No movies matched your search-criteria");
 
