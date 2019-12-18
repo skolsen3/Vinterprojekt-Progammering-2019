@@ -9,7 +9,7 @@ import java.io.*;
 import java.io.IOException;
 
 /**
- * This class represents the GUI section of the application. It currently holds all the relevant elements to create and run the GUI. 
+ * This class represents the GUI section of the application. It currently holds all the relevant elements to create and run the GUI.
  */
 
 public class View {
@@ -100,13 +100,18 @@ public class View {
         loginFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         loginFrame.setVisible(true);
 
-        //Checks if the username and password both contains "admin". If true, runs the streaming service.
+        //Checks if the username and password both contains "admin". If true, runs the streaming service. If false, throws WrongLoginCredentialsException.
+        //Also catches the exception in a try-catch block in the same code, and displays an error dialog if the exception is caught.
         loginButton.addActionListener(login -> {
-            if (usernameField.getText().equals("admin") && passwordField.getText().equals("admin")) {
-                loginFrame.setVisible(false);
-                runStreamingService(media, genreList);
-            } else {
-                JOptionPane.showMessageDialog(loginFrame, "Wrong username or password.");
+            try {
+                if (usernameField.getText().equals("admin") && passwordField.getText().equals("admin")) {
+                    loginFrame.setVisible(false);
+                    runStreamingService(media, genreList);
+                } else {
+                    throw new WrongLoginCredentialsException();
+                }
+            } catch (WrongLoginCredentialsException e) {
+                JOptionPane.showMessageDialog(loginFrame, e.getMessage());
             }
         });
     }
