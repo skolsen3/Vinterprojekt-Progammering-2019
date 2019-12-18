@@ -8,6 +8,10 @@ import java.util.ArrayList;
 import java.io.*;
 import java.io.IOException;
 
+/**
+ * This class represents the GUI section of the application. It currently holds all the relevant elements to create and run the GUI. 
+ */
+
 public class View {
     protected static JFrame frame;
     protected ArrayList<JCheckBox> jCheckBoxArrayList;
