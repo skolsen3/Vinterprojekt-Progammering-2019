@@ -17,29 +17,29 @@ public class SearchEngine {
     }
 
 
-    /* Returns the current Library
+    /** Returns the current Library
     *  @return library An ArrayList of Media
     */
     public ArrayList<Media> getLibrary() {
         return library;
     }
 
-    /* Resets library, such that library holds all files again*/
+    /** Resets library, such that library holds all files again*/
     public void resetMedia() {
         library = originalLibrary;
     }
 
-    /* return a list containing all genres contained in any Media
-    * @return genreList The list of genres */
+    /** Returns a list containing all genres contained in any Media
+    *   @return genreList The list of genres */
     public ArrayList<String> getGenreList() {
         return genreList;
     }
-    /* empties the library */
+    /** Empties the library */
     public void clearLibrary() {
         library = new ArrayList<>();
     }
 
-    /*
+    /**
     *   Searches for a movie title matching the title given by the user.
     *   @param s The String to search for
     *   @return library The library containing Media matching s
@@ -59,7 +59,7 @@ public class SearchEngine {
         }
     }
 
-    /*  Searches for movies matching any of the Categories given as Parameter.
+    /**  Searches for movies matching any of the Categories given as Parameter.
     *   @param Categories An ArrayList<String> containing all categories you want to search for
     *   @return library A library containing all movies matching any of the Categories
     */
@@ -100,7 +100,7 @@ public class SearchEngine {
         }
     }
 
-    /*  Searches for and returns all Media of given type.
+    /**  Searches for and returns all Media of given type.
     *   @param typeOfMedia The type of Media you want to be shown
     *   @return library The library containing Media matching typeOfMedia
     * */
@@ -122,7 +122,7 @@ public class SearchEngine {
         }
         return library;
     }
-    /*  Adds Media to myList
+    /**  Adds Media to myList
     *   @param m The Media that's supposed to be added to myList
     */
     public void addToMyList(Media m) {
@@ -130,7 +130,7 @@ public class SearchEngine {
             myList.add(m);
     }
 
-    /*  Removes Media from myList
+    /**  Removes Media from myList
     *   @param m The Media that's supposed to be removed from myList
     * */
     public void removeFromMyList(Media m) {
@@ -138,16 +138,15 @@ public class SearchEngine {
             myList.remove(m);
     }
 
-    /* @return myList
-    * */
+    /** @return myList */
     public ArrayList<Media> getMyList() {
         return myList;
     }
 
-    /*  Sets the viewState of the SearchEngine, so that it knows whether or not the user is
+    /**  Sets the viewState of the SearchEngine, so that it knows whether or not the user is
     *   currently looking at the all Media, only Movies, or only Series
     *   @param viewState The viewstate that must be set.
-    * */
+    */
     public void setViewState(int viewState) {
         this.viewState = viewState;
     }
