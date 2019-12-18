@@ -4,8 +4,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SearchEngineTest {
 
+
     @Test
     void getLibrary() {
+        SearchEngine s = new SearchEngine();
+        assertFalse(s.getLibrary()== null);
     }
 
     @Test

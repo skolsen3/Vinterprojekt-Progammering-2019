@@ -9,6 +9,7 @@ public class Tester {
 
         System.out.println(s.getLibrary().size());
 
+
         for (int i = 0; i < 10; i++) {
             System.out.println(s.getGenreList().get(i));
         }
