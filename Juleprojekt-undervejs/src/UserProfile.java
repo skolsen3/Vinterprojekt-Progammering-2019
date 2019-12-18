@@ -1,3 +1,6 @@
+/**
+ * This class represents a userprofile. It does not have any use right now.
+ */
 public class UserProfile {
     protected String username;
     protected String password;
@@ -5,6 +8,14 @@ public class UserProfile {
     protected boolean isChild;
     protected MyList mylist;
 
+    /**
+     * Constructor of a UserProfile.
+     * @param username
+     * @param password
+     * @param isAdmin
+     * @param isChild
+     * @param mylist
+     */
     public UserProfile(String username, String password, boolean isAdmin, boolean isChild, MyList mylist) {
         this.username = username;
         this.password = password;
