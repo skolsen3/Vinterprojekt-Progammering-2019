@@ -37,7 +37,7 @@ public class Controller {
             view.update(searchEngine.sortByName(view.getSearchField()));
         } catch (NoSuchMediaException n) {
             System.out.println(n);
-            view.displayNoSuchMovieException();
+            view.displayNoSuchMovieException(n);
             view.update(searchEngine.originalLibrary);
         }
     }
@@ -48,7 +48,7 @@ public class Controller {
             view.update(searchEngine.originalLibrary);
         } catch (NoSuchMediaException n) {
             System.out.println(n);
-            view.displayNoSuchMovieException();
+            view.displayNoSuchMovieException(n);
             view.update(searchEngine.originalLibrary);
         }
     }
@@ -59,7 +59,7 @@ public class Controller {
             view.update(searchEngine.sortByTypeOfMedia("Series"));
         } catch (NoSuchMediaException n) {
             System.out.println(n);
-            view.displayNoSuchMovieException();
+            view.displayNoSuchMovieException(n);
             view.update(searchEngine.originalLibrary);
         }
     }
@@ -70,7 +70,7 @@ public class Controller {
             view.update(searchEngine.sortByTypeOfMedia("Movie"));
         } catch (NoSuchMediaException n) {
             System.out.println(n);
-            view.displayNoSuchMovieException();
+            view.displayNoSuchMovieException(n);
             view.update(searchEngine.originalLibrary);
         }
     }
@@ -89,7 +89,7 @@ public class Controller {
             view.update(searchEngine.getMyList());
         } catch (NoSuchMediaException n) {
             System.out.println(n);
-            view.displayNoSuchMovieException();
+            view.displayNoSuchMovieException(n);
             view.update(searchEngine.originalLibrary);
         }
     }

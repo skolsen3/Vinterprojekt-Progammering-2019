@@ -467,8 +467,8 @@ public class View {
     /**
      * Creates and displays a messageDialog in case of failed search.
      */
-    public void displayNoSuchMovieException() {
-        JOptionPane.showMessageDialog(frame, "No movies matched your search-criteria");
+    public void displayNoSuchMovieException(NoSuchMediaException ex) {
+        JOptionPane.showMessageDialog(frame, ex.getMessage());
 
     }
 }
