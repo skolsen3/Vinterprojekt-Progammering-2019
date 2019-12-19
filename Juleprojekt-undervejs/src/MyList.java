@@ -9,21 +9,21 @@ public class MyList {
 
     /**
      * Constructor of myList.
-     * @param myList
+     * @param myList List of Media-objects assigned to be in a personal list.
      */
     public MyList(ArrayList<Media> myList) {
         this.myList = myList;
     }
 
     /**
-     * @param m
+     * @param m The Media-object which needs to be added to the MyList.
      */
     public void addMedia(Media m) {
         myList.add(m);
     }
 
     /**
-     * @param m
+     * @param m The Media-object which needs to be removed from the MyList.
      */
     public void removeMedia(Media m){
         myList.remove(m);

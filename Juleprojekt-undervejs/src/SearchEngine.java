@@ -2,6 +2,9 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * This class is responsible for handling the data by sorting and holding the media provided by the FileReader class.
+ */
 public class SearchEngine {
     protected ArrayList<Media> library;
     protected ArrayList<Media> originalLibrary;

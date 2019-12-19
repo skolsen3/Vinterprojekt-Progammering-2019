@@ -10,12 +10,7 @@ public class UserProfile {
 
     /**
      * Constructor of a UserProfile.
-     * @param username
-     * @param password
-     * @param isAdmin
-     * @param isChild
-     * @param mylist
-     */
+    */
     public UserProfile(String username, String password, boolean isAdmin, boolean isChild, MyList mylist) {
         this.username = username;
         this.password = password;

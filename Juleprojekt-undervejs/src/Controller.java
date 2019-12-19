@@ -3,7 +3,9 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
-
+/**
+ * This class is responsible for controlling the data flow and ties together the GUI and the data model.
+ */
 public class Controller {
     protected SearchEngine searchEngine;
     protected View view;

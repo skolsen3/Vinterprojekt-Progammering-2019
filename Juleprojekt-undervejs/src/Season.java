@@ -10,9 +10,9 @@ public class Season {
 
     /**
      * Constructor of season.
-     * @param seasonNumber
-     * @param episodes
-     * @param numberOfEpisodes
+     * @param seasonNumber      The number of the season.
+     * @param episodes          An ArrayList consisting of the corresponding Episode-objects of the season.
+     * @param numberOfEpisodes  The number of episodes.
      */
     public Season(int seasonNumber, ArrayList<Episode> episodes, int numberOfEpisodes) {
         this.seasonNumber = seasonNumber;
@@ -20,37 +20,27 @@ public class Season {
         this.numberOfEpisodes = numberOfEpisodes;
     }
 
-    /**
-     * @param episode
-     */
+
     public void addEpisode(Episode episode) {
         episodes.add(episode);
     }
 
-    /**
-     * @param episodes
-     */
+
     public void setEpisodes(ArrayList<Episode> episodes) {
         this.episodes = episodes;
     }
 
-    /**
-     * @return numberOfEpisodes.
-     */
+
     public int getNumberOfEpisodes() {
         return numberOfEpisodes;
     }
 
-    /**
-     * @return seasonNumber.
-     */
+
     public int getSeasonNumber() {
         return seasonNumber;
     }
 
-    /**
-     * @return episodes.
-     */
+
     public ArrayList<Episode> getEpisodes() {
         return episodes;
     }

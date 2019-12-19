@@ -14,11 +14,11 @@ public class Movie extends Media {
 
     /**
      * Constructor for Movie.
-     * @param name
-     * @param year
-     * @param genres
-     * @param rating
-     * @param pictureFile
+     * @param name          The name of the movie.
+     * @param year          The release year of the movie.
+     * @param genres        A String[] with the genres of the movie in each index.
+     * @param rating        The rating of the movie as a String.
+     * @param pictureFile   A BufferedImage of the movie poster.
      */
     public Movie(String name, String year, String[] genres, String rating, BufferedImage pictureFile) {
         super(name, year, genres, rating, pictureFile);

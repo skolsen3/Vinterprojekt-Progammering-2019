@@ -6,7 +6,7 @@ public class Episode {
 
     /**
      * Constructor of Episode.
-     * @param episodeNumber
+     * @param episodeNumber The episodes number.
      */
     public Episode(int episodeNumber) {
         this.episodeNumber = episodeNumber;

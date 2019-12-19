@@ -16,12 +16,12 @@ public class Series extends Media {
 
     /**
      * Constructor of Series.
-     * @param name
-     * @param year
-     * @param genres
-     * @param rating
-     * @param pictureFile
-     * @param seasons
+     * @param name          The name of the movie.
+     * @param year          The release year of the movie.
+     * @param genres        A String[] with the genres of the movie in each index.
+     * @param rating        The rating of the movie as a String.
+     * @param pictureFile   A BufferedImage of the movie poster.
+     * @param seasons       An ArrayList of the corresponding Seasons-objects representing seasons of the series.
      */
     public Series(String name, String year, String[] genres, String rating, BufferedImage pictureFile, ArrayList<Season> seasons) {
         super(name, year, genres, rating, pictureFile);

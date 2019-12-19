@@ -14,6 +14,9 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
+/**
+ * This class is responsible for loading media data and creating the corresponding media-objects.
+ */
 public class FileReader {
     private BufferedReader bufferedReader;
     private static String filePath = new File("").getAbsolutePath();

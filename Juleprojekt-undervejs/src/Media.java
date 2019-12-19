@@ -19,11 +19,11 @@ public class Media {
 
     /**
      * This is the constructor of Media.
-     * @param name
-     * @param year
-     * @param genres
-     * @param rating
-     * @param pictureFile
+     * @param name          The title of the media.
+     * @param year          The release year of the media.
+     * @param genres        A String[] with the genres of the media in each index.
+     * @param rating        The rating of the media as a String.
+     * @param pictureFile   A BufferedImage of the media's poster.
      */
     public Media(String name, String year, String[] genres, String rating, BufferedImage pictureFile) {
         this.name = name;
@@ -33,37 +33,27 @@ public class Media {
         this.pictureFile = pictureFile;
     }
 
-    /**
-     * @return name.
-     */
+
     public String getName() {
         return name;
     }
 
-    /**
-     * @return year.
-     */
+
     public String getYear() {
         return year;
     }
 
-    /**
-     * @return genres.
-     */
+
     public String[] getGenres() {
         return genres;
     }
 
-    /**
-     * @return rating.
-     */
+
     public String getRating() {
         return rating;
     }
 
-    /**
-     * @return pictureFile.
-     */
+
     public BufferedImage getPictureFile() {
         return pictureFile;
     }
