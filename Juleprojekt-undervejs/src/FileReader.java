@@ -23,9 +23,10 @@ public class FileReader {
     public FileReader(String fileName) {
         Path path = Paths.get(fileName);
         try {
+            System.out.println(path);
             bufferedReader = Files.newBufferedReader(path, StandardCharsets.ISO_8859_1);
         } catch (IOException e) {
-            System.out.println("IOException: Error loading file.");
+            System.out.println("IOException: Error loading file. Error in constructor");
         }
     }
 
@@ -45,6 +46,7 @@ public class FileReader {
         System.out.println(filePath);
         try {
             FileReader fileReaderMovie = new FileReader(filePath + "/film.txt");
+            //FileReader fileReaderMovie = new FileReader("C:\\Users\\Bruger\\Documents\\GitHub\\Vinterprojekt-Progammering-2019\\film.txt");
             while ((line = fileReaderMovie.getBufferedReader().readLine()) != null) {
                 String[] info = line.split(";");
 
@@ -74,6 +76,7 @@ public class FileReader {
 
         try {
             FileReader fileReaderSeries = new FileReader(filePath + "/serier.txt");
+            //FileReader fileReaderSeries = new FileReader("C:\\Users\\Bruger\\Documents\\GitHub\\Vinterprojekt-Progammering-2019\\serier.txt");
             while ((line = fileReaderSeries.getBufferedReader().readLine()) != null) {
                 String[] info = line.split(";");
 
@@ -85,18 +88,18 @@ public class FileReader {
                 String[] seasonData = info[4].split(",");
                 String[][] seasonAndEpisodeData = new String[seasonData.length][2];
 
-                for(int i = 0; i<seasonData.length; i++) {
-                     seasonAndEpisodeData[i] = seasonData[i].split("-");
+                for (int i = 0; i < seasonData.length; i++) {
+                    seasonAndEpisodeData[i] = seasonData[i].split("-");
                 }
 
                 ArrayList<Season> seasons = new ArrayList<>();
-                for(int i = 0; i<seasonData.length; i++) {
+                for (int i = 0; i < seasonData.length; i++) {
                     ArrayList<Episode> episodes = new ArrayList<>();
-                    for(int j = 0; j < Integer.parseInt(seasonAndEpisodeData[i][1]); j++) {
+                    for (int j = 0; j < Integer.parseInt(seasonAndEpisodeData[i][1]); j++) {
                         Episode episode = new Episode(j);
                         episodes.add(episode);
                     }
-                    Season season = new Season(i+1, episodes, Integer.parseInt(seasonAndEpisodeData[i][1]));
+                    Season season = new Season(i + 1, episodes, Integer.parseInt(seasonAndEpisodeData[i][1]));
                     //Season constructor: int seasonNumber, ArrayList<Episode> episodes, int numberOfEpisodes
                     seasons.add(season);
                 }
