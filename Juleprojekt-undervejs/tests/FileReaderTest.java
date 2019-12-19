@@ -36,6 +36,8 @@ class FileReaderTest {
         Movie godFather = (Movie) media.get(0);
 
         assertEquals(movie.getName(), godFather.getName());
+        assertEquals(movie.getYear(), godFather.getYear());
+        assertArrayEquals(movie.getGenres(), godFather.getGenres());
 
     }
 }

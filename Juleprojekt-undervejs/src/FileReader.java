@@ -26,7 +26,7 @@ public class FileReader {
             System.out.println(path);
             bufferedReader = Files.newBufferedReader(path, StandardCharsets.ISO_8859_1);
         } catch (IOException e) {
-            System.out.println("IOException: Error loading file. Error in constructor");
+            System.out.println("IOException: Error loading file. Make sure the .jar file is in the same folder as the media data.");
         }
     }
 
@@ -50,10 +50,13 @@ public class FileReader {
             while ((line = fileReaderMovie.getBufferedReader().readLine()) != null) {
                 String[] info = line.split(";");
 
-                String name = info[0];
+                String name = info[0].trim();
                 String year = (info[1]).trim();
                 String[] genres = info[2].split(",");
-                String rating = info[3];
+                for(int i = 0; i<genres.length; i++) {
+                    genres[i] = genres[i].trim();
+                }
+                String rating = info[3].trim();
 
                 try {
                     BufferedImage image = ImageIO.read(new File(filePath + "/Film - billeder/" + name + ".jpg"));
@@ -80,10 +83,13 @@ public class FileReader {
             while ((line = fileReaderSeries.getBufferedReader().readLine()) != null) {
                 String[] info = line.split(";");
 
-                String name = info[0];
+                String name = info[0].trim();
                 String year = (info[1]).trim();
                 String[] genres = info[2].split(",");
-                String rating = info[3];
+                for(int i = 0; i<genres.length; i++) {
+                    genres[i] = genres[i].trim();
+                }
+                String rating = info[3].trim();
 
                 String[] seasonData = info[4].split(",");
                 String[][] seasonAndEpisodeData = new String[seasonData.length][2];
